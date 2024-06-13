@@ -42,12 +42,12 @@
                                         <img src="../img/foto_200.jpg" class="rounded-circle img-fluid shadow-lg"
                                             alt="my-avatar">
                                         <div class="text-center m-2">
-                                            <button class="btn btn-primary shadow-lg text-truncate" disabled>
+                                            <button class="btn btn-primary shadow-lg text-truncate my-1" disabled>
                                                 <i class="fa-solid fa-code fa-sm"
                                                     style="font-size:16px; vertical-align: middle;"></i>
                                                 <span><strong>web dev</strong></span>
                                             </button>
-                                            <button class="btn btn-secondary shadow-lg text-truncate" disabled>
+                                            <button class="btn btn-secondary shadow-lg text-truncate my-1" disabled>
                                                 <i class="fa-solid fa-gamepad fa-sm"
                                                     style="font-size:16px; vertical-align: middle;"></i>
                                                 <span><strong>game dev</strong></span>
@@ -1074,13 +1074,13 @@
 
     <!-- Modal to enlarge imagens -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen" role="document">
-            <div class="modal-content">
-                <div class="modal-body text-center m-0 p-0">
-                    <img id="modalImage" src="" class="mw-100 mh-100" alt="Imagem Expandida">
+        aria-hidden="true" data-bs-dismiss="modal">
+        <div class="modal-dialog modal-fullscreen" role="document" data-bs-dismiss="modal">
+            <div class="modal-content" data-bs-dismiss="modal">
+                <div class="modal-body text-center m-0 p-0" data-bs-dismiss="modal">
+                    <img id="modalImage" src="" class="mw-100 mh-100" alt="Imagem Expandida" data-bs-dismiss="modal">
                 </div>
-                <div class="modal-footer m-0 p-0">
+                <div class="modal-footer m-0 p-0" data-bs-dismiss="modal">
                     <button type="button" class="btn btn-danger btn-sm w-100" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
