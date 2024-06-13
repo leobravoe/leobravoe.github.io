@@ -1074,6 +1074,21 @@
         </main>
     </div>
 
+    <!-- Modal to enlarge imagens -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center m-0 p-0 my-2">
+                    <img id="modalImage" src="" class="img-fluid" alt="Imagem Expandida">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
 
         $(document).ready(function () {
@@ -1082,7 +1097,6 @@
 
             // Configure Lazy Load
             const carousels = $('.carousel');
-
             carousels.on('slide.bs.carousel', function (e) {
                 const $nextSlide = $(e.relatedTarget);
                 const $img = $nextSlide.find('img.lazyload');
@@ -1090,14 +1104,24 @@
                     $img.attr('src', $img.data('src')).removeAttr('data-src').removeClass('lazyload');
                 }
             });
-
-            // Load the first image immediately
+            // Load the first image immediately (Lazy Load)
             const firstImgs = $('.carousel-item.active img.lazyload');
             firstImgs.each((index, element) => {
                 const firstImg = $(element);
                 if (firstImg.length && firstImg.data('src')) {
                     firstImg.attr('src', firstImg.data('src')).removeAttr('data-src').removeClass('lazyload');
                 }
+            });
+
+            var images = document.querySelectorAll('.carousel-item img');
+            var modal = document.getElementById('imageModal');
+            var modalImage = document.getElementById('modalImage');
+
+            images.forEach(function (image) {
+                image.addEventListener('click', function () {
+                    modalImage.src = this.src;
+                    $(modal).modal('show');
+                });
             });
         });
     </script>
