@@ -157,7 +157,7 @@
                                         <p>Desenvolver um jogo eletrônico 3D educativo, para dispositivos móveis que
                                             utilizem os sistemas operacionais Android e IOS, que auxilie no ensino de
                                             química e boas práticas no laboratório.</p>
-                                        <div id="id-carousel-lab-curie" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="id-carousel-lab-curie" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
@@ -301,7 +301,7 @@
                                             tempo real de músicas escolhidas pelo jogador utilizando links de
                                             servidores web, assim facilitando
                                             o processo de level design..</p>
-                                        <div id="id-carousel-vaporr" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="id-carousel-vaporr" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
@@ -426,7 +426,7 @@
                                         <p>objetivo deste trabalho é desenvolver
                                             um jogo digital para auxiliar o professor no ensino de programação em sala
                                             de aula.</p>
-                                        <div id="id-carousel-carpilator" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="id-carousel-carpilator" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
@@ -539,8 +539,7 @@
                                         <p>O objetivo deste trabalho é desenvolver um jogo de RPG 2D para o aprendizado
                                             de conceitos de banco de dados e outros desafios lógicos, utilizando como
                                             plano de fundo uma narrativa com questões atuais sobre meio ambiente.</p>
-                                        <div id="id-carousel-data-guilda" class="carousel slide"
-                                            data-bs-ride="carousel">
+                                        <div id="id-carousel-data-guilda" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
@@ -841,8 +840,7 @@
                                             algoritmos de
                                             inteligência artificial, limitado-se a utilizar tecnologias de
                                             inteligência artificial já existentes.</p>
-                                        <div id="id-carousel-ia_personagens_2d" class="carousel slide"
-                                            data-bs-ride="carousel">
+                                        <div id="id-carousel-ia_personagens_2d" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
@@ -1080,7 +1078,7 @@
         <div class="modal-dialog modal-fullscreen" role="document">
             <div class="modal-content">
                 <div class="modal-body text-center m-0 p-0 my-2">
-                    <img id="modalImage" src="" class="img-fluid" alt="Imagem Expandida">
+                    <img id="modalImage" src="" class="mw-100 mh-100" alt="Imagem Expandida">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -1094,7 +1092,6 @@
         $(document).ready(function () {
             // Initialize tooltips
             $('[data-bs-toggle="tooltip"]').tooltip();
-
             // Configure Lazy Load
             const carousels = $('.carousel');
             carousels.on('slide.bs.carousel', function (e) {
@@ -1112,16 +1109,11 @@
                     firstImg.attr('src', firstImg.data('src')).removeAttr('data-src').removeClass('lazyload');
                 }
             });
-
-            var images = document.querySelectorAll('.carousel-item img');
-            var modal = document.getElementById('imageModal');
-            var modalImage = document.getElementById('modalImage');
-
-            images.forEach(function (image) {
-                image.addEventListener('click', function () {
-                    modalImage.src = this.src;
-                    $(modal).modal('show');
-                });
+            // Click to show images on Modal
+            var images = $('.carousel-item img');
+            images.on('click', function () {
+                $('#modalImage').attr("src", $(this).attr("src"));
+                $('#imageModal').modal('toggle');
             });
         });
     </script>
