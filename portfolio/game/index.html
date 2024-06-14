@@ -1115,10 +1115,10 @@
                 $('#modalImage').attr("src", $(this).attr("src"));
                 $('#imageModal').modal('toggle');
                 const lastY = window.pageYOffset;
-                window.scrollTo(0, 1);
+                window.scrollTo(0, 0);
                 setTimeout(() => {
-                    window.scrollTo(0, 0); // hide url on mobile
-                }, 500);
+                    window.scrollTo(0, lastY); // hide url on mobile
+                }, 1000);
             });
         });
     </script>
