@@ -1115,7 +1115,7 @@
                 $('#modalImage').attr("src", $(this).attr("src"));
                 $('#imageModal').modal('toggle');
                 const lastY = window.pageYOffset;
-                $('html, body').scrollTop(0);
+                $('html, body').scrollTop(lastY+200);
                 setTimeout(() => {
                     $('html, body').scrollTop(lastY);
                 }, 1000);
