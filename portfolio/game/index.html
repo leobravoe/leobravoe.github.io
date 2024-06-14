@@ -1114,11 +1114,6 @@
             images.on('click', function () {
                 $('#modalImage').attr("src", $(this).attr("src"));
                 $('#imageModal').modal('toggle');
-                const lastY = window.pageYOffset;
-                $('html, body').scrollTop(0);
-                setTimeout(() => {
-                    $('html, body').scrollTop(lastY);
-                }, 500);
             });
         });
     </script>
