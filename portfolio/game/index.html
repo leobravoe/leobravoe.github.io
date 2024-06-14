@@ -1115,9 +1115,9 @@
                 $('#modalImage').attr("src", $(this).attr("src"));
                 $('#imageModal').modal('toggle');
                 const lastY = window.pageYOffset;
-                window.scrollTo(0, 0);
+                $('html, body').scrollTop(0);
                 setTimeout(() => {
-                    window.scrollTo(0, lastY); // hide url on mobile
+                    $('html, body').scrollTop(lastY);
                 }, 1000);
             });
         });
