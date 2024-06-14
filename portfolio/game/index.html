@@ -1114,7 +1114,11 @@
             images.on('click', function () {
                 $('#modalImage').attr("src", $(this).attr("src"));
                 $('#imageModal').modal('toggle');
-                window.scrollTo(0, window.pageYOffset+10); // hide url on mobile
+                const lastY = window.pageYOffset;
+                window.scrollTo(0, 0);
+                setTimeout(() => {
+                    window.scrollTo(0, lastY); // hide url on mobile
+                }, 100);
             });
         });
     </script>
