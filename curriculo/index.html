@@ -20,6 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <style>
@@ -39,18 +41,18 @@
                             <div class="row">
                                 <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center m-2">
-                                        <img src="../img/foto_200.jpg" class="rounded-circle img-fluid shadow-lg"
+                                        <img src="../img/foto_200.png" class="rounded-circle img-fluid shadow-lg"
                                             alt="my-avatar">
                                         <div class="text-center m-2">
-                                            <button class="btn btn-primary shadow-lg text-truncate my-1" disabled>
-                                                <i class="fa-solid fa-code fa-sm"
-                                                    style="font-size:16px; vertical-align: middle;"></i>
-                                                <span><strong>web dev</strong></span>
-                                            </button>
                                             <button class="btn btn-secondary shadow-lg text-truncate my-1" disabled>
                                                 <i class="fa-solid fa-gamepad fa-sm"
                                                     style="font-size:16px; vertical-align: middle;"></i>
                                                 <span><strong>game dev</strong></span>
+                                            </button>
+                                            <button class="btn btn-primary shadow-lg text-truncate my-1" disabled>
+                                                <i class="fa-solid fa-code fa-sm"
+                                                    style="font-size:16px; vertical-align: middle;"></i>
+                                                <span><strong>web dev</strong></span>
                                             </button>
                                         </div>
                                     </div>
@@ -59,7 +61,7 @@
                                     <div class="text-center mx-2">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-solid fa-square-envelope"></i>
+                                                <i class="bi bi-envelope-fill"></i>
                                             </span>
                                             <a href="mailto:leonardo.bravo@ifsc.edu.br"
                                                 class="form-control text-truncate text-decoration-none"
@@ -68,7 +70,7 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-solid fa-square-caret-down"></i>
+                                                <i class="bi bi-geo-alt-fill"></i>
                                             </span>
                                             <a href="https://www.google.com/maps/place/IFSC+C%C3%A2mpus+Lages/@-27.7988259,-50.3441031,14z/data=!4m9!1m2!2m1!1sgoogle+maps+ifsc+lages!3m5!1s0x94e018b1f588926d:0x3e6066bf0fc8fdb1!8m2!3d-27.8053113!4d-50.3369272!16s%2Fg%2F1tc_0nxb?entry=ttu"
                                                 target="_blank" class="form-control text-truncate text-decoration-none"
@@ -79,7 +81,7 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-solid fa-square-check"></i>
+                                                <i class="bi bi-briefcase-fill"></i>
                                             </span>
                                             <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
@@ -90,7 +92,7 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-brands fa-square-github"></i>
+                                                <i class="bi bi-github"></i>
                                             </span>
                                             <a href="https://github.com/leobravoe" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
@@ -99,7 +101,7 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-brands fa-square-youtube"></i>
+                                                <i class="bi bi-youtube"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
                                                 target="_blank" class="form-control text-truncate text-decoration-none"
@@ -108,7 +110,7 @@
                                         </div>
                                         <!-- <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="fa-brands fa-square-instagram"></i>
+                                                <i class="bi bi-instagram"></i>
                                             </span>
                                             <a href="https://www.instagram.com/leobravoe" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
@@ -146,6 +148,11 @@
 
                             </div>
                         </nav>
+                        <div class="mx-1 mb-2">
+                            <a href=".." class="text-dark text-decoration-none"><i class="fa-solid fa-house"></i></a>
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <a href="./" class="text-dark text-decoration-none fw-bold">currículo</a>
+                        </div>
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
                             <div class="card-body">
