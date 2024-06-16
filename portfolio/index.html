@@ -14,6 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- font-awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -22,8 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <style>
@@ -46,16 +47,16 @@
                                         <img src="../img/foto_200.png" class="rounded-circle img-fluid shadow-lg"
                                             alt="my-avatar">
                                         <div class="text-center m-2">
-                                            <button class="btn btn-secondary shadow-lg text-truncate my-1" disabled>
+                                            <a href="./game/" class="btn btn-secondary shadow-lg text-truncate my-1">
                                                 <i class="fa-solid fa-gamepad fa-sm"
                                                     style="font-size:16px; vertical-align: middle;"></i>
                                                 <span><strong>game dev</strong></span>
-                                            </button>
-                                            <button class="btn btn-primary shadow-lg text-truncate my-1" disabled>
+                                            </a>
+                                            <a href="./web/" class="btn btn-primary shadow-lg text-truncate my-1">
                                                 <i class="fa-solid fa-code fa-sm"
                                                     style="font-size:16px; vertical-align: middle;"></i>
                                                 <span><strong>web dev</strong></span>
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +64,8 @@
                                     <div class="text-center mx-2">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-envelope-fill"></i>
+                                                <i class="bi bi-envelope-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="e-mail"></i>
                                             </span>
                                             <a href="mailto:leonardo.bravo@ifsc.edu.br"
                                                 class="form-control text-truncate text-decoration-none"
@@ -72,7 +74,8 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-geo-alt-fill"></i>
+                                                <i class="bi bi-geo-alt-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="localização"></i>
                                             </span>
                                             <a href="https://www.google.com/maps/place/IFSC+C%C3%A2mpus+Lages/@-27.7988259,-50.3441031,14z/data=!4m9!1m2!2m1!1sgoogle+maps+ifsc+lages!3m5!1s0x94e018b1f588926d:0x3e6066bf0fc8fdb1!8m2!3d-27.8053113!4d-50.3369272!16s%2Fg%2F1tc_0nxb?entry=ttu"
                                                 target="_blank" class="form-control text-truncate text-decoration-none"
@@ -83,7 +86,8 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-briefcase-fill"></i>
+                                                <i class="bi bi-briefcase-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="trabalho"></i>
                                             </span>
                                             <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
@@ -94,7 +98,8 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-github"></i>
+                                                <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="github"></i>
                                             </span>
                                             <a href="https://github.com/leobravoe" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
@@ -103,7 +108,8 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-youtube"></i>
+                                                <i class="bi bi-youtube" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="youtube"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
                                                 target="_blank" class="form-control text-truncate text-decoration-none"
@@ -112,7 +118,8 @@
                                         </div>
                                         <!-- <div class="input-group my-2">
                                             <span class="input-group-text" id="basic-addon1">
-                                                <i class="bi bi-instagram"></i>
+                                                <i class="bi bi-instagram" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="instagram"></i>
                                             </span>
                                             <a href="https://www.instagram.com/leobravoe" target="_blank"
                                                 class="form-control text-truncate text-decoration-none"
