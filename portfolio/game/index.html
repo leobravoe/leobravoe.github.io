@@ -1101,10 +1101,10 @@
             // Configure Lazy Load
             const carousels = $('.carousel');
             carousels.on('slide.bs.carousel', function (e) {
-                const $nextSlide = $(e.relatedTarget);
-                const $img = $nextSlide.find('img.lazyload');
-                if ($img.length && $img.data('src')) {
-                    $img.attr('src', $img.data('src')).removeAttr('data-src').removeClass('lazyload');
+                const nextSlide = $(e.relatedTarget);
+                const img = nextSlide.find('img.lazyload');
+                if (img.length && img.data('src')) {
+                    img.attr('src', img.data('src')).removeAttr('data-src').removeClass('lazyload');
                 }
             });
             // Load the first image immediately (Lazy Load)
