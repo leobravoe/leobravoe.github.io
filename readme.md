@@ -35,8 +35,8 @@ Você pode visitar o site completo e interagir com o conteúdo aqui:
 Para mais informações ou para me contatar, confira:
 
 - **GitHub**: [github.com/leobravoe](https://github.com/leobravoe)  
-- **Portfolio**: [leobravoe.github.io/portfolio.html](https://leobravoe.github.io/portfolio.html)  
-- **Currículo**: [leobravoe.github.io/curriculo.html](https://leobravoe.github.io/curriculo.html)
+- **Portfolio**: [leobravoe.github.io/portfolio](https://leobravoe.github.io/portfolio)  
+- **Currículo**: [leobravoe.github.io/curriculo](https://leobravoe.github.io/curriculo)
 
 ---
 
