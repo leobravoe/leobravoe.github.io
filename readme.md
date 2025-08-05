@@ -4,19 +4,21 @@ Olá! Este é o repositório do meu site pessoal, que funciona como um portfóli
 
 ---
 
-## 🚀 Sobre o Site
+## 🚀 Áreas de Interesse
 
-O site foi desenvolvido para ser uma vitrine dos meus interesses em:
+O site foi desenvolvido para apresentar minhas principais áreas de atuação e domínio tecnológico:
 
-- **Desenvolvimento Web**  
-  - Front-end: React, Next.js, Bootstrap  
-  - Back-end: PHP, Laravel, Node.js
+- **Desenvolvimento Front-end**  
+  React, Next.js, jQuery, Handlebars, Laravel Blade, Bootstrap, HTML, CSS e JavaScript.
+
+- **Desenvolvimento Back-end**  
+  PHP, Laravel, Node.js, TypeScript, Nginx, PostgreSQL, MySQL, MongoDB e Docker.
 
 - **Desenvolvimento de Jogos**  
-  - Unity Engine, Godot
+  Unity Engine e Godot.
 
 - **Computação Gráfica e Artes 2D/3D**  
-  - 3ds Max, Blender, Photoshop
+  3ds Max, Blender, Adobe Substance, MotionBuilder, Photoshop e GIMP.
 
 ---
 
