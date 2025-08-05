@@ -33,7 +33,7 @@ Você pode visitar o site completo e interagir com o conteúdo aqui:
 Para mais informações ou para me contatar, confira:
 
 - **GitHub**: [github.com/leobravoe](https://github.com/leobravoe)  
-- **YouTube**: [leobravoe.github.io/youtube](https://leobravoe.github.io/youtube)  
+- **Portfolio**: [leobravoe.github.io/portfolio.html](https://leobravoe.github.io/portfolio.html)  
 - **Currículo**: [leobravoe.github.io/curriculo.html](https://leobravoe.github.io/curriculo.html)
 
 ---
