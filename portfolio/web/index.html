@@ -43,14 +43,23 @@
         text-decoration: underline;
     }
 
-    /* Dark mode: switch ativo (checked) usa a cor secondary do Bootstrap */
-    [data-bs-theme="dark"] .form-check-input:checked {
-        background-color: var(--bs-secondary);
-        border-color: var(--bs-secondary);
+    /* Tira a seleção de foco do botão de dark mode */
+    .form-check-input:focus {
+        box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
     }
 
-    .form-check-input:focus {
-        box-shadow: 0 0 0 .25rem rgba(var(--bs-secondary-rgb), .25);
+    /* Knob do dark mode */
+    [data-bs-theme="dark"] .form-switch .form-check-input {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230dcaf0'/%3e%3c/svg%3e");
+    }
+
+    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
+    @media (min-width: 768px) {
+        .md-absolute {
+            position: absolute !important;
+            right: 0;
+            /* equivalente a .end-0 */
+        }
     }
 
     /* Sempre branco — override direto da imagem */
@@ -204,12 +213,12 @@
                             <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
                             <div class="nav-item text-center px-5 mx-auto my-auto md-absolute">
                                 <div class="d-inline-flex align-items-center gap-2 fs-5">
-                                    <i id="iconSun" class="bi bi-brightness-high-fill"></i>
+                                    <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
                                     <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
                                         <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
-                                            type="checkbox" role="switch" aria-label="Alternar tema">
+                                        type="checkbox" role="switch" aria-label="Alternar tema">
                                     </div>
-                                    <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
+                                    <i id="iconSun" class="bi bi-brightness-high-fill"></i>
                                 </div>
                             </div>
                         </nav>
@@ -1127,19 +1136,37 @@
             const sun = document.getElementById('iconSun');
             const moon = document.getElementById('iconMoon');
 
+            function paint(theme) {
+                const isLight = theme === 'light';
+
+                // switch amarelo quando light
+                sw.classList.toggle('bg-warning', isLight);
+                sw.classList.toggle('border-warning', isLight);
+
+                // switch amarelo quando dark
+                sw.classList.toggle('bg-secondary', !isLight);
+                sw.classList.toggle('border-secondary', !isLight);
+
+                // feedback nos ícones (opcional, mas fica bonito)
+                sun.classList.toggle('text-warning', isLight);
+                moon.classList.toggle('opacity-50', isLight);
+                sun.classList.toggle('opacity-50', !isLight);
+                moon.classList.toggle('text-info', !isLight);
+            }
+
             function setTheme(theme) {
                 root.setAttribute('data-bs-theme', theme);
                 localStorage.setItem('theme', theme);
-                const isDark = theme === 'dark';
-                sw.checked = isDark;
-                sun.classList.toggle('text-warning', !isDark);
-                moon.classList.toggle('text-info', isDark);
-                sun.classList.toggle('opacity-50', isDark);
-                moon.classList.toggle('opacity-50', !isDark);
+                // aqui definimos: checked = LIGHT
+                sw.checked = (theme === 'light');
+                paint(theme);
             }
 
+            // inicializa de acordo com o tema atual
             setTheme(root.getAttribute('data-bs-theme') || 'light');
-            sw.addEventListener('change', () => setTheme(sw.checked ? 'dark' : 'light'));
+
+            // alterna: checked = light, unchecked = dark
+            sw.addEventListener('change', () => setTheme(sw.checked ? 'light' : 'dark'));
         })();
     </script>
 </body>
