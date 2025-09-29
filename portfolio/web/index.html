@@ -24,6 +24,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Dark/Light Config - Variável na LocalStorage -->
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
+        })();
+    </script>
 </head>
 
 <style>
@@ -33,6 +41,24 @@
 
     a:hover {
         text-decoration: underline;
+    }
+
+    /* Dark mode: switch ativo (checked) usa a cor secondary do Bootstrap */
+    [data-bs-theme="dark"] .form-check-input:checked {
+        background-color: var(--bs-secondary);
+        border-color: var(--bs-secondary);
+    }
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 .25rem rgba(var(--bs-secondary-rgb), .25);
+    }
+
+    /* Sempre branco — override direto da imagem */
+    .carousel .carousel-control-prev-icon,
+    .carousel .carousel-control-next-icon {
+        filter: none !important;
+        /* evita inversões do modo dark/.carousel-dark */
+        opacity: 1 !important;
     }
 </style>
 
@@ -64,7 +90,7 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
                                             </a>
@@ -165,15 +191,25 @@
                                         </li>
                                     </ul>
                                 </div>
-
+                                <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
+                                <div class="nav-item text-center px-5 mx-5 my-auto">
+                                    <div class="d-inline-flex align-items-center gap-2 fs-5">
+                                        <i id="iconSun" class="bi bi-brightness-high-fill"></i>
+                                        <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
+                                            <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
+                                                type="checkbox" role="switch" aria-label="Alternar tema">
+                                        </div>
+                                        <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
+                                    </div>
+                                </div>
                             </div>
                         </nav>
                         <div class="mx-1 mb-2">
-                            <a href="../.." class="text-dark text-decoration-none"><i class="fa-solid fa-house"></i></a>
+                            <a href="../.." class="text-body text-decoration-none"><i class="fa-solid fa-house"></i></a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href=".." class="text-dark text-decoration-none fw-bold">portfólio</a>
+                            <a href=".." class="text-body text-decoration-none fw-bold">portfólio</a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href="./" class="text-dark text-decoration-none fw-bold">web</a>
+                            <a href="./" class="text-body text-decoration-none fw-bold">web</a>
                         </div>
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
@@ -196,49 +232,49 @@
                                         <div id="id-carousel-restaurantedelivery" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="10" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="11" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white" aria-label="Slide 11"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="12" aria-label="Slide 12"></button>
+                                                    data-bs-slide-to="12" class="bg-white" aria-label="Slide 12"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="13" aria-label="Slide 13"></button>
+                                                    data-bs-slide-to="13" class="bg-white" aria-label="Slide 13"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="14" aria-label="Slide 14"></button>
+                                                    data-bs-slide-to="14" class="bg-white" aria-label="Slide 14"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="15" aria-label="Slide 15"></button>
+                                                    data-bs-slide-to="15" class="bg-white" aria-label="Slide 15"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="16" aria-label="Slide 16"></button>
+                                                    data-bs-slide-to="16" class="bg-white" aria-label="Slide 16"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="17" aria-label="Slide 17"></button>
+                                                    data-bs-slide-to="17" class="bg-white" aria-label="Slide 17"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de criação de pedidos</p>
                                                     </div>
@@ -247,7 +283,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela inicial do Restaurante Delivery</p>
                                                     </div>
@@ -256,7 +292,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de login</p>
                                                     </div>
@@ -265,7 +301,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de criação de usuários</p>
                                                     </div>
@@ -274,7 +310,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela da área de usuário</p>
                                                     </div>
@@ -283,7 +319,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de cadastro de endereços</p>
                                                     </div>
@@ -292,7 +328,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de criação de pedidos - Carrinho de compras</p>
                                                     </div>
@@ -301,7 +337,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de alteração de dados de usuário</p>
                                                     </div>
@@ -310,7 +346,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela de login de administradores</p>
                                                     </div>
@@ -319,7 +355,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela da área de administradores</p>
                                                     </div>
@@ -328,7 +364,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img10.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela dos administradores para gerenciamento de pedidos</p>
                                                     </div>
@@ -337,7 +373,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img11.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o gerenciamento de produtos</p>
                                                     </div>
@@ -346,7 +382,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img12.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o gerenciamento de tipos de produtos</p>
                                                     </div>
@@ -355,7 +391,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img13.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o cadastro de tipos de produtos</p>
                                                     </div>
@@ -364,7 +400,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img14.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o gerenciamento de tipos de produtos - Mostrando
                                                             mensagem de sucesso de criação</p>
@@ -374,7 +410,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img15.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o gerenciamento de tipos de produtos - Mostrando
                                                             modal para confirmação de exclusão</p>
@@ -384,7 +420,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img16.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Tela para o gerenciamento de tipos de produtos - Mostrando
                                                             mensagem de sucesso de remoção</p>
@@ -394,7 +430,7 @@
                                                     <img data-src="./aula/img-restaurante_delivery-2019/img17.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Restaurante Delivery (2019)</h5>
                                                         <p>Modelo físico de banco de dados utilizado para a criação do
                                                             sistema</p>
@@ -436,35 +472,35 @@
                                         <div id="id-carousel-fornattosystem" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="10" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela principal que gerencia as mesas, podendo também
                                                             gerenciar os pedidos adicionados em cada mesa, assim como os
@@ -475,7 +511,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela que mostra o Modal para adicionar um pedido em uma mesa.
                                                             Um pedido pode conter vários produtos</p>
@@ -485,7 +521,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para gerenciar os pedidos inativos que estão dentro das
                                                             mesas</p>
@@ -495,7 +531,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para acessar os diferentes tipos de recursos que são
                                                             mantidos pelo sistema</p>
@@ -505,7 +541,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para o gerenciamento de mesas</p>
                                                     </div>
@@ -514,7 +550,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para o gerenciamento de tipos de produto</p>
                                                     </div>
@@ -523,7 +559,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para o gerenciamento de produtos</p>
                                                     </div>
@@ -532,7 +568,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para o criação de produtos</p>
                                                     </div>
@@ -541,7 +577,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para o gerenciamento de produtos - Mensagem de sucesso
                                                             ao criar um produto</p>
@@ -551,7 +587,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Tela para exibição de todos relatórios que o sistema pode
                                                             gerar</p>
@@ -561,7 +597,7 @@
                                                     <img data-src="./aula/img-fornatto_system-2-2023/img10.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Fornatto System 2.0 (2023)</h5>
                                                         <p>Modelo físico de banco de dados utilizado para construção do
                                                             sistema</p>
@@ -604,31 +640,31 @@
                                         <div id="id-carousel-portal_bcc" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-portal_bcc"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./aula/img-portal_bcc-2024/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Página inicial do site, com notícias em destaque, calendário
                                                             acadêmico e principais sistemas</p>
@@ -638,7 +674,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Página inicial do site, com notícias em destaque, calendário
                                                             acadêmico e principais sistemas - Mostrando o dropdown de
@@ -649,7 +685,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Página inicial do site, com notícias em destaque, calendário
                                                             acadêmico e principais sistemas - Destaques para os
@@ -660,7 +696,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Página do PPC do curso</p>
                                                     </div>
@@ -669,7 +705,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Tela de gerenciamento de postagens</p>
                                                     </div>
@@ -678,7 +714,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Tela de criação de postagens</p>
                                                     </div>
@@ -687,7 +723,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Tela de edição de postagens</p>
                                                     </div>
@@ -696,7 +732,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Tela de exibição de postagens</p>
                                                     </div>
@@ -705,7 +741,7 @@
                                                     <img data-src="./aula/img-portal_bcc-2024/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Site BCC IFSC (2024)</h5>
                                                         <p>Tela de gerenciamento do calendário acadêmico</p>
                                                     </div>
@@ -728,7 +764,7 @@
                                 <ul>
                                     <li>
                                         <h4 class="my-2">Mudança Fácil (2020)</h4>
-                                        <a href="./tcc/tcc-mudancafacil-2020.pdf" class="btn btn-outline-primary mb-2"
+                                        <a href="./tcc/tcc-mudancafacil-2020.pdf" class="btn btn-primary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -739,37 +775,37 @@
                                         <div id="id-carousel-mudancafacil" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="10" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="11" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white" aria-label="Slide 11"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-mudancafacil-2020/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela inicial de cadastro do usuário</p>
                                                     </div>
@@ -778,7 +814,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela do primeiro e segundo passo da tela de cadastro do
                                                             imóvel</p>
@@ -788,7 +824,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela do terceiro e quarto passo da tela de cadastro do imóvel
                                                         </p>
@@ -798,7 +834,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela do cadastro de detalhes sobre o imóvel</p>
                                                     </div>
@@ -807,7 +843,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela do cadastro da localização do imóvel</p>
                                                     </div>
@@ -816,7 +852,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela de visualização do imóvel cadastrado</p>
                                                     </div>
@@ -825,7 +861,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Captura da tela de visualizar imóvel</p>
                                                     </div>
@@ -834,7 +870,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Tela do quinto passo da tela de cadastro do imóvel</p>
                                                     </div>
@@ -843,7 +879,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Modelagem do caso de uso</p>
                                                     </div>
@@ -852,7 +888,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Modelagem do diagrama de classe</p>
                                                     </div>
@@ -861,7 +897,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img10.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Rotas da aplicação</p>
                                                     </div>
@@ -870,7 +906,7 @@
                                                     <img data-src="./tcc/img-mudancafacil-2020/img11.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Mudança Fácil (2020)</h5>
                                                         <p>Organização das atividades desenvolvidas</p>
                                                     </div>
@@ -890,7 +926,7 @@
                                     </li>
                                     <li>
                                         <h4 class="my-2">BookList (2023)</h4>
-                                        <a href="./tcc/tcc-booklist-2023.pdf" class="btn btn-outline-primary mb-2"
+                                        <a href="./tcc/tcc-booklist-2023.pdf" class="btn btn-primary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -905,27 +941,27 @@
                                         <div id="id-carousel-booklist" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-booklist"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-booklist-2023/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Landing Page</p>
                                                     </div>
@@ -934,7 +970,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Pagina Inicial</p>
                                                     </div>
@@ -943,7 +979,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Detalhes da Obra</p>
                                                     </div>
@@ -952,7 +988,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Perfil de Usuario</p>
                                                     </div>
@@ -961,7 +997,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Página de pesquisa</p>
                                                     </div>
@@ -970,7 +1006,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Cluster do banco de dados da aplicação no MongoDB Atlas</p>
                                                     </div>
@@ -979,7 +1015,7 @@
                                                     <img data-src="./tcc/img-booklist-2023/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>BookList (2023)</h5>
                                                         <p>Diagrama de casos de uso</p>
                                                     </div>
@@ -1004,26 +1040,27 @@
                 </div>
             </div>
             <!-- Rodapé -->
-            <footer class="d-flex flex-wrap bg-light justify-content-between align-items-center rounded-3 mx-1">
-                <p class="my-auto text-body-secondary mx-1">
+            <footer
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 bg-body-tertiary border-top rounded-3 py-2 px-3 mx-1">
+                <!-- Esquerda: nome -->
+                <p class="my-0 text-body-secondary">
                     <strong>Leonardo Bravo Estácio</strong>
                 </p>
-                <ul class="nav ms-auto justify-content-end">
+                <!-- Direita: navegação -->
+                <ul class="nav ms-auto">
                     <li class="nav-item">
-                        <a href="../.." class="nav-link text-body-secondary">Página inicial</a>
+                        <a href="../../" class="nav-link px-2 text-body-secondary">Página inicial</a>
                     </li>
-                    <li class="nav-item dropup-center dropup">
-                        <a class="nav-link dropdown-toggle text-body-secondary" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropup dropup-center">
+                        <a class="nav-link dropdown-toggle px-2 text-body-secondary" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Links
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../curriculo">Currículo</a>
-                            </li>
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../portfolio">Portfólio</a>
-                            </li>
+                        <ul class="dropdown-menu shadow text-center bg-body-tertiary">
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../curriculo">Currículo</a></li>
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../portfolio">Portfólio</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1074,6 +1111,27 @@
                 $('#imageModal').modal('toggle');
             });
         });
+        // Botão light e dark mode
+        (function () {
+            const root = document.documentElement;
+            const sw = document.getElementById('themeSwitch');
+            const sun = document.getElementById('iconSun');
+            const moon = document.getElementById('iconMoon');
+
+            function setTheme(theme) {
+                root.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+                const isDark = theme === 'dark';
+                sw.checked = isDark;
+                sun.classList.toggle('text-warning', !isDark);
+                moon.classList.toggle('text-info', isDark);
+                sun.classList.toggle('opacity-50', isDark);
+                moon.classList.toggle('opacity-50', !isDark);
+            }
+
+            setTheme(root.getAttribute('data-bs-theme') || 'light');
+            sw.addEventListener('change', () => setTheme(sw.checked ? 'dark' : 'light'));
+        })();
     </script>
 </body>
 

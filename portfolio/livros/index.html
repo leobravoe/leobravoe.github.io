@@ -24,6 +24,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Dark/Light Config - Variável na LocalStorage -->
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
+        })();
+    </script>
 </head>
 
 <style>
@@ -33,6 +41,24 @@
 
     a:hover {
         text-decoration: underline;
+    }
+
+    /* Dark mode: switch ativo (checked) usa a cor secondary do Bootstrap */
+    [data-bs-theme="dark"] .form-check-input:checked {
+        background-color: var(--bs-secondary);
+        border-color: var(--bs-secondary);
+    }
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 .25rem rgba(var(--bs-secondary-rgb), .25);
+    }
+
+    /* Sempre branco — override direto da imagem */
+    .carousel .carousel-control-prev-icon,
+    .carousel .carousel-control-next-icon {
+        filter: none !important;
+        /* evita inversões do modo dark/.carousel-dark */
+        opacity: 1 !important;
     }
 </style>
 
@@ -64,7 +90,7 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
                                             </a>
@@ -156,24 +182,35 @@
                                 <div class="collapse show navbar-collapse flex-grow-0" id="id-navbar">
                                     <ul class="navbar-nav">
                                         <li class="nav-item text-center">
-                                            <a class="nav-link" href="../../curriculo">
+                                            <a class="nav-link text-body" href="../../curriculo">
                                                 Currículo
                                             </a>
                                         </li>
                                         <li class="nav-item text-center">
-                                            <a class="nav-link" href="../../portfolio"><strong>Portfólio</strong></a>
+                                            <a class="nav-link text-body"
+                                                href="../../portfolio"><strong>Portfólio</strong></a>
                                         </li>
                                     </ul>
                                 </div>
-
+                                <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
+                                <div class="nav-item text-center px-5 mx-5 my-auto">
+                                    <div class="d-inline-flex align-items-center gap-2 fs-5">
+                                        <i id="iconSun" class="bi bi-brightness-high-fill"></i>
+                                        <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
+                                            <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
+                                                type="checkbox" role="switch" aria-label="Alternar tema">
+                                        </div>
+                                        <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
+                                    </div>
+                                </div>
                             </div>
                         </nav>
                         <div class="mx-1 mb-2">
-                            <a href="../.." class="text-dark text-decoration-none"><i class="fa-solid fa-house"></i></a>
+                            <a href="../.." class="text-body text-decoration-none"><i class="fa-solid fa-house"></i></a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href=".." class="text-dark text-decoration-none fw-bold">portfólio</a>
+                            <a href=".." class="text-body text-decoration-none fw-bold">portfólio</a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href="./" class="text-dark text-decoration-none fw-bold">writing</a>
+                            <a href="./" class="text-body text-decoration-none fw-bold">writing</a>
                         </div>
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
@@ -182,8 +219,8 @@
                                 <ul>
                                     <li>
                                         <h4 class="my-2">Livro: Introdução à Programação em JavaScript (2025)</h4>
-                                        <a href="./pdfs/Livro-Introdução_à_Programação_em_JavaScript-2.1.pdf" target="_blank"
-                                            class="btn btn-outline-dark mb-2">Link para o livro</a>
+                                        <a href="./pdfs/Livro-Introdução_à_Programação_em_JavaScript-2.1.pdf"
+                                            target="_blank" class="btn btn-info mb-2">Link para o livro</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
                                             Este livro foi elaborado para guiar o leitor pelos princípios fundamentais
@@ -197,19 +234,20 @@
                                         <div id="id-carousel-restaurantedelivery" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
+                                                <button type="button" class="bg-white"
+                                                    data-bs-target="#id-carousel-restaurantedelivery"
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
-                                                <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./img/livro-javascript/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Capa do livro</p>
                                                     </div>
@@ -218,7 +256,7 @@
                                                     <img data-src="./img/livro-javascript/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Fundo do livro</p>
                                                     </div>
@@ -227,7 +265,7 @@
                                                     <img data-src="./img/livro-javascript/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Exemplo de página interna do livro</p>
                                                     </div>
@@ -252,26 +290,27 @@
                 </div>
             </div>
             <!-- Rodapé -->
-            <footer class="d-flex flex-wrap bg-light justify-content-between align-items-center rounded-3 mx-1">
-                <p class="my-auto text-body-secondary mx-1">
+            <footer
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 bg-body-tertiary border-top rounded-3 py-2 px-3 mx-1">
+                <!-- Esquerda: nome -->
+                <p class="my-0 text-body-secondary">
                     <strong>Leonardo Bravo Estácio</strong>
                 </p>
-                <ul class="nav ms-auto justify-content-end">
+                <!-- Direita: navegação -->
+                <ul class="nav ms-auto">
                     <li class="nav-item">
-                        <a href="../.." class="nav-link text-body-secondary">Página inicial</a>
+                        <a href="../../" class="nav-link px-2 text-body-secondary">Página inicial</a>
                     </li>
-                    <li class="nav-item dropup-center dropup">
-                        <a class="nav-link dropdown-toggle text-body-secondary" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropup dropup-center">
+                        <a class="nav-link dropdown-toggle px-2 text-body-secondary" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Links
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../curriculo">Currículo</a>
-                            </li>
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../portfolio">Portfólio</a>
-                            </li>
+                        <ul class="dropdown-menu shadow text-center bg-body-tertiary">
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../curriculo">Currículo</a></li>
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../portfolio">Portfólio</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -322,6 +361,27 @@
                 $('#imageModal').modal('toggle');
             });
         });
+        // Botão light e dark mode
+        (function () {
+            const root = document.documentElement;
+            const sw = document.getElementById('themeSwitch');
+            const sun = document.getElementById('iconSun');
+            const moon = document.getElementById('iconMoon');
+
+            function setTheme(theme) {
+                root.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+                const isDark = theme === 'dark';
+                sw.checked = isDark;
+                sun.classList.toggle('text-warning', !isDark);
+                moon.classList.toggle('text-info', isDark);
+                sun.classList.toggle('opacity-50', isDark);
+                moon.classList.toggle('opacity-50', !isDark);
+            }
+
+            setTheme(root.getAttribute('data-bs-theme') || 'light');
+            sw.addEventListener('change', () => setTheme(sw.checked ? 'dark' : 'light'));
+        })();
     </script>
 </body>
 

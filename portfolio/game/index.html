@@ -24,6 +24,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Dark/Light Config - Variável na LocalStorage -->
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
+        })();
+    </script>
 </head>
 
 <style>
@@ -33,6 +41,24 @@
 
     a:hover {
         text-decoration: underline;
+    }
+
+    /* Dark mode: switch ativo (checked) usa a cor secondary do Bootstrap */
+    [data-bs-theme="dark"] .form-check-input:checked {
+        background-color: var(--bs-secondary);
+        border-color: var(--bs-secondary);
+    }
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 .25rem rgba(var(--bs-secondary-rgb), .25);
+    }
+
+    /* Sempre branco — override direto da imagem */
+    .carousel .carousel-control-prev-icon,
+    .carousel .carousel-control-next-icon {
+        filter: none !important;
+        /* evita inversões do modo dark/.carousel-dark */
+        opacity: 1 !important;
     }
 </style>
 
@@ -64,7 +90,7 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
                                             </a>
@@ -156,24 +182,35 @@
                                 <div class="collapse show navbar-collapse flex-grow-0" id="id-navbar">
                                     <ul class="navbar-nav">
                                         <li class="nav-item text-center">
-                                            <a class="nav-link" href="../../curriculo/">
+                                            <a class="nav-link text-body" href="../../curriculo/">
                                                 Currículo
                                             </a>
                                         </li>
                                         <li class="nav-item text-center">
-                                            <a class="nav-link" href="../../portfolio/"><strong>Portfólio</strong></a>
+                                            <a class="nav-link text-body"
+                                                href="../../portfolio/"><strong>Portfólio</strong></a>
                                         </li>
                                     </ul>
                                 </div>
-
+                                <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
+                                <div class="nav-item text-center px-5 mx-5 my-auto">
+                                    <div class="d-inline-flex align-items-center gap-2 fs-5">
+                                        <i id="iconSun" class="bi bi-brightness-high-fill"></i>
+                                        <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
+                                            <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
+                                                type="checkbox" role="switch" aria-label="Alternar tema">
+                                        </div>
+                                        <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
+                                    </div>
+                                </div>
                             </div>
                         </nav>
                         <div class="mx-1 mb-2">
-                            <a href="../.." class="text-dark text-decoration-none"><i class="fa-solid fa-house"></i></a>
+                            <a href="../.." class="text-body text-decoration-none"><i class="fa-solid fa-house"></i></a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href=".." class="text-dark text-decoration-none fw-bold">portfólio</a>
+                            <a href=".." class="text-body text-decoration-none fw-bold">portfólio</a>
                             <i class="fa-solid fa-arrow-right"></i>
-                            <a href="./" class="text-dark text-decoration-none fw-bold">game</a>
+                            <a href="./" class="text-body text-decoration-none fw-bold">game</a>
                         </div>
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
@@ -182,7 +219,7 @@
                                 <ul>
                                     <li>
                                         <h4 class="my-2">Laboratório Curie (2018)</h4>
-                                        <a href="./tcc/tcc-lab_curie-2018.pdf" class="btn btn-outline-secondary mb-2"
+                                        <a href="./tcc/tcc-lab_curie-2018.pdf" class="btn btn-secondary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -193,33 +230,33 @@
                                         <div id="id-carousel-lab-curie" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-lab-curie"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-lab_curie/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Tela inicial do jogo.</p>
                                                     </div>
@@ -228,7 +265,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Cenário contendo o laboratório do jogo e itens 3D modelados.
                                                         </p>
@@ -238,7 +275,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Caixa de diálogo da personagem.</p>
                                                     </div>
@@ -247,7 +284,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Interface do item agitador, local onde pode ser realiza
                                                             algumas transformações.</p>
@@ -257,7 +294,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Exemplo de mapa UV colorido utilizando o Adobe Substance</p>
                                                     </div>
@@ -266,7 +303,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Evolução do modelo 3D da personagem principal.</p>
                                                     </div>
@@ -275,7 +312,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Interface com objeto selecionado.</p>
                                                     </div>
@@ -284,7 +321,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Modelo final Marie Curie.</p>
                                                     </div>
@@ -293,7 +330,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Modelo final Marie Curie com equipamentos de segurança.</p>
                                                     </div>
@@ -302,7 +339,7 @@
                                                     <img data-src="./tcc/img-lab_curie/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Laboratório Curie (2018)</h5>
                                                         <p>Exemplo do modelo animado pelo MotionBuilder.</p>
                                                     </div>
@@ -322,7 +359,7 @@
                                     </li>
                                     <li>
                                         <h4 class="my-2">VaporR (2021)</h4>
-                                        <a href="./tcc/tcc-vaporr-2021.pdf" class="btn btn-outline-secondary mb-2"
+                                        <a href="./tcc/tcc-vaporr-2021.pdf" class="btn btn-secondary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -336,24 +373,24 @@
                                         <div id="id-carousel-vaporr" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-vaporr"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
 
                                             </div>
                                             <div class="carousel-inner rounded">
@@ -361,7 +398,7 @@
                                                     <img data-src="./tcc/img-vaporr/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Tela inicial do jogo</p>
                                                     </div>
@@ -370,7 +407,7 @@
                                                     <img data-src="./tcc/img-vaporr/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Visão geral da pista e dos itens</p>
                                                     </div>
@@ -379,7 +416,7 @@
                                                     <img data-src="./tcc/img-vaporr/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Wireframe dos itens de sucesso e obstáculo</p>
                                                     </div>
@@ -388,7 +425,7 @@
                                                     <img data-src="./tcc/img-vaporr/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Wireframe do modelo do carro</p>
                                                     </div>
@@ -397,7 +434,7 @@
                                                     <img data-src="./tcc/img-vaporr/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Textura Albedo do carro</p>
                                                     </div>
@@ -406,7 +443,7 @@
                                                     <img data-src="./tcc/img-vaporr/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Vista interna do Unity nos pontos em que o carro pode se
                                                             movimentar</p>
@@ -416,7 +453,7 @@
                                                     <img data-src="./tcc/img-vaporr/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Vista interna do Unity mostrando a câmera e um item de
                                                             movimento bem sucedido</p>
@@ -426,7 +463,7 @@
                                                     <img data-src="./tcc/img-vaporr/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Vista interna do Unity com destaque no por do sol</p>
                                                     </div>
@@ -435,7 +472,7 @@
                                                     <img data-src="./tcc/img-vaporr/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>VaporR (2021)</h5>
                                                         <p>Vista interna do Unity com destaque nos itens de sucesso e
                                                             obstáculo</p>
@@ -456,7 +493,7 @@
                                     </li>
                                     <li>
                                         <h4 class="my-2">Carpilator (2022)</h4>
-                                        <a href="./tcc/tcc-carpilator-2022.pdf" class="btn btn-outline-secondary mb-2"
+                                        <a href="./tcc/tcc-carpilator-2022.pdf" class="btn btn-secondary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -467,29 +504,29 @@
                                         <div id="id-carousel-carpilator" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-carpilator"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-carpilator/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Tela inicial do jogo e de seleção de estágios</p>
                                                     </div>
@@ -498,7 +535,7 @@
                                                     <img data-src="./tcc/img-carpilator/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Tela do primeiro estágio, demonstrando a estrutura de
                                                             condição SE</p>
@@ -508,7 +545,7 @@
                                                     <img data-src="./tcc/img-carpilator/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Tela do segundo estágio, demonstrando a instrução de leitura
                                                             de variável</p>
@@ -518,7 +555,7 @@
                                                     <img data-src="./tcc/img-carpilator/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Tela do segundo estágio, demonstrando a instrução de exibição
                                                         </p>
@@ -528,7 +565,7 @@
                                                     <img data-src="./tcc/img-carpilator/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Tela do terceiro estágio, demonstrando a estrutura SENÃO</p>
                                                     </div>
@@ -537,7 +574,7 @@
                                                     <img data-src="./tcc/img-carpilator/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Visão interna do Unity, demonstrando o trigger da instrução
                                                             de leitura de variável</p>
@@ -547,7 +584,7 @@
                                                     <img data-src="./tcc/img-carpilator/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Visão interna do Unity, demonstrando o cenário e
                                                             posicionamento da câmera ortográfica</p>
@@ -557,7 +594,7 @@
                                                     <img data-src="./tcc/img-carpilator/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Carpilator (2022)</h5>
                                                         <p>Visão interna do Unity, demonstrando a NavMesh utilizada pelo
                                                             carro</p>
@@ -578,7 +615,7 @@
                                     </li>
                                     <li>
                                         <h4 class="my-2">Data Gilda (2022)</h4>
-                                        <a href="./tcc/tcc-data_guilda-2022.pdf" class="btn btn-outline-secondary mb-2"
+                                        <a href="./tcc/tcc-data_guilda-2022.pdf" class="btn btn-secondary mb-2"
                                             target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
@@ -590,61 +627,75 @@
                                         <div id="id-carousel-data-guilda" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="10" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white"
+                                                    aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="11" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white"
+                                                    aria-label="Slide 11"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="12" aria-label="Slide 12"></button>
+                                                    data-bs-slide-to="12" class="bg-white"
+                                                    aria-label="Slide 12"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="13" aria-label="Slide 13"></button>
+                                                    data-bs-slide-to="13" class="bg-white"
+                                                    aria-label="Slide 13"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="14" aria-label="Slide 14"></button>
+                                                    data-bs-slide-to="14" class="bg-white"
+                                                    aria-label="Slide 14"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="15" aria-label="Slide 15"></button>
+                                                    data-bs-slide-to="15" class="bg-white"
+                                                    aria-label="Slide 15"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="16" aria-label="Slide 16"></button>
+                                                    data-bs-slide-to="16" class="bg-white"
+                                                    aria-label="Slide 16"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="17" aria-label="Slide 17"></button>
+                                                    data-bs-slide-to="17" class="bg-white"
+                                                    aria-label="Slide 17"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="18" aria-label="Slide 18"></button>
+                                                    data-bs-slide-to="18" class="bg-white"
+                                                    aria-label="Slide 18"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="19" aria-label="Slide 19"></button>
+                                                    data-bs-slide-to="19" class="bg-white"
+                                                    aria-label="Slide 19"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="20" aria-label="Slide 20"></button>
+                                                    data-bs-slide-to="20" class="bg-white"
+                                                    aria-label="Slide 20"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="21" aria-label="Slide 21"></button>
+                                                    data-bs-slide-to="21" class="bg-white"
+                                                    aria-label="Slide 21"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="22" aria-label="Slide 22"></button>
+                                                    data-bs-slide-to="22" class="bg-white"
+                                                    aria-label="Slide 22"></button>
                                                 <button type="button" data-bs-target="#id-carousel-data-guilda"
-                                                    data-bs-slide-to="23" aria-label="Slide 23"></button>
+                                                    data-bs-slide-to="23" class="bg-white"
+                                                    aria-label="Slide 23"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-data_guilda/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Tela inicial do jogo</p>
                                                     </div>
@@ -653,7 +704,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Srt. Lovelace</p>
                                                     </div>
@@ -662,7 +713,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC George</p>
                                                     </div>
@@ -671,7 +722,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Edgar</p>
                                                     </div>
@@ -680,7 +731,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Hopper</p>
                                                     </div>
@@ -689,7 +740,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Sr. Rossum</p>
                                                     </div>
@@ -698,7 +749,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Frank Codd</p>
                                                     </div>
@@ -707,7 +758,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Grace</p>
                                                     </div>
@@ -716,7 +767,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Dione</p>
                                                     </div>
@@ -725,7 +776,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Tela de pause</p>
                                                     </div>
@@ -734,7 +785,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img10.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Ambiente do jogo</p>
                                                     </div>
@@ -743,7 +794,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img11.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Interface de entrada de comandos SQL</p>
                                                     </div>
@@ -752,7 +803,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img12.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>NPC Edgar</p>
                                                     </div>
@@ -761,7 +812,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img13.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de bolso - SQL para muito preguiçosos</p>
                                                     </div>
@@ -770,7 +821,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img14.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de bolso: SQL para muito preguiçosos - Páginas</p>
                                                     </div>
@@ -779,7 +830,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img15.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de SQL para preguiçosos</p>
                                                     </div>
@@ -788,7 +839,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img16.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de SQL para preguiçosos - Páginas</p>
                                                     </div>
@@ -797,7 +848,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img17.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de SQL para preguiçosos - Páginas</p>
                                                     </div>
@@ -806,7 +857,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img18.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Guia de SQL para preguiçosos - Páginas</p>
                                                     </div>
@@ -815,7 +866,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img19.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Boogli - Gerenciador de conhecimento interno</p>
                                                     </div>
@@ -824,7 +875,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img20.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Ambientação no cenário</p>
                                                     </div>
@@ -833,7 +884,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img21.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Mapa completo</p>
                                                     </div>
@@ -842,7 +893,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img22.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Animação da personagem Gilda</p>
                                                     </div>
@@ -851,7 +902,7 @@
                                                     <img data-src="./tcc/img-data_guilda/img23.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Data Gilda (2022)</h5>
                                                         <p>Diagrama de interação entre objetos</p>
                                                     </div>
@@ -872,8 +923,8 @@
                                     <li>
                                         <h4 class="my-2">Geração de Arte de Personagens 2D em Jogos Eletrônicos
                                             Através de Inteligência Artificial (2023)</h4>
-                                        <a href="./tcc/tcc-ia_personagens_2d-2023.pdf" class="btn btn-outline-secondary mb-2"
-                                            target="_blank">Link para o TCC</a>
+                                        <a href="./tcc/tcc-ia_personagens_2d-2023.pdf"
+                                            class="btn btn-secondary mb-2" target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
                                             Integrar avanços na geração de imagens com
@@ -888,43 +939,48 @@
                                         <div id="id-carousel-ia_personagens_2d" class="carousel slide">
                                             <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                                    data-bs-slide-to="0" class="active bg-white" aria-current="true"
                                                     aria-label="Slide 0"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="1" aria-label="Slide 1"></button>
+                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="2" aria-label="Slide 2"></button>
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="3" aria-label="Slide 3"></button>
+                                                    data-bs-slide-to="3" class="bg-white" aria-label="Slide 3"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="4" aria-label="Slide 4"></button>
+                                                    data-bs-slide-to="4" class="bg-white" aria-label="Slide 4"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="5" aria-label="Slide 5"></button>
+                                                    data-bs-slide-to="5" class="bg-white" aria-label="Slide 5"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                                    data-bs-slide-to="6" class="bg-white" aria-label="Slide 6"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="7" aria-label="Slide 7"></button>
+                                                    data-bs-slide-to="7" class="bg-white" aria-label="Slide 7"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="8" aria-label="Slide 8"></button>
+                                                    data-bs-slide-to="8" class="bg-white" aria-label="Slide 8"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="9" aria-label="Slide 9"></button>
+                                                    data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="10" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white"
+                                                    aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="11" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white"
+                                                    aria-label="Slide 11"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="12" aria-label="Slide 12"></button>
+                                                    data-bs-slide-to="12" class="bg-white"
+                                                    aria-label="Slide 12"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="13" aria-label="Slide 13"></button>
+                                                    data-bs-slide-to="13" class="bg-white"
+                                                    aria-label="Slide 13"></button>
                                                 <button type="button" data-bs-target="#id-carousel-ia_personagens_2d"
-                                                    data-bs-slide-to="14" aria-label="Slide 14"></button>
+                                                    data-bs-slide-to="14" class="bg-white"
+                                                    aria-label="Slide 14"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
                                                     <img data-src="./tcc/img-ia_personagens_2d/img0.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Personagens finais gerados</p>
                                                     </div>
@@ -933,7 +989,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img1.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Configurando o Stable Diffusion</p>
                                                     </div>
@@ -942,7 +998,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img2.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultados de txt2img com diferentes modelos</p>
                                                     </div>
@@ -951,7 +1007,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img3.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultados de txt2img + negative prompt com diferentes
                                                             modelos</p>
@@ -961,7 +1017,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img4.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultados de img2img</p>
                                                     </div>
@@ -970,7 +1026,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img5.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Esqueletos gerados pelo DWOpenpose através de imagem de
                                                             entrada</p>
@@ -980,7 +1036,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img6.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Configuração da “Unit 0” do ControlNet</p>
                                                     </div>
@@ -989,7 +1045,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img7.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultados de txt2img com DWOpenpose</p>
                                                     </div>
@@ -998,7 +1054,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img8.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Mapas gerados pelo Depth através de imagem de entrada</p>
                                                     </div>
@@ -1007,7 +1063,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img9.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultados de txt2img com DWOpenpose + Depth</p>
                                                     </div>
@@ -1016,7 +1072,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img10.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Resultado adquiro ao dividir membros de um personagem</p>
                                                     </div>
@@ -1025,7 +1081,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img11.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Personagem de lado com membros divididos</p>
                                                     </div>
@@ -1034,7 +1090,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img12.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Pesos do Esqueleto de animação sobre os membros</p>
                                                     </div>
@@ -1043,7 +1099,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img13.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Exemplo de modificação na posição do personagem</p>
                                                     </div>
@@ -1052,7 +1108,7 @@
                                                     <img data-src="./tcc/img-ia_personagens_2d/img14.png"
                                                         class="d-block w-100 lazyload" alt="...">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50">
+                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-light">
                                                         <h5>Personagens 2D por IA (2023)</h5>
                                                         <p>Exemplo de animação do personagem</p>
                                                     </div>
@@ -1077,26 +1133,27 @@
                 </div>
             </div>
             <!-- Rodapé -->
-            <footer class="d-flex flex-wrap bg-light justify-content-between align-items-center rounded-3 mx-1">
-                <p class="my-auto text-body-secondary mx-1">
+            <footer
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 bg-body-tertiary border-top rounded-3 py-2 px-3 mx-1">
+                <!-- Esquerda: nome -->
+                <p class="my-0 text-body-secondary">
                     <strong>Leonardo Bravo Estácio</strong>
                 </p>
-                <ul class="nav ms-auto justify-content-end">
+                <!-- Direita: navegação -->
+                <ul class="nav ms-auto">
                     <li class="nav-item">
-                        <a href="../../" class="nav-link text-body-secondary">Página inicial</a>
+                        <a href="../../" class="nav-link px-2 text-body-secondary">Página inicial</a>
                     </li>
-                    <li class="nav-item dropup-center dropup">
-                        <a class="nav-link dropdown-toggle text-body-secondary" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropup dropup-center">
+                        <a class="nav-link dropdown-toggle px-2 text-body-secondary" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Links
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../curriculo/">Currículo</a>
-                            </li>
-                            <li class="nav-item text-center">
-                                <a class="nav-link text-body-secondary" href="../../portfolio/">Portfólio</a>
-                            </li>
+                        <ul class="dropdown-menu shadow text-center bg-body-tertiary">
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../curriculo">Currículo</a></li>
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="../../portfolio">Portfólio</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1147,6 +1204,27 @@
                 $('#imageModal').modal('toggle');
             });
         });
+        // Botão light e dark mode
+        (function () {
+            const root = document.documentElement;
+            const sw = document.getElementById('themeSwitch');
+            const sun = document.getElementById('iconSun');
+            const moon = document.getElementById('iconMoon');
+
+            function setTheme(theme) {
+                root.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+                const isDark = theme === 'dark';
+                sw.checked = isDark;
+                sun.classList.toggle('text-warning', !isDark);
+                moon.classList.toggle('text-info', isDark);
+                sun.classList.toggle('opacity-50', isDark);
+                moon.classList.toggle('opacity-50', !isDark);
+            }
+
+            setTheme(root.getAttribute('data-bs-theme') || 'light');
+            sw.addEventListener('change', () => setTheme(sw.checked ? 'dark' : 'light'));
+        })();
     </script>
 </body>
 
