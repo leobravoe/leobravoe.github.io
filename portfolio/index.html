@@ -60,6 +60,15 @@
         /* evita inversões do modo dark/.carousel-dark */
         opacity: 1 !important;
     }
+
+    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
+    @media (min-width: 768px) {
+        .md-absolute {
+            position: absolute !important;
+            right: 0;
+            /* equivalente a .end-0 */
+        }
+    }
 </style>
 
 <body>
@@ -194,7 +203,7 @@
                                 </div>
                             </div>
                             <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
-                            <div class="nav-item text-center px-5 me-auto my-auto position-absolute end-0">
+                            <div class="nav-item text-center px-5 mx-auto my-auto md-absolute">
                                 <div class="d-inline-flex align-items-center gap-2 fs-5">
                                     <i id="iconSun" class="bi bi-brightness-high-fill"></i>
                                     <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
