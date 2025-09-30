@@ -48,9 +48,16 @@
         box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
     }
 
-    /* Knob do dark mode */
+    /* tamanho do ícone do knob (ajuste se necessário) */
     [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230dcaf0'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+    }
+
+    /* Trilho (fundo) do switch em azul-info no dark mode */
+    [data-bs-theme="dark"] .form-switch .form-check-input {
+        /* forçar a cor do trilho */
+        background-color: var(--bs-info) !important;
+        border-color: var(--bs-info) !important;
     }
 
     /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */

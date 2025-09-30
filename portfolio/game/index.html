@@ -48,9 +48,16 @@
         box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
     }
 
-    /* Knob do dark mode */
+    /* tamanho do ícone do knob (ajuste se necessário) */
     [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230dcaf0'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+    }
+
+    /* Trilho (fundo) do switch em azul-info no dark mode */
+    [data-bs-theme="dark"] .form-switch .form-check-input {
+        /* forçar a cor do trilho */
+        background-color: var(--bs-info) !important;
+        border-color: var(--bs-info) !important;
     }
 
     /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
@@ -217,7 +224,7 @@
                                     <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
                                     <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
                                         <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
-                                        type="checkbox" role="switch" aria-label="Alternar tema">
+                                            type="checkbox" role="switch" aria-label="Alternar tema">
                                     </div>
                                     <i id="iconSun" class="bi bi-brightness-high-fill"></i>
                                 </div>
@@ -941,8 +948,8 @@
                                     <li>
                                         <h4 class="my-2">Geração de Arte de Personagens 2D em Jogos Eletrônicos
                                             Através de Inteligência Artificial (2023)</h4>
-                                        <a href="./tcc/tcc-ia_personagens_2d-2023.pdf"
-                                            class="btn btn-secondary mb-2" target="_blank">Link para o TCC</a>
+                                        <a href="./tcc/tcc-ia_personagens_2d-2023.pdf" class="btn btn-secondary mb-2"
+                                            target="_blank">Link para o TCC</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
                                             Integrar avanços na geração de imagens com

@@ -48,9 +48,16 @@
         box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
     }
 
-    /* Knob do dark mode */
+    /* tamanho do ícone do knob (ajuste se necessário) */
     [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230dcaf0'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+    }
+
+    /* Trilho (fundo) do switch em azul-info no dark mode */
+    [data-bs-theme="dark"] .form-switch .form-check-input {
+        /* forçar a cor do trilho */
+        background-color: var(--bs-info) !important;
+        border-color: var(--bs-info) !important;
     }
 
     /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
@@ -205,7 +212,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item text-center">
-                                            <a class="nav-link text-body" href="../../portfolio"><strong>Portfólio</strong></a>
+                                            <a class="nav-link text-body"
+                                                href="../../portfolio"><strong>Portfólio</strong></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -216,7 +224,7 @@
                                     <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
                                     <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
                                         <input id="themeSwitch" class="form-check-input m-0 p-0 align-middle"
-                                        type="checkbox" role="switch" aria-label="Alternar tema">
+                                            type="checkbox" role="switch" aria-label="Alternar tema">
                                     </div>
                                     <i id="iconSun" class="bi bi-brightness-high-fill"></i>
                                 </div>
@@ -271,21 +279,29 @@
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
                                                     data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white"
+                                                    aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="11" class="bg-white" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white"
+                                                    aria-label="Slide 11"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="12" class="bg-white" aria-label="Slide 12"></button>
+                                                    data-bs-slide-to="12" class="bg-white"
+                                                    aria-label="Slide 12"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="13" class="bg-white" aria-label="Slide 13"></button>
+                                                    data-bs-slide-to="13" class="bg-white"
+                                                    aria-label="Slide 13"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="14" class="bg-white" aria-label="Slide 14"></button>
+                                                    data-bs-slide-to="14" class="bg-white"
+                                                    aria-label="Slide 14"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="15" class="bg-white" aria-label="Slide 15"></button>
+                                                    data-bs-slide-to="15" class="bg-white"
+                                                    aria-label="Slide 15"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="16" class="bg-white" aria-label="Slide 16"></button>
+                                                    data-bs-slide-to="16" class="bg-white"
+                                                    aria-label="Slide 16"></button>
                                                 <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="17" class="bg-white" aria-label="Slide 17"></button>
+                                                    data-bs-slide-to="17" class="bg-white"
+                                                    aria-label="Slide 17"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
@@ -511,7 +527,8 @@
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
                                                     data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-fornattosystem"
-                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white"
+                                                    aria-label="Slide 10"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
@@ -814,9 +831,11 @@
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
                                                     data-bs-slide-to="9" class="bg-white" aria-label="Slide 9"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="10" class="bg-white" aria-label="Slide 10"></button>
+                                                    data-bs-slide-to="10" class="bg-white"
+                                                    aria-label="Slide 10"></button>
                                                 <button type="button" data-bs-target="#id-carousel-mudancafacil"
-                                                    data-bs-slide-to="11" class="bg-white" aria-label="Slide 11"></button>
+                                                    data-bs-slide-to="11" class="bg-white"
+                                                    aria-label="Slide 11"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
