@@ -4,7 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leobravoe - Site Pessoal</title>
+    <title>Leonardo Bravo Estácio — Professor e Pesquisador em Computação</title>
+    <meta name="description" content="Site pessoal de Leonardo Bravo Estácio, mestre em Ciências pela USP e professor do IFSC. Pesquisa em desenvolvimento web, computação gráfica e jogos digitais.">
+    <meta name="author" content="Leonardo Bravo Estácio">
+    <link rel="canonical" href="https://leobravoe.github.io/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Leonardo Bravo Estácio">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Leonardo Bravo Estácio — Professor e Pesquisador em Computação">
+    <meta property="og:description" content="Site pessoal de Leonardo Bravo Estácio, mestre em Ciências pela USP e professor do IFSC. Pesquisa em desenvolvimento web, computação gráfica e jogos digitais.">
+    <meta property="og:url" content="https://leobravoe.github.io/">
+    <meta property="og:image" content="https://leobravoe.github.io/img/foto_200.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Leonardo Bravo Estácio — Professor e Pesquisador em Computação">
+    <meta name="twitter:description" content="Site pessoal de Leonardo Bravo Estácio, mestre em Ciências pela USP e professor do IFSC. Pesquisa em desenvolvimento web, computação gráfica e jogos digitais.">
+    <meta name="twitter:image" content="https://leobravoe.github.io/img/foto_200.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- bootstrap CSS -->
@@ -32,51 +47,81 @@
             document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
         })();
     </script>
-</head>
+    <style>
+        body {
+            overflow-y: scroll;
+        }
 
-<style>
-    body {
-        overflow-y: scroll;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    a:hover {
-        text-decoration: underline;
-    }
+        /* Tira a seleção de foco do botão de dark mode */
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
+        }
 
-    /* Tira a seleção de foco do botão de dark mode */
-    .form-check-input:focus {
-        box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
-    }
+        /* tamanho do ícone do knob (ajuste se necessário) */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+        }
 
-    /* tamanho do ícone do knob (ajuste se necessário) */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
-    }
+        /* Trilho (fundo) do switch em azul-info no dark mode */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            /* forçar a cor do trilho */
+            background-color: var(--bs-info) !important;
+            border-color: var(--bs-info) !important;
+        }
 
-    /* Trilho (fundo) do switch em azul-info no dark mode */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        /* forçar a cor do trilho */
-        background-color: var(--bs-info) !important;
-        border-color: var(--bs-info) !important;
-    }
+        /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
+        @media (min-width: 768px) {
+            .md-absolute {
+                position: absolute !important;
+                right: 0;
+                /* equivalente a .end-0 */
+            }
+        }
 
-    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
-    @media (min-width: 768px) {
-        .md-absolute {
-            position: absolute !important;
-            right: 0;
-            /* equivalente a .end-0 */
+        /* Sempre branco — override direto da imagem */
+        .carousel .carousel-control-prev-icon,
+        .carousel .carousel-control-next-icon {
+            filter: none !important;
+            /* evita inversões do modo dark/.carousel-dark */
+            opacity: 1 !important;
+        }
+
+    /* Legendas do carrossel: sobrepostas no desktop, abaixo da imagem no mobile */
+    @media (max-width: 767.98px) {
+        .carousel-caption {
+            position: static;
+            width: 100%;
+            padding: .5rem .75rem;
+            text-align: left;
+        }
+
+        .carousel-caption h5 {
+            font-size: .95rem;
+            margin-bottom: .15rem;
+        }
+
+        .carousel-caption p {
+            font-size: .8rem;
+            margin-bottom: 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            align-items: flex-start;
+            padding-top: 15%;
         }
     }
 
-    /* Sempre branco — override direto da imagem */
-    .carousel .carousel-control-prev-icon,
-    .carousel .carousel-control-next-icon {
-        filter: none !important;
-        /* evita inversões do modo dark/.carousel-dark */
-        opacity: 1 !important;
+    /* Atributos width/height evitam layout shift; height:auto mantem a proporcao */
+    .carousel-item img {
+        height: auto;
     }
-</style>
+    </style>
+</head>
 
 <body>
     <div class="container">
@@ -90,7 +135,7 @@
                                 <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
                                         <a href="./">
-                                            <img src="./img/foto_200.png" class="rounded-circle img-fluid shadow-lg"
+                                            <img src="./img/foto_200.webp" class="rounded-circle img-fluid shadow-lg"
                                                 alt="my-avatar">
                                         </a>
                                         <div class="text-center mt-2">
@@ -106,9 +151,14 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
+                                            </a>
+                                            <a href="/portfolio/outros/" style="font-size:12px;"
+                                                class="btn btn-success shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-flask fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>pesquisa</strong></span>
                                             </a>
                                         </div>
                                     </div>
@@ -116,7 +166,7 @@
                                 <div class="col-7 col-xs-7 col-sm-7 col-md-7 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-envelope-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="e-mail"></i>
                                             </span>
@@ -126,23 +176,23 @@
                                                 data-bs-title="leonardo.bravo@ifsc.edu.br">leonardo.bravo@ifsc.edu.br</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-geo-alt-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="localização"></i>
                                             </span>
                                             <a href="https://www.google.com/maps/place/IFSC+C%C3%A2mpus+Lages/@-27.7988259,-50.3441031,14z/data=!4m9!1m2!2m1!1sgoogle+maps+ifsc+lages!3m5!1s0x94e018b1f588926d:0x3e6066bf0fc8fdb1!8m2!3d-27.8053113!4d-50.3369272!16s%2Fg%2F1tc_0nxb?entry=ttu"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.google.com/maps/place/ifsc-campus-lages">Lages/SC
                                                 -
                                                 Brasil</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-briefcase-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="trabalho"></i>
                                             </span>
-                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank"
+                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.ifsc.edu.br/web/campus-lages">IFSC -
@@ -150,31 +200,31 @@
                                                 Lages</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
                                                     data-bs-title="github"></i>
                                             </span>
-                                            <a href="https://github.com/leobravoe" target="_blank"
+                                            <a href="https://github.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://github.com/leobravoe">github</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-youtube" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="youtube"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.youtube.com/channel/leobravoe">youtube</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-instagram" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="instagram"></i>
                                             </span>
-                                            <a href="https://www.instagram.com/leobravoe" target="_blank"
+                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.instagram.com/leobravoe">instagram</a>
@@ -228,10 +278,10 @@
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
                             <div class="card-body">
-                                <h2>Apresentação</h2>
+                                <h1 class="h2">Apresentação</h1>
                                 <p style="text-align: justify;">
-                                    Mestre em Ciências pelo Programa de Ciência de Computação e Matemática Computacional
-                                    da Universidade de São Paulo (USP). Professor de Magistério do Ensino Básico,
+                                    Mestre em Ciências pelo Programa de Pós-Graduação em Ciências de Computação e
+                                    Matemática Computacional da Universidade de São Paulo (USP). Professor de Magistério do Ensino Básico,
                                     Técnico e Tecnológico (EBTT) dos cursos de Técnico em Informática para Internet e
                                     Ciência da Computação no Instituto Federal de Educação, Ciência e Tecnologia de
                                     Santa Catarina (IFSC).
@@ -247,7 +297,7 @@
                                             <div class="row g-0 align-items-center">
                                                 <!-- Imagem: empilha no mobile, vira coluna fixa no md+ -->
                                                 <div class="col-12 col-md-4 d-flex justify-content-center py-3 py-md-4">
-                                                    <img src="./img/dev-front-end.png" alt="Desenvolvimento front-end"
+                                                    <img src="./img/dev-front-end.webp" alt="Desenvolvimento front-end"
                                                         class="img-fluid card-media p-3">
                                                 </div>
                                                 <!-- Texto -->
@@ -255,8 +305,8 @@
                                                     <div class="card-body py-3 text-center text-md-start">
                                                         <h5 class="mb-1" style="text-align: justify;">Desenvolvimento front-end</h5>
                                                         <p class="mb-0 text-wrap text-break" style="text-align: justify;">
-                                                            React, NextJS, jQuery, Handlebars, Laravel Blade, Bootstrap,
-                                                            HTML, CSS & Javascript
+                                                            React, Next.js, jQuery, Handlebars, Laravel Blade, Bootstrap,
+                                                            HTML, CSS &amp; JavaScript
                                                         </p>
                                                     </div>
                                                 </div>
@@ -268,14 +318,14 @@
                                         <a href="./portfolio/web/" class="card h-100 text-decoration-none text-body">
                                             <div class="row g-0 align-items-center">
                                                 <div class="col-12 col-md-4 d-flex justify-content-center py-3 py-md-4">
-                                                    <img src="./img/dev-back-end.png" alt="Desenvolvimento back-end"
+                                                    <img src="./img/dev-back-end.webp" alt="Desenvolvimento back-end"
                                                         class="img-fluid card-media p-3">
                                                 </div>
                                                 <div class="col-12 col-md-8 min-w-0">
                                                     <div class="card-body py-3 text-center text-md-start">
                                                         <h5 class="mb-1" style="text-align: justify;">Desenvolvimento back-end</h5>
                                                         <p class="mb-0 text-wrap text-break" style="text-align: justify;">
-                                                            PHP, Laravel, NodeJS, TypeScript, Nginx, PostgreSQL, MySQL,
+                                                            PHP, Laravel, Node.js, TypeScript, Nginx, PostgreSQL, MySQL,
                                                             MongoDB &amp; Docker
                                                         </p>
                                                     </div>
@@ -288,12 +338,12 @@
                                         <a href="./portfolio/game/" class="card h-100 text-decoration-none text-body">
                                             <div class="row g-0 align-items-center">
                                                 <div class="col-12 col-md-4 d-flex justify-content-center py-3 py-md-4">
-                                                    <img src="./img/dev-game-design.png" alt="Desenvolvimento de jogos"
+                                                    <img src="./img/dev-game-design.webp" alt="Desenvolvimento de jogos"
                                                         class="img-fluid card-media p-3">
                                                 </div>
                                                 <div class="col-12 col-md-8 min-w-0">
                                                     <div class="card-body py-3 text-center text-md-start">
-                                                        <h5 class="mb-1" style="text-align: justify;">Desenvolvimento jogos</h5>
+                                                        <h5 class="mb-1" style="text-align: justify;">Desenvolvimento de jogos</h5>
                                                         <p class="mb-0" style="text-align: justify;">Unity Engine &amp; Godot</p>
                                                     </div>
                                                 </div>
@@ -305,7 +355,7 @@
                                         <a href="./portfolio/game/" class="card h-100 text-decoration-none text-body">
                                             <div class="row g-0 align-items-center">
                                                 <div class="col-12 col-md-4 d-flex justify-content-center py-3 py-md-4">
-                                                    <img src="./img/dev-3d-modeling.png"
+                                                    <img src="./img/dev-3d-modeling.webp"
                                                         alt="Computação Gráfica e Artes 2D/3D"
                                                         class="img-fluid card-media p-3">
                                                 </div>

@@ -4,7 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leobravoe - Site Pessoal</title>
+    <title>Portfólio — Leonardo Bravo Estácio</title>
+    <meta name="description" content="Portfólio de Leonardo Bravo Estácio: jogos digitais, sistemas web, livros didáticos e pesquisa acadêmica.">
+    <meta name="author" content="Leonardo Bravo Estácio">
+    <link rel="canonical" href="https://leobravoe.github.io/portfolio/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Leonardo Bravo Estácio">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Portfólio — Leonardo Bravo Estácio">
+    <meta property="og:description" content="Portfólio de Leonardo Bravo Estácio: jogos digitais, sistemas web, livros didáticos e pesquisa acadêmica.">
+    <meta property="og:url" content="https://leobravoe.github.io/portfolio/">
+    <meta property="og:image" content="https://leobravoe.github.io/img/foto_200.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Portfólio — Leonardo Bravo Estácio">
+    <meta name="twitter:description" content="Portfólio de Leonardo Bravo Estácio: jogos digitais, sistemas web, livros didáticos e pesquisa acadêmica.">
+    <meta name="twitter:image" content="https://leobravoe.github.io/img/foto_200.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- bootstrap CSS -->
@@ -32,60 +47,80 @@
             document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
         })();
     </script>
+    <style>
+        body {
+            overflow-y: scroll;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tira a seleção de foco do botão de dark mode */
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
+        }
+
+        /* tamanho do ícone do knob (ajuste se necessário) */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+        }
+
+        /* Trilho (fundo) do switch em azul-info no dark mode */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            /* forçar a cor do trilho */
+            background-color: var(--bs-info) !important;
+            border-color: var(--bs-info) !important;
+        }
+
+        /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
+        @media (min-width: 768px) {
+            .md-absolute {
+                position: absolute !important;
+                right: 0;
+                /* equivalente a .end-0 */
+            }
+        }
+
+        /* Sempre branco — override direto da imagem */
+        .carousel .carousel-control-prev-icon,
+        .carousel .carousel-control-next-icon {
+            filter: none !important;
+            /* evita inversões do modo dark/.carousel-dark */
+            opacity: 1 !important;
+        }
+    /* Legendas do carrossel: sobrepostas no desktop, abaixo da imagem no mobile */
+    @media (max-width: 767.98px) {
+        .carousel-caption {
+            position: static;
+            width: 100%;
+            padding: .5rem .75rem;
+            text-align: left;
+        }
+
+        .carousel-caption h5 {
+            font-size: .95rem;
+            margin-bottom: .15rem;
+        }
+
+        .carousel-caption p {
+            font-size: .8rem;
+            margin-bottom: 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            align-items: flex-start;
+            padding-top: 15%;
+        }
+    }
+
+    /* Atributos width/height evitam layout shift; height:auto mantem a proporcao */
+    .carousel-item img {
+        height: auto;
+    }
+    </style>
 </head>
-
-<style>
-    body {
-        overflow-y: scroll;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    /* Tira a seleção de foco do botão de dark mode */
-    .form-check-input:focus {
-        box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
-    }
-
-    /* tamanho do ícone do knob (ajuste se necessário) */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
-    }
-
-    /* Trilho (fundo) do switch em azul-info no dark mode */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        /* forçar a cor do trilho */
-        background-color: var(--bs-info) !important;
-        border-color: var(--bs-info) !important;
-    }
-
-    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
-    @media (min-width: 768px) {
-        .md-absolute {
-            position: absolute !important;
-            right: 0;
-            /* equivalente a .end-0 */
-        }
-    }
-
-    /* Sempre branco — override direto da imagem */
-    .carousel .carousel-control-prev-icon,
-    .carousel .carousel-control-next-icon {
-        filter: none !important;
-        /* evita inversões do modo dark/.carousel-dark */
-        opacity: 1 !important;
-    }
-
-    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
-    @media (min-width: 768px) {
-        .md-absolute {
-            position: absolute !important;
-            right: 0;
-            /* equivalente a .end-0 */
-        }
-    }
-</style>
 
 <body>
     <div class="container">
@@ -99,7 +134,7 @@
                                 <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
                                         <a href="../">
-                                            <img src="../img/foto_200.png" class="rounded-circle img-fluid shadow-lg"
+                                            <img src="../img/foto_200.webp" class="rounded-circle img-fluid shadow-lg"
                                                 alt="my-avatar">
                                         </a>
                                         <div class="text-center mt-2">
@@ -115,9 +150,14 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
+                                            </a>
+                                            <a href="/portfolio/outros/" style="font-size:12px;"
+                                                class="btn btn-success shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-flask fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>pesquisa</strong></span>
                                             </a>
                                         </div>
                                     </div>
@@ -125,7 +165,7 @@
                                 <div class="col-7 col-xs-7 col-sm-7 col-md-7 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-envelope-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="e-mail"></i>
                                             </span>
@@ -135,23 +175,23 @@
                                                 data-bs-title="leonardo.bravo@ifsc.edu.br">leonardo.bravo@ifsc.edu.br</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-geo-alt-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="localização"></i>
                                             </span>
                                             <a href="https://www.google.com/maps/place/IFSC+C%C3%A2mpus+Lages/@-27.7988259,-50.3441031,14z/data=!4m9!1m2!2m1!1sgoogle+maps+ifsc+lages!3m5!1s0x94e018b1f588926d:0x3e6066bf0fc8fdb1!8m2!3d-27.8053113!4d-50.3369272!16s%2Fg%2F1tc_0nxb?entry=ttu"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.google.com/maps/place/ifsc-campus-lages">Lages/SC
                                                 -
                                                 Brasil</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-briefcase-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="trabalho"></i>
                                             </span>
-                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank"
+                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.ifsc.edu.br/web/campus-lages">IFSC -
@@ -159,31 +199,31 @@
                                                 Lages</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
                                                     data-bs-title="github"></i>
                                             </span>
-                                            <a href="https://github.com/leobravoe" target="_blank"
+                                            <a href="https://github.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://github.com/leobravoe">github</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-youtube" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="youtube"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.youtube.com/channel/leobravoe">youtube</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-instagram" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="instagram"></i>
                                             </span>
-                                            <a href="https://www.instagram.com/leobravoe" target="_blank"
+                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.instagram.com/leobravoe">instagram</a>
@@ -237,13 +277,14 @@
                         </div>
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
+                            <h1 class="h2 mx-3 mt-3 mb-0">Portfólio</h1>
                             <div class="row m-0 mx-1 mb-2 p-0">
                                 <div class="col-md-6 mt-2 m-0 p-0">
                                     <div class="card mx-1 my-0 p-0">
                                         <a href="./game" class="row m-0 p-0 my-auto text-decoration-none text-body">
                                             <div class="col-3 col-md-4 m-0 p-0 my-auto">
                                                 <div class="d-flex justify-content-center p-4">
-                                                    <img src="../img/game-dev.png" alt="dev-front-end"
+                                                    <img src="../img/game-dev.webp" alt="Desenvolvimento de jogos"
                                                         class="w-100 shadow-lg rounded">
                                                 </div>
                                             </div>
@@ -267,7 +308,7 @@
                                         <a href="./web" class="row m-0 p-0 my-auto text-decoration-none text-body">
                                             <div class="col-3 col-md-4 m-0 p-0 my-auto">
                                                 <div class="d-flex justify-content-center p-4">
-                                                    <img src="../img/web-dev.png" alt="dev-front-end"
+                                                    <img src="../img/web-dev.webp" alt="Desenvolvimento web"
                                                         class="w-100 shadow-lg rounded">
                                                 </div>
                                             </div>
@@ -291,7 +332,7 @@
                                         <a href="./livros" class="row m-0 p-0 my-auto text-decoration-none text-body">
                                             <div class="col-3 col-md-4 m-0 p-0 my-auto">
                                                 <div class="d-flex justify-content-center p-4">
-                                                    <img src="../img/book.png" alt="dev-front-end"
+                                                    <img src="../img/book.webp" alt="Livros e material didático"
                                                         class="w-100 shadow-lg rounded">
                                                 </div>
                                             </div>
@@ -304,6 +345,30 @@
                                                     </h5>
                                                     <p class="card-text">
                                                         Escrita de livros
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2 m-0 p-0">
+                                    <div class="card mx-1 my-0 p-0">
+                                        <a href="./outros" class="row m-0 p-0 my-auto text-decoration-none text-body">
+                                            <div class="col-3 col-md-4 m-0 p-0 my-auto">
+                                                <div class="d-flex justify-content-center p-4">
+                                                    <img src="../img/research.webp" alt="Pesquisa acadêmica"
+                                                        class="w-100 shadow-lg rounded">
+                                                </div>
+                                            </div>
+                                            <div class="col-9 col-md-8 m-0 p-0 my-auto">
+                                                <div class="card-body m-0 p-0">
+                                                    <h5 class="card-title">
+                                                        <i class="fa-solid fa-flask fa-sm"
+                                                            style="font-size:16px; vertical-align: middle;"></i>
+                                                        pesquisa
+                                                    </h5>
+                                                    <p class="card-text">
+                                                        Dissertação de mestrado e produção acadêmica
                                                     </p>
                                                 </div>
                                             </div>

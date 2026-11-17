@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leobravoe.github.io/sitemap.xml

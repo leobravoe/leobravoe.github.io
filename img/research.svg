@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <clipPath id="bore">
+      <circle cx="128" cy="108" r="49"/>
+    </clipPath>
+    <clipPath id="frame">
+      <rect width="256" height="256"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <!-- fundo -->
+    <rect width="256" height="256" fill="#0e8a74"/>
+    <circle cx="36" cy="36" r="54" fill="#15a189" opacity=".55"/>
+    <circle cx="232" cy="150" r="46" fill="#15a189" opacity=".45"/>
+    <circle cx="60" cy="226" r="40" fill="#15a189" opacity=".4"/>
+
+    <!-- marcas decorativas -->
+    <g stroke="#7fe3d4" stroke-width="3.5" stroke-linecap="round" opacity=".75">
+      <path d="M24 104h14M31 97v14"/>
+      <path d="M226 54h12M232 48v12"/>
+      <path d="M204 212h12"/>
+    </g>
+    <g fill="#7fe3d4" opacity=".6">
+      <circle cx="16" cy="150" r="4"/>
+      <circle cx="246" cy="96" r="4"/>
+      <circle cx="118" cy="20" r="4"/>
+    </g>
+
+    <!-- feixes de projecao -->
+    <g stroke="#ffd37a" stroke-width="4" stroke-linecap="round" opacity=".8">
+      <path d="M46 70 L210 146"/>
+      <path d="M46 146 L210 70"/>
+      <path d="M128 24 L128 192"/>
+    </g>
+
+    <!-- anel do tomografo -->
+    <circle cx="128" cy="108" r="67" fill="none" stroke="#06302a" stroke-width="27"/>
+    <circle cx="128" cy="108" r="67" fill="none" stroke="#f4f1e4" stroke-width="20"/>
+
+    <!-- detectores no anel -->
+    <g fill="#06302a">
+      <circle cx="128" cy="41" r="5.5"/>
+      <circle cx="175" cy="61" r="5.5"/>
+      <circle cx="195" cy="108" r="5.5"/>
+      <circle cx="175" cy="155" r="5.5"/>
+      <circle cx="128" cy="175" r="5.5"/>
+      <circle cx="81" cy="155" r="5.5"/>
+      <circle cx="61" cy="108" r="5.5"/>
+      <circle cx="81" cy="61" r="5.5"/>
+    </g>
+
+    <!-- interior: fatia tomografica em reconstrucao -->
+    <g clip-path="url(#bore)">
+      <circle cx="128" cy="108" r="49" fill="#0a3f52"/>
+      <!-- objeto reconstruido, assimetrico -->
+      <ellipse cx="128" cy="108" rx="38" ry="44" fill="#9fd8e8"/>
+      <ellipse cx="128" cy="108" rx="38" ry="44" fill="none" stroke="#f4f1e4" stroke-width="6"/>
+      <path d="M112 86 c16 -7 30 2 28 16 c-2 13 -16 15 -21 25 c-4 8 -14 9 -19 2 c-7 -10 -4 -36 12 -43 z"
+            fill="#0e8a74"/>
+      <circle cx="146" cy="130" r="9" fill="#ef5b5b"/>
+      <!-- metade esquerda ainda em resolucao grosseira -->
+      <g fill="#0a3f52" opacity=".45">
+        <rect x="79" y="59" width="98" height="4"/>
+        <rect x="79" y="73" width="98" height="4"/>
+        <rect x="79" y="87" width="98" height="4"/>
+        <rect x="79" y="101" width="98" height="4"/>
+        <rect x="79" y="115" width="98" height="4"/>
+        <rect x="79" y="129" width="98" height="4"/>
+        <rect x="79" y="143" width="98" height="4"/>
+      </g>
+      <!-- linha de varredura -->
+      <path d="M79 119 h98" stroke="#ffd37a" stroke-width="5" opacity=".95"/>
+    </g>
+    <circle cx="128" cy="108" r="49" fill="none" stroke="#06302a" stroke-width="5"/>
+
+    <!-- chip / GPU : processamento paralelo -->
+    <g>
+      <g stroke="#06302a" stroke-width="5" stroke-linecap="round">
+        <path d="M30 196v-9M44 196v-9M58 196v-9"/>
+        <path d="M30 238v9M44 238v9M58 238v9"/>
+        <path d="M22 204h-9M22 217h-9M22 230h-9"/>
+        <path d="M66 204h9M66 217h9M66 230h9"/>
+      </g>
+      <rect x="18" y="192" width="52" height="50" rx="9" fill="#f4f1e4" stroke="#06302a" stroke-width="5"/>
+      <g fill="#0e8a74">
+        <rect x="27" y="201" width="13" height="13" rx="2.5"/>
+        <rect x="48" y="201" width="13" height="13" rx="2.5"/>
+        <rect x="27" y="220" width="13" height="13" rx="2.5"/>
+        <rect x="48" y="220" width="13" height="13" rx="2.5"/>
+      </g>
+    </g>
+
+    <!-- grafico de convergencia -->
+    <g>
+      <rect x="152" y="192" width="86" height="50" rx="9" fill="#f4f1e4" stroke="#06302a" stroke-width="5"/>
+      <path d="M163 203v28h64" fill="none" stroke="#06302a" stroke-width="4" stroke-linecap="round"/>
+      <path d="M165 205 C 181 205, 186 226, 227 229" fill="none" stroke="#ef5b5b"
+            stroke-width="5" stroke-linecap="round"/>
+      <circle cx="227" cy="229" r="4.5" fill="#ef5b5b"/>
+    </g>
+
+    <!-- parametro lambda -->
+    <g>
+      <circle cx="216" cy="40" r="22" fill="#ffd37a" stroke="#06302a" stroke-width="5"/>
+      <path d="M207 29 c6 0 8 3 10 9 l5 14 M222 36 l-13 16" fill="none" stroke="#06302a"
+            stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

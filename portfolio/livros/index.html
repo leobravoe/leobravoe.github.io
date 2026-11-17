@@ -4,7 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leobravoe - Site Pessoal</title>
+    <title>Writing — Portfólio de Leonardo Bravo Estácio</title>
+    <meta name="description" content="Livro &quot;Introdução à Programação em JavaScript&quot;, escrito por Leonardo Bravo Estácio para o ensino de lógica de programação.">
+    <meta name="author" content="Leonardo Bravo Estácio">
+    <link rel="canonical" href="https://leobravoe.github.io/portfolio/livros/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Leonardo Bravo Estácio">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Writing — Portfólio de Leonardo Bravo Estácio">
+    <meta property="og:description" content="Livro &quot;Introdução à Programação em JavaScript&quot;, escrito por Leonardo Bravo Estácio para o ensino de lógica de programação.">
+    <meta property="og:url" content="https://leobravoe.github.io/portfolio/livros/">
+    <meta property="og:image" content="https://leobravoe.github.io/img/foto_200.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Writing — Portfólio de Leonardo Bravo Estácio">
+    <meta name="twitter:description" content="Livro &quot;Introdução à Programação em JavaScript&quot;, escrito por Leonardo Bravo Estácio para o ensino de lógica de programação.">
+    <meta name="twitter:image" content="https://leobravoe.github.io/img/foto_200.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- bootstrap CSS -->
@@ -32,60 +47,80 @@
             document.documentElement.setAttribute('data-bs-theme', saved || (systemDark ? 'dark' : 'light'));
         })();
     </script>
+    <style>
+        body {
+            overflow-y: scroll;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tira a seleção de foco do botão de dark mode */
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
+        }
+
+        /* tamanho do ícone do knob (ajuste se necessário) */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
+        }
+
+        /* Trilho (fundo) do switch em azul-info no dark mode */
+        [data-bs-theme="dark"] .form-switch .form-check-input {
+            /* forçar a cor do trilho */
+            background-color: var(--bs-info) !important;
+            border-color: var(--bs-info) !important;
+        }
+
+        /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
+        @media (min-width: 768px) {
+            .md-absolute {
+                position: absolute !important;
+                right: 0;
+                /* equivalente a .end-0 */
+            }
+        }
+
+        /* Sempre branco — override direto da imagem */
+        .carousel .carousel-control-prev-icon,
+        .carousel .carousel-control-next-icon {
+            filter: none !important;
+            /* evita inversões do modo dark/.carousel-dark */
+            opacity: 1 !important;
+        }
+    /* Legendas do carrossel: sobrepostas no desktop, abaixo da imagem no mobile */
+    @media (max-width: 767.98px) {
+        .carousel-caption {
+            position: static;
+            width: 100%;
+            padding: .5rem .75rem;
+            text-align: left;
+        }
+
+        .carousel-caption h5 {
+            font-size: .95rem;
+            margin-bottom: .15rem;
+        }
+
+        .carousel-caption p {
+            font-size: .8rem;
+            margin-bottom: 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            align-items: flex-start;
+            padding-top: 15%;
+        }
+    }
+
+    /* Atributos width/height evitam layout shift; height:auto mantem a proporcao */
+    .carousel-item img {
+        height: auto;
+    }
+    </style>
 </head>
-
-<style>
-    body {
-        overflow-y: scroll;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    /* Tira a seleção de foco do botão de dark mode */
-    .form-check-input:focus {
-        box-shadow: 0 0 0 0 rgba(var(--bs-light-rgb), 0);
-    }
-
-    /* tamanho do ícone do knob (ajuste se necessário) */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%236c757d'/%3e%3c/svg%3e");
-    }
-
-    /* Trilho (fundo) do switch em azul-info no dark mode */
-    [data-bs-theme="dark"] .form-switch .form-check-input {
-        /* forçar a cor do trilho */
-        background-color: var(--bs-info) !important;
-        border-color: var(--bs-info) !important;
-    }
-
-    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
-    @media (min-width: 768px) {
-        .md-absolute {
-            position: absolute !important;
-            right: 0;
-            /* equivalente a .end-0 */
-        }
-    }
-
-    /* Sempre branco — override direto da imagem */
-    .carousel .carousel-control-prev-icon,
-    .carousel .carousel-control-next-icon {
-        filter: none !important;
-        /* evita inversões do modo dark/.carousel-dark */
-        opacity: 1 !important;
-    }
-
-    /* Para o botão de dark/light mode - A partir de md (≥768px): vira absolute no canto direito */
-    @media (min-width: 768px) {
-        .md-absolute {
-            position: absolute !important;
-            right: 0;
-            /* equivalente a .end-0 */
-        }
-    }
-</style>
 
 <body>
     <div class="container">
@@ -98,8 +133,8 @@
                             <div class="row">
                                 <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
-                                        <a href=" ../..">
-                                            <img src="../../img/foto_200.png" class="rounded-circle img-fluid shadow-lg"
+                                        <a href="../..">
+                                            <img src="../../img/foto_200.webp" class="rounded-circle img-fluid shadow-lg"
                                                 alt="my-avatar">
                                         </a>
                                         <div class="text-center mt-2">
@@ -115,9 +150,14 @@
                                                 <span><strong>web dev</strong></span>
                                             </a>
                                             <a href="/portfolio/livros/" style="font-size:12px;"
-                                                class="btn btn-info text-light shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                class="btn btn-info text-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
                                                 <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
                                                 <span><strong>writing</strong></span>
+                                            </a>
+                                            <a href="/portfolio/outros/" style="font-size:12px;"
+                                                class="btn btn-success shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-flask fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>pesquisa</strong></span>
                                             </a>
                                         </div>
                                     </div>
@@ -125,7 +165,7 @@
                                 <div class="col-7 col-xs-7 col-sm-7 col-md-7 col-lg-12 col-xl-12 col-xxl-12 my-auto">
                                     <div class="text-center mt-2 mx-2">
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-envelope-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="e-mail"></i>
                                             </span>
@@ -135,23 +175,23 @@
                                                 data-bs-title="leonardo.bravo@ifsc.edu.br">leonardo.bravo@ifsc.edu.br</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-geo-alt-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="localização"></i>
                                             </span>
                                             <a href="https://www.google.com/maps/place/IFSC+C%C3%A2mpus+Lages/@-27.7988259,-50.3441031,14z/data=!4m9!1m2!2m1!1sgoogle+maps+ifsc+lages!3m5!1s0x94e018b1f588926d:0x3e6066bf0fc8fdb1!8m2!3d-27.8053113!4d-50.3369272!16s%2Fg%2F1tc_0nxb?entry=ttu"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.google.com/maps/place/ifsc-campus-lages">Lages/SC
                                                 -
                                                 Brasil</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-briefcase-fill" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="trabalho"></i>
                                             </span>
-                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank"
+                                            <a href="https://www.ifsc.edu.br/web/campus-lages" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.ifsc.edu.br/web/campus-lages">IFSC -
@@ -159,31 +199,31 @@
                                                 Lages</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
                                                     data-bs-title="github"></i>
                                             </span>
-                                            <a href="https://github.com/leobravoe" target="_blank"
+                                            <a href="https://github.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://github.com/leobravoe">github</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-youtube" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="youtube"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
-                                                target="_blank" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.youtube.com/channel/leobravoe">youtube</a>
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text" id="basic-addon1">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-instagram" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="instagram"></i>
                                             </span>
-                                            <a href="https://www.instagram.com/leobravoe" target="_blank"
+                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.instagram.com/leobravoe">instagram</a>
@@ -240,12 +280,12 @@
                         <!-- Conteúdo da página -->
                         <div class="card h-100">
                             <div class="card-body">
-                                <h2>Writing</h2>
+                                <h1 class="h2">Writing</h1>
                                 <ul>
                                     <li>
                                         <h4 class="my-2">Livro: Introdução à Programação em JavaScript (2025)</h4>
                                         <a href="./pdfs/Livro-Introdução_à_Programação_em_JavaScript-2.1.pdf"
-                                            target="_blank" class="btn btn-info mb-2">Link para o livro</a>
+                                            target="_blank" rel="noopener" class="btn btn-info mb-2">Link para o livro</a>
                                         <h5>Objetivo do projeto:</h5>
                                         <p>
                                             Este livro foi elaborado para guiar o leitor pelos princípios fundamentais
@@ -256,53 +296,53 @@
                                             oferece uma introdução sólida e acessível ao desenvolvimento de software
                                             moderno, preparando o leitor para criar soluções reais e bem estruturadas.
                                         </p>
-                                        <div id="id-carousel-restaurantedelivery" class="carousel slide">
+                                        <div id="id-carousel-livro-javascript" class="carousel slide">
                                             <div class="carousel-indicators">
-                                                <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
+                                                <button type="button" data-bs-target="#id-carousel-livro-javascript"
                                                     data-bs-slide-to="0" class="active bg-white" aria-current="true"
-                                                    aria-label="Slide 0"></button>
+                                                    aria-label="Slide 1"></button>
                                                 <button type="button" class="bg-white"
-                                                    data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="1" class="bg-white" aria-label="Slide 1"></button>
-                                                <button type="button" data-bs-target="#id-carousel-restaurantedelivery"
-                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 2"></button>
+                                                    data-bs-target="#id-carousel-livro-javascript"
+                                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#id-carousel-livro-javascript"
+                                                    data-bs-slide-to="2" class="bg-white" aria-label="Slide 3"></button>
                                             </div>
                                             <div class="carousel-inner rounded">
                                                 <div class="carousel-item active">
-                                                    <img data-src="./img/livro-javascript/img0.png"
-                                                        class="d-block w-100 lazyload" alt="...">
+                                                    <img data-src="./img/livro-javascript/img0.webp" width="1280" height="720"
+                                                        class="d-block w-100 lazyload" alt="Introdução à Programação em JavaScript (2025) — Capa do livro">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
+                                                        class="carousel-caption bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Capa do livro</p>
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img data-src="./img/livro-javascript/img1.png"
-                                                        class="d-block w-100 lazyload" alt="...">
+                                                    <img data-src="./img/livro-javascript/img1.webp" width="1280" height="720"
+                                                        class="d-block w-100 lazyload" alt="Introdução à Programação em JavaScript (2025) — Fundo do livro">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
+                                                        class="carousel-caption bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Fundo do livro</p>
                                                     </div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img data-src="./img/livro-javascript/img2.png"
-                                                        class="d-block w-100 lazyload" alt="...">
+                                                    <img data-src="./img/livro-javascript/img2.webp" width="1280" height="720"
+                                                        class="d-block w-100 lazyload" alt="Introdução à Programação em JavaScript (2025) — Exemplo de página interna do livro">
                                                     <div
-                                                        class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 text-white">
+                                                        class="carousel-caption bg-dark bg-opacity-50 text-white">
                                                         <h5>Introdução à Programação em JavaScript (2025)</h5>
                                                         <p>Exemplo de página interna do livro</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <button class="carousel-control-prev bg-dark bg-opacity-10" type="button"
-                                                data-bs-target="#id-carousel-restaurantedelivery" data-bs-slide="prev">
+                                                data-bs-target="#id-carousel-livro-javascript" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next bg-dark bg-opacity-10" type="button"
-                                                data-bs-target="#id-carousel-restaurantedelivery" data-bs-slide="next">
+                                                data-bs-target="#id-carousel-livro-javascript" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
