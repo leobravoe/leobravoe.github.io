@@ -1,0 +1,57 @@
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign titulo = include.p.titulo[lang] | default: include.p.titulo.pt -%}
+{%- if include.p.titulo_curto -%}
+{%- assign curto = include.p.titulo_curto[lang] | default: include.p.titulo_curto.pt -%}
+{%- else -%}
+{%- assign curto = titulo -%}
+{%- endif -%}
+{%- assign textos = include.p.texto[lang] | default: include.p.texto.pt -%}
+{%- assign rotulo_secao = t.secao[include.p.secao] | default: tp.secao[include.p.secao] -%}
+                                    <li>
+                                        <h4 class="my-2">{{ titulo }} ({{ include.p.ano }})</h4>
+{%- for lk in include.p.links %}
+                                        <a href="{{ lk.href | relative_url }}" class="btn {{ include.botao }} mb-2" target="_blank"
+                                            rel="noopener">{{ t.link[lk.chave] | default: tp.link[lk.chave] }}</a>
+{%- endfor %}
+                                        <h5>{{ rotulo_secao }}</h5>
+{%- for paragrafo in textos %}
+                                        <p>{{ paragrafo }}</p>
+{%- endfor %}
+                                        <div id="id-carousel-{{ include.p.carrossel }}" class="carousel slide">
+                                            <div class="carousel-indicators">
+{%- for im in include.p.imagens %}
+                                                <button type="button" data-bs-target="#id-carousel-{{ include.p.carrossel }}" data-bs-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active {% endif %}bg-white"{% if forloop.first %} aria-current="true"{% endif %} aria-label="Slide {{ forloop.index }}"></button>
+{%- endfor %}
+                                            </div>
+                                            <div class="carousel-inner rounded">
+{%- for im in include.p.imagens %}
+{%- assign legenda = im.legenda[lang] | default: im.legenda.pt -%}
+{%- if im.alt -%}
+{%- assign alt = im.alt[lang] | default: im.alt.pt -%}
+{%- else -%}
+{%- capture alt %}{{ curto }} ({{ include.p.ano }}) — {{ legenda }}{% endcapture -%}
+{%- endif %}
+                                                <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                                                    <img data-src="{{ include.p.pasta | append: '/' | append: im.arquivo | relative_url }}" width="{{ include.p.largura }}" height="{{ include.p.altura }}"
+                                                        class="d-block w-100 lazyload" alt="{{ alt }}">
+                                                    <div class="carousel-caption {{ include.p.legenda_classe }}">
+                                                        <h5>{{ curto }} ({{ include.p.ano }})</h5>
+                                                        <p>{{ legenda }}</p>
+                                                    </div>
+                                                </div>
+{%- endfor %}
+                                            </div>
+                                            <button class="carousel-control-prev bg-dark bg-opacity-10" type="button"
+                                                data-bs-target="#id-carousel-{{ include.p.carrossel }}" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">{{ t.carrossel_anterior | default: tp.carrossel_anterior }}</span>
+                                            </button>
+                                            <button class="carousel-control-next bg-dark bg-opacity-10" type="button"
+                                                data-bs-target="#id-carousel-{{ include.p.carrossel }}" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">{{ t.carrossel_proxima | default: tp.carrossel_proxima }}</span>
+                                            </button>
+                                        </div>
+                                    </li>

@@ -1,0 +1,19 @@
+---
+layout: default
+lang: en
+ref: portfolio-game
+sitemap_freq: monthly
+sitemap_prio: "0.8"
+title: "Game Dev — Portfolio of Leonardo Bravo Estácio"
+description: "Digital games developed and supervised by Leonardo Bravo Estácio in Unity and Godot: Laboratório Curie, VaporR, Carpilator, Data Guida, 2D characters with AI and Resquício."
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: game
+    href: "/portfolio/game/"
+---
+                                <h1 class="h2">Game Dev</h1>
+                                <ul>
+{% for p in site.data.projetos.game.projetos %}{% include projeto.html p=p botao="btn-secondary" %}{% endfor %}
+                                </ul>

@@ -1,38 +1,25 @@
+---
+# Gerado a partir das páginas que têm sitemap_freq no front matter.
+# Cada URL lista as suas traduções em xhtml:link, como o Google pede.
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign publicas = site.pages | where_exp: "p", "p.sitemap_freq" | sort: "url" -%}
+{%- for p in publicas %}
     <url>
-        <loc>https://leobravoe.github.io/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
+        <loc>{{ p.url | absolute_url }}</loc>
+{%- assign irmas = site.pages | where: "ref", p.ref -%}
+{%- if irmas.size > 1 -%}
+{%- for i in site.idiomas %}{% for irma in irmas %}{% if irma.lang == i.codigo %}
+        <xhtml:link rel="alternate" hreflang="{{ i.html }}" href="{{ irma.url | absolute_url }}" />
+{%- endif %}{% endfor %}{% endfor %}
+{%- assign padrao = site.idiomas | first -%}
+{%- for irma in irmas %}{% if irma.lang == padrao.codigo %}
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ irma.url | absolute_url }}" />
+{%- endif %}{% endfor %}
+{%- endif %}
+        <changefreq>{{ p.sitemap_freq }}</changefreq>
+        <priority>{{ p.sitemap_prio }}</priority>
     </url>
-    <url>
-        <loc>https://leobravoe.github.io/curriculo/</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://leobravoe.github.io/portfolio/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://leobravoe.github.io/portfolio/game/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://leobravoe.github.io/portfolio/web/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://leobravoe.github.io/portfolio/livros/</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://leobravoe.github.io/portfolio/pesquisa/</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
+{%- endfor %}
 </urlset>

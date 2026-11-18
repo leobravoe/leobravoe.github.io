@@ -1,0 +1,31 @@
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- assign pre = idioma.prefixo -%}
+            <!-- Rodapé -->
+            <footer
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 bg-body-tertiary border-top rounded-3 py-2 px-3 mx-1">
+                <!-- Esquerda: nome -->
+                <p class="my-0 text-body-secondary">
+                    <strong>Leonardo Bravo Estácio</strong>
+                </p>
+                <!-- Direita: navegação -->
+                <ul class="nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{{ pre | append: '/' | relative_url }}" class="nav-link px-2 text-body-secondary">{{ t.rodape.inicio }}</a>
+                    </li>
+                    <li class="nav-item dropup dropup-center">
+                        <a class="nav-link dropdown-toggle px-2 text-body-secondary" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ t.rodape.links }}
+                        </a>
+                        <ul class="dropdown-menu shadow text-center bg-body-tertiary">
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="{{ pre | append: '/curriculo/' | relative_url }}">{{ t.nav.curriculo }}</a></li>
+                            <li><a class="dropdown-item text-body-secondary bg-body-tertiary"
+                                    href="{{ pre | append: '/portfolio/' | relative_url }}">{{ t.nav.portfolio }}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </footer>

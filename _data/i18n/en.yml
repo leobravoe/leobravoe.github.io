@@ -1,0 +1,60 @@
+# Interface strings in English. Keys mirror pt.yml.
+# A key missing here falls back to the Portuguese value, so an incomplete
+# translation degrades instead of breaking the page.
+
+idioma: English
+idioma_sigla: EN
+trocar_idioma: Change language
+
+nav:
+  curriculo: CV
+  portfolio: Portfolio
+
+rodape:
+  inicio: Home
+  links: Links
+
+trilha:
+  inicio: home
+  nao_encontrada: page not found
+  curriculo: cv
+  portfolio: portfolio
+  game: game
+  web: web
+  writing: writing
+  pesquisa: research
+
+modal:
+  anterior: Previous image
+  proxima: Next image
+  fechar: Close
+  imagem: Enlarged image
+
+carrossel_anterior: Previous
+carrossel_proxima: Next
+
+secao:
+  gameplay: "Gameplay:"
+  objetivo: "Project goal:"
+
+link:
+  tcc: Final paper (PDF, in Portuguese)
+  livro: Read the book (PDF, in Portuguese)
+  download_windows: Download for Windows
+  download_android: Download for Android
+
+contato:
+  email: e-mail
+  localizacao: location
+  trabalho: work
+  github: github
+  youtube: youtube
+  instagram: instagram
+  cidade: Gaspar/SC - Brazil
+  instituicao: IFSC - Gaspar Campus
+
+tag:
+  game: game dev
+  web: web dev
+  writing: writing
+  pesquisa: research

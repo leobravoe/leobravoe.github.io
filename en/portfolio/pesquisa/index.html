@@ -1,0 +1,257 @@
+---
+layout: default
+lang: en
+ref: portfolio-pesquisa
+sitemap_freq: yearly
+sitemap_prio: "0.7"
+title: "Research — Portfolio of Leonardo Bravo Estácio"
+description: "Research projects by Leonardo Bravo Estácio: benchmarking APIs across programming environments, the DiscMath educational app and a master's dissertation on Kaczmarz's method."
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: pesquisa
+    href: "/portfolio/pesquisa/"
+---
+                                <h1 class="h2">Research</h1>
+                                <ul>
+                                    <li>
+                                        <h2 class="h4 my-2">Research Project &mdash; Undergraduate Research (2025)</h2>
+                                        <p class="fw-bold mb-2" style="text-align: justify;">
+                                            Benchmarking APIs across Different Programming Environments &mdash; A
+                                            Financial System of Debits and Credits
+                                        </p>
+                                        <a href="/portfolio/pesquisa/relatorios/relatorio-final-benchmarking-apis-2025.pdf"
+                                            target="_blank" rel="noopener" class="btn btn-success mb-2">Final report
+                                            (PDF, in Portuguese)</a>
+                                        <h3 class="h5">Project data:</h3>
+                                        <table class="table table-bordered align-middle">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-3">Institution</td>
+                                                    <td class="col-9" style="text-align: justify;">Federal Institute of
+                                                        Education, Science and Technology of Santa Catarina (IFSC)
+                                                        &mdash; Lages Campus</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Programme</td>
+                                                    <td class="col-9" style="text-align: justify;">Undergraduate
+                                                        Research &mdash; Call no. 04/2024/PROPPI (rolling admission)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Coordination</td>
+                                                    <td class="col-9" style="text-align: justify;">Leonardo Bravo
+                                                        Estácio</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Student researchers</td>
+                                                    <td class="col-9" style="text-align: justify;">Fabricio Iaronka de
+                                                        Souza and Vinicius Souza Corbellini</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Period</td>
+                                                    <td class="col-9" style="text-align: justify;">January to December
+                                                        2025</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Keywords</td>
+                                                    <td class="col-9" style="text-align: justify;">Software
+                                                        Benchmarking; API Performance; RESTful APIs; Load Testing;
+                                                        System Scalability</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <h3 class="h5">Summary:</h3>
+                                        <p style="text-align: justify;">
+                                            Implement a functionally equivalent RESTful API in several languages,
+                                            following the same specification and the same architecture. Each variant
+                                            ran on two instances, behind a load balancer using round-robin and over a
+                                            shared PostgreSQL database, with identical CPU and memory limits, so that
+                                            operating conditions stayed uniform. Load tests with a high volume of
+                                            concurrent requests were run on that environment and repeated to ensure
+                                            statistical validity, measuring latency, error rate, data consistency and
+                                            CPU and memory usage. The goal is to produce empirical evidence to support
+                                            the choice of languages and technologies when building scalable, efficient
+                                            and resilient APIs.
+                                        </p>
+                                        <h3 class="h5">Results:</h3>
+                                        <p style="text-align: justify;">
+                                            Four equivalent implementations of the API were delivered
+                                            (Java/GraalVM/Quarkus, JavaScript/Node/Fastify, Python/Uvicorn/FastAPI and
+                                            Rust/Tokio/Axum), running on two instances balanced by Nginx over the same
+                                            relational database. The test campaigns, run with Gatling in warm-up,
+                                            steady-state and cool-down phases, produced series of latency (p50, p95 and
+                                            p99), throughput, error rate and resource usage, analysed with
+                                            non-parametric tests and bootstrap confidence intervals. The results show
+                                            that persistent connections, prepared statements and a well-tuned
+                                            connection pool reduce tail latency and variability under pressure, and
+                                            that the transport format and serialisation can shift p95 and p99
+                                            substantially even with the database and the mix of operations held
+                                            constant.
+                                        </p>
+                                        <h3 class="h5">Dissemination:</h3>
+                                        <p style="text-align: justify;">
+                                            The work was presented as a video and a poster at the 7th &ldquo;3 Minutes
+                                            of Science and Technology&rdquo; Showcase, part of the 22nd National
+                                            Science and Technology Week, held by IFSC (Lages and Urupema campuses), on
+                                            4 November 2025.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h2 class="h4 my-2">Research Project &mdash; Technological Development and
+                                            Innovation (2025)</h2>
+                                        <p class="fw-bold mb-2" style="text-align: justify;">
+                                            Development and Evaluation of an Educational Application for Teaching
+                                            Discrete Mathematics in Higher Education
+                                        </p>
+                                        <a href="/portfolio/pesquisa/relatorios/relatorio-final-discmath-2025.pdf"
+                                            target="_blank" rel="noopener" class="btn btn-success mb-2">Final report
+                                            (PDF, in Portuguese)</a>
+                                        <a href="/portfolio/web/tcc/tcc-discmath-2025.pdf" target="_blank"
+                                            rel="noopener" class="btn btn-success mb-2">Paper (PDF, in Portuguese)</a>
+                                        <h3 class="h5">Project data:</h3>
+                                        <table class="table table-bordered align-middle">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-3">Institution</td>
+                                                    <td class="col-9" style="text-align: justify;">Federal Institute of
+                                                        Education, Science and Technology of Santa Catarina (IFSC)
+                                                        &mdash; Lages Campus</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Programme</td>
+                                                    <td class="col-9" style="text-align: justify;">Technological
+                                                        Development and Innovation &mdash; Call no. 04/2024/PROPPI
+                                                        (rolling admission)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Coordination</td>
+                                                    <td class="col-9" style="text-align: justify;">Leonardo Bravo
+                                                        Estácio</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Student researchers</td>
+                                                    <td class="col-9" style="text-align: justify;">Caio Picinini
+                                                        Pagliosa and Eduardo Moreira de Jesus</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Period</td>
+                                                    <td class="col-9" style="text-align: justify;">2025</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Keywords</td>
+                                                    <td class="col-9" style="text-align: justify;">Discrete
+                                                        Mathematics; Educational Application; Higher Education; Mobile
+                                                        Learning; Usability Evaluation</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <h3 class="h5">Summary:</h3>
+                                        <p style="text-align: justify;">
+                                            Develop and evaluate an educational application for teaching Discrete
+                                            Mathematics in higher education. The core problem is the weak consolidation
+                                            of abstract concepts and the lack of timely feedback on exercises. The
+                                            proposal covers the design and implementation of a cross-platform
+                                            prototype, the evaluation of usability and quality in use, and the
+                                            assessment of its impact on academic performance through pre- and post-tests
+                                            with independent groups. The method organises successive cycles of building
+                                            and evaluating, with usability testing and learning measurement, aiming at
+                                            a validated artefact, replicable design guidelines and evidence of learning
+                                            gains.
+                                        </p>
+                                        <h3 class="h5">Results:</h3>
+                                        <p style="text-align: justify;">
+                                            The project delivered DiscMath, a cross-platform prototype built in Flutter
+                                            and organised into content and practice modules, with interactive
+                                            questions, scored mock exams, support material by topic, immediate feedback
+                                            and engagement features such as rooms and rankings. Usability was assessed
+                                            with the System Usability Scale (SUS) among higher education students,
+                                            reaching an average score of 73.75 &mdash; above the adopted acceptance
+                                            threshold (SUS&nbsp;&ge;&nbsp;68) and rated as satisfactory. The
+                                            quasi-experimental study of the impact on academic performance, planned in
+                                            the project, was not completed within the cycle and remains as a next step.
+                                        </p>
+                                        <h3 class="h5">Dissemination:</h3>
+                                        <p style="text-align: justify;">
+                                            The work &ldquo;Developing DiscMath: an Application for Teaching Discrete
+                                            Mathematics in Higher Education&rdquo;, by Caio Picinini Pagliosa, Eduardo
+                                            Moreira de Jesus, Vilma Gisele Karsburg and Leonardo Bravo Estácio, was
+                                            presented as a video and a poster at the 7th &ldquo;3 Minutes of Science
+                                            and Technology&rdquo; Showcase, part of the 22nd National Science and
+                                            Technology Week, held by IFSC (Lages and Urupema campuses), on 4 November
+                                            2025.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h2 class="h4 my-2">Master's Dissertation (2014)</h2>
+                                        <p class="fw-bold mb-2" style="text-align: justify;">
+                                            On the Choice of Relaxation and Ordering of the Projections in Kaczmarz's
+                                            Method with Emphasis on Highly Parallel Implementations and Applications in
+                                            Tomographic Reconstruction
+                                        </p>
+                                        <a href="/portfolio/pesquisa/dissertacao/dissertacao-mestrado-kaczmarz-2014.pdf"
+                                            target="_blank" rel="noopener" class="btn btn-success mb-2">Dissertation
+                                            (PDF, in Portuguese)</a>
+                                        <h3 class="h5">Project data:</h3>
+                                        <table class="table table-bordered align-middle">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="col-3">Institution</td>
+                                                    <td class="col-9" style="text-align: justify;">Institute of
+                                                        Mathematics and Computer Sciences (ICMC), University of São
+                                                        Paulo (USP) &mdash; São Carlos/SP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Programme</td>
+                                                    <td class="col-9" style="text-align: justify;">Computer Science and
+                                                        Computational Mathematics</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Supervisor</td>
+                                                    <td class="col-9" style="text-align: justify;">Prof. Dr. Elias
+                                                        Salomão Helou Neto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Defence</td>
+                                                    <td class="col-9" style="text-align: justify;">June 2014 (72
+                                                        pages)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Funding</td>
+                                                    <td class="col-9" style="text-align: justify;">Scholarship from the
+                                                        São Paulo Research Foundation (FAPESP)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-3">Keywords</td>
+                                                    <td class="col-9" style="text-align: justify;">Kaczmarz; Relaxation
+                                                        Parameter; Numerical Methods; Parallel Algorithms</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <h3 class="h5">Abstract:</h3>
+                                        <p style="text-align: justify;">
+                                            The Kaczmarz method is an iterative algorithm for finding the solution of
+                                            a system of linear equations <em>Ax&nbsp;=&nbsp;b</em> by projecting onto
+                                            the hyperplanes, widely used in applications involving Computerized
+                                            Tomography. It has been recently highlighted after the publication of a
+                                            random version presented by Strohmer and Vershynin in 2009 that yields
+                                            probably exponential convergence in expectation. Thereafter, Eldar and
+                                            Needell in 2011 suggested a modified version of Strohmer and Vershynin
+                                            algorithm, which at each iteration selects the optimal projection from a
+                                            random set making use of the Johnson-Lindenstrauss lemma. None of the
+                                            mentioned articles presents a technique for choosing the relaxation
+                                            parameter, however, the proper selection of this parameter can achieve a
+                                            substantial gain on the speed of the method. In this project we present a
+                                            methodology for finding the relaxation parameter, as well as parallel
+                                            implementations of Kaczmarz&rsquo;s Algorithm using the ideas of Eldar and
+                                            Needell. Our methodology for parameter selection uses a new generalization
+                                            on Strohmer and Vershynin&rsquo;s results which now regards the relaxation
+                                            parameter <em>λ</em>. Thenceforward, we obtain an estimate of the
+                                            convergence rate as a function of <em>λ</em>. Then we use this estimate
+                                            in the algorithm the optimizer of this estimate. The parallelization of
+                                            the methods has been implemented through the CUDA platform and appears to
+                                            be very promising, since it delivers substantial gain in the convergence
+                                            speed.
+                                        </p>
+                                    </li>
+                                </ul>

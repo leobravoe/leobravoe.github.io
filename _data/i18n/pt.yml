@@ -1,0 +1,62 @@
+# Strings da interface em português.
+# O inglês fica em en.yml, com as mesmas chaves. Chave que faltar no en.yml
+# cai de volta para o valor daqui, então uma tradução incompleta não quebra a página.
+
+idioma: Português
+idioma_sigla: PT
+trocar_idioma: Trocar idioma
+
+nav:
+  curriculo: Currículo
+  portfolio: Portfólio
+
+rodape:
+  inicio: Página inicial
+  links: Links
+
+trilha:
+  inicio: página inicial
+  nao_encontrada: página não encontrada
+  curriculo: currículo
+  portfolio: portfólio
+  game: game
+  web: web
+  writing: writing
+  pesquisa: pesquisa
+
+modal:
+  anterior: Imagem anterior
+  proxima: Próxima imagem
+  fechar: Fechar
+  imagem: Imagem Expandida
+
+# Os rótulos dos controles do carrossel estavam em inglês nas páginas em
+# português; corrigidos junto com a tradução.
+carrossel_anterior: Anterior
+carrossel_proxima: Próxima
+
+secao:
+  gameplay: "Tipo de gameplay:"
+  objetivo: "Objetivo do projeto:"
+
+link:
+  tcc: Link para o TCC
+  livro: Link para o livro
+  download_windows: Link de download para Windows
+  download_android: Link de download para Android
+
+contato:
+  email: e-mail
+  localizacao: localização
+  trabalho: trabalho
+  github: github
+  youtube: youtube
+  instagram: instagram
+  cidade: Gaspar/SC - Brasil
+  instituicao: IFSC - Câmpus Gaspar
+
+tag:
+  game: game dev
+  web: web dev
+  writing: writing
+  pesquisa: pesquisa

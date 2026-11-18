@@ -1,0 +1,99 @@
+    <script>
+        $(document).ready(function () {
+            // Initialize tooltips
+            $('[data-bs-toggle="tooltip"]').tooltip();
+            // Configure Lazy Load
+            const carousels = $('.carousel');
+            carousels.on('slide.bs.carousel', function (e) {
+                const nextSlide = $(e.relatedTarget);
+                const img = nextSlide.find('img.lazyload');
+                if (img.length && img.data('src')) {
+                    img.attr('src', img.data('src')).removeAttr('data-src').removeClass('lazyload');
+                }
+            });
+            // Load the first image immediately (Lazy Load)
+            const firstImgs = $('.carousel-item.active img.lazyload');
+            firstImgs.each((index, element) => {
+                const firstImg = $(element);
+                if (firstImg.length && firstImg.data('src')) {
+                    firstImg.attr('src', firstImg.data('src')).removeAttr('data-src').removeClass('lazyload');
+                }
+            });
+            // Click to show images on Modal
+            // A galeria do modal e a lista de imagens do carrossel em que se clicou,
+            // para dar para avancar e voltar sem fechar o modal.
+            let galeria = [];
+            let atual = 0;
+
+            function mostraNoModal(indice) {
+                if (!galeria.length) return;
+                atual = (indice + galeria.length) % galeria.length;
+                $('#modalImage').attr('src', galeria[atual]);
+            }
+
+            $('.carousel-item img').on('click', function () {
+                const carrossel = $(this).closest('.carousel');
+                const imagens = carrossel.length ? carrossel.find('.carousel-item img') : $(this);
+                // imagem ainda nao carregada pelo lazy load continua com o caminho em data-src
+                galeria = imagens.map((i, el) => $(el).attr('src') || $(el).data('src')).get();
+                $('#modalPrev, #modalNext').toggleClass('d-none', galeria.length < 2);
+                mostraNoModal(imagens.index(this));
+                $('#imageModal').modal('show');
+            });
+
+            $('#modalPrev, #modalNext').on('click', function () {
+                mostraNoModal(atual + (this.id === 'modalNext' ? 1 : -1));
+            });
+
+            // clicar em qualquer lugar do modal fecha, menos nos botoes de navegacao
+            $('#imageModal').on('click', function (e) {
+                if ($(e.target).closest('#modalPrev, #modalNext').length) return;
+                $(this).modal('hide');
+            });
+
+            $(document).on('keydown', function (e) {
+                if (galeria.length < 2 || !$('#imageModal').hasClass('show')) return;
+                if (e.key === 'ArrowRight') mostraNoModal(atual + 1);
+                if (e.key === 'ArrowLeft') mostraNoModal(atual - 1);
+            });
+        });
+        // Botão light e dark mode
+        (function () {
+            const root = document.documentElement;
+            const sw = document.getElementById('themeSwitch');
+            const sun = document.getElementById('iconSun');
+            const moon = document.getElementById('iconMoon');
+
+            function paint(theme) {
+                const isLight = theme === 'light';
+
+                // switch amarelo quando light
+                sw.classList.toggle('bg-warning', isLight);
+                sw.classList.toggle('border-warning', isLight);
+
+                // switch amarelo quando dark
+                sw.classList.toggle('bg-secondary', !isLight);
+                sw.classList.toggle('border-secondary', !isLight);
+
+                // feedback nos ícones (opcional, mas fica bonito)
+                sun.classList.toggle('text-warning', isLight);
+                moon.classList.toggle('opacity-50', isLight);
+                sun.classList.toggle('opacity-50', !isLight);
+                moon.classList.toggle('text-info', !isLight);
+            }
+
+            function setTheme(theme) {
+                root.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+                // aqui definimos: checked = LIGHT
+                sw.checked = (theme === 'light');
+                paint(theme);
+            }
+
+            // inicializa de acordo com o tema atual
+            setTheme(root.getAttribute('data-bs-theme') || 'light');
+
+            // alterna: checked = light, unchecked = dark
+            sw.addEventListener('change', () => setTheme(sw.checked ? 'light' : 'dark'));
+        })();
+    </script>

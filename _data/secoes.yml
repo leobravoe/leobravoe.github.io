@@ -1,0 +1,44 @@
+# Os quatro cartões da página de portfólio.
+secoes:
+  - rota: game
+    icone: fa-gamepad
+    imagem: /img/game-dev.webp
+    titulo: game dev
+    alt:
+      pt: "Desenvolvimento de jogos"
+      en: "Game development"
+    texto:
+      pt: "Desenvolvimento de jogos eletrônicos"
+      en: "Digital game development"
+  - rota: web
+    icone: fa-code
+    imagem: /img/web-dev.webp
+    titulo: web dev
+    alt:
+      pt: "Desenvolvimento web"
+      en: "Web development"
+    texto:
+      pt: "Desenvolvimento de sistemas web"
+      en: "Web systems development"
+  - rota: livros
+    icone: fa-book
+    imagem: /img/book.webp
+    titulo: writing
+    alt:
+      pt: "Livros e material didático"
+      en: "Books and teaching material"
+    texto:
+      pt: "Escrita de livros"
+      en: "Book writing"
+  - rota: pesquisa
+    icone: fa-flask
+    imagem: /img/research.webp
+    titulo:
+      pt: pesquisa
+      en: research
+    alt:
+      pt: "Pesquisa acadêmica"
+      en: "Academic research"
+    texto:
+      pt: "Dissertação de mestrado e produção acadêmica"
+      en: "Master's dissertation and academic output"

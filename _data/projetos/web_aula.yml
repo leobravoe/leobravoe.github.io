@@ -1,0 +1,271 @@
+# Gerado a partir do HTML original. Os campos "pt" sao o texto que ja estava
+# no site; o campo "en" de cada um e adicionado na traducao.
+projetos:
+  - id: portal_bcc
+    ano: 2024
+    secao: objetivo
+    titulo:
+      pt: "Site BCC IFSC"
+      en: "Site BCC IFSC"
+    texto:
+      pt:
+        - >-
+          Ensinar a análise e o desenvolvimento do Portal de Notícias do Curso de Ciência da
+          Computação do Instituto Federal de Santa Catarina (IFSC), Câmpus Lages. Essa
+          plataforma digital tem como objetivo central oferecer um espaço informativo com as
+          últimas notícias, avanços e conquistas do curso. O portal funciona como um recurso
+          essencial para estudantes, servidores e o público externo, reunindo informações
+          sobre eventos acadêmicos, oportunidades de pesquisa e atividades
+          extracurriculares.
+        - >-
+          O projeto é desenvolvido com Node.js, utilizando os pacotes csurf, Express,
+          express-session, express-validator, hbs, method-override, mysql e nodemon,
+          adotando uma arquitetura em camadas MVC. Inclui a implementação de sistemas de
+          autenticação e autorização, proteção contra CSRF, validação de dados,
+          gerenciamento de sessões e integração com o banco de dados MySQL, proporcionando
+          uma aplicação segura e bem estruturada para o gerenciamento de conteúdos do
+          portal.
+      en:
+        - >-
+            Teach the analysis and development of the news portal of the Computer Science
+            programme at the Federal Institute of Santa Catarina (IFSC), Lages Campus. The
+            main purpose of the platform is to offer a space with the latest news,
+            developments and achievements of the programme. The portal works as a key
+            resource for students, staff and the wider public, gathering information about
+            academic events, research opportunities and extracurricular activities.
+        - >-
+            The project is built with Node.js, using the csurf, Express, express-session,
+            express-validator, hbs, method-override, mysql and nodemon packages, in a
+            layered MVC architecture. It covers authentication and authorisation, CSRF
+            protection, data validation, session management and integration with a MySQL
+            database, resulting in a secure and well structured application for managing the
+            portal content.
+    carrossel: portal_bcc
+    pasta: "/portfolio/web/aula/img-portal_bcc-2024"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-white"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Página inicial do site, com notícias em destaque, calendário acadêmico e principais sistemas"
+          en: "Home page, with featured news, the academic calendar and the main systems"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Página inicial do site, com notícias em destaque, calendário acadêmico e principais sistemas - Mostrando o dropdown de informações do curso"
+          en: "Home page, with featured news, the academic calendar and the main systems &mdash; with the programme information dropdown open"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Página inicial do site, com notícias em destaque, calendário acadêmico e principais sistemas - Destaques para os principais sistemas na área de Acesso Rápido"
+          en: "Home page, with featured news, the academic calendar and the main systems &mdash; the main systems highlighted in the Quick Access area"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Página do PPC do curso"
+          en: "The page of the programme syllabus"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Tela de gerenciamento de postagens"
+          en: "Managing posts"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Tela de criação de postagens"
+          en: "Creating a post"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Tela de edição de postagens"
+          en: "Editing a post"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Tela de exibição de postagens"
+          en: "Viewing a post"
+      - arquivo: img8.webp
+        legenda:
+          pt: "Tela de gerenciamento do calendário acadêmico"
+          en: "Managing the academic calendar"
+  - id: fornattosystem
+    ano: 2023
+    secao: objetivo
+    titulo:
+      pt: "Fornatto System 2.0"
+      en: "Fornatto System 2.0"
+    texto:
+      pt:
+        - >-
+          Ensinar Node.js aplicando os pacotes csurf, Express, express-session,
+          express-validator, hbs, method-override, mysql e nodemon no desenvolvimento
+          back-end de um projeto real para uma pizzaria presencial, adotando a arquitetura
+          em camadas MVC. O projeto abordará a implementação de sistemas de autenticação e
+          autorização, proteção contra CSRF, validação de dados, gerenciamento de sessões e
+          integração com um banco de dados MySQL.
+        - >-
+          Ensinar React.js utilizando os pacotes font-awesome, react-bootstrap, react-redux
+          e react-router-dom no desenvolvimento front-end de um projeto real para uma
+          pizzaria presencial, com uma arquitetura baseada em componentes. O curso inclui a
+          criação de uma interface moderna e responsiva, gerenciamento de estado global com
+          Redux, navegação entre páginas com React Router e integração completa com a API do
+          back-end.
+      en:
+        - >-
+            Teach Node.js by applying the csurf, Express, express-session,
+            express-validator, hbs, method-override, mysql and nodemon packages to the back
+            end of a real project for a dine-in pizzeria, in a layered MVC architecture. The
+            project covers authentication and authorisation, CSRF protection, data
+            validation, session management and integration with a MySQL database.
+        - >-
+            Teach React.js using the font-awesome, react-bootstrap, react-redux and
+            react-router-dom packages on the front end of a real project for a dine-in
+            pizzeria, in a component-based architecture. The course covers building a
+            modern, responsive interface, global state management with Redux, navigation
+            with React Router and full integration with the back-end API.
+    carrossel: fornattosystem
+    pasta: "/portfolio/web/aula/img-fornatto_system-2-2023"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-white"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela principal que gerencia as mesas, podendo também gerenciar os pedidos adicionados em cada mesa, assim como os estados destes pedidos"
+          en: "Main screen for managing tables, the orders added to each table and the state of those orders"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Tela que mostra o modal para adicionar um pedido em uma mesa; um pedido pode conter vários produtos"
+          en: "The modal for adding an order to a table; an order can contain several products"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Tela para gerenciar os pedidos inativos que estão dentro das mesas"
+          en: "Managing the inactive orders held on the tables"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Tela para acessar os diferentes tipos de recursos que são mantidos pelo sistema"
+          en: "Reaching the different kinds of records kept by the system"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Tela para o gerenciamento de mesas"
+          en: "Managing tables"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Tela para o gerenciamento de tipos de produto"
+          en: "Managing product types"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Tela para o gerenciamento de produtos"
+          en: "Managing products"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Tela para a criação de produtos"
+          en: "Creating a product"
+      - arquivo: img8.webp
+        legenda:
+          pt: "Tela para o gerenciamento de produtos - Mensagem de sucesso ao criar um produto"
+          en: "Managing products &mdash; success message after creating a product"
+      - arquivo: img9.webp
+        legenda:
+          pt: "Tela para exibição de todos os relatórios que o sistema pode gerar"
+          en: "All the reports the system can produce"
+      - arquivo: img10.webp
+        legenda:
+          pt: "Modelo físico de banco de dados utilizado para construção do sistema"
+          en: "The physical database model used to build the system"
+  - id: restaurantedelivery
+    ano: 2019
+    secao: objetivo
+    titulo:
+      pt: "Restaurante Delivery"
+      en: "Restaurante Delivery"
+    texto:
+      pt:
+        - >-
+          Ensinar o framework PHP Laravel por meio do desenvolvimento de um projeto real de
+          delivery para restaurante. O sistema contará com autenticação para dois tipos de
+          usuários (cliente e administrador) e funcionalidades completas de gerenciamento de
+          pedidos e cardápio. As interfaces serão construídas com Bootstrap e jQuery,
+          garantindo um visual moderno e responsivo. O objetivo é oferecer uma experiência
+          prática e abrangente, cobrindo todas as etapas: desde a configuração do ambiente
+          de desenvolvimento até a publicação da aplicação em um servidor de produção.
+      en:
+        - >-
+            Teach the PHP framework Laravel by building a real restaurant delivery project.
+            The system has authentication for two kinds of user (customer and administrator)
+            and full management of orders and menu. The interfaces are built with Bootstrap
+            and jQuery, for a modern and responsive look. The aim is a practical, end-to-end
+            experience, covering every stage: from setting up the development environment to
+            deploying the application to a production server.
+    carrossel: restaurantedelivery
+    pasta: "/portfolio/web/aula/img-restaurante_delivery-2019"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-white"
+    imagens:
+      - arquivo: img5.webp
+        legenda:
+          pt: "Tela de criação de pedidos"
+          en: "Creating an order"
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela inicial do Restaurante Delivery"
+          en: "Home screen of Restaurante Delivery"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Tela de login"
+          en: "Sign-in screen"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Tela de criação de usuários"
+          en: "Creating a user"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Tela da área de usuário"
+          en: "The customer area"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Tela de cadastro de endereços"
+          en: "Registering an address"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Tela de criação de pedidos - Carrinho de compras"
+          en: "Creating an order &mdash; the shopping cart"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Tela de alteração de dados de usuário"
+          en: "Changing the user details"
+      - arquivo: img8.webp
+        legenda:
+          pt: "Tela de login de administradores"
+          en: "Administrator sign-in"
+      - arquivo: img9.webp
+        legenda:
+          pt: "Tela da área de administradores"
+          en: "The administrator area"
+      - arquivo: img10.webp
+        legenda:
+          pt: "Tela dos administradores para gerenciamento de pedidos"
+          en: "The administrator screen for managing orders"
+      - arquivo: img11.webp
+        legenda:
+          pt: "Tela para o gerenciamento de produtos"
+          en: "Managing products"
+      - arquivo: img12.webp
+        legenda:
+          pt: "Tela para o gerenciamento de tipos de produtos"
+          en: "Managing product types"
+      - arquivo: img13.webp
+        legenda:
+          pt: "Tela para o cadastro de tipos de produtos"
+          en: "Creating a product type"
+      - arquivo: img14.webp
+        legenda:
+          pt: "Tela para o gerenciamento de tipos de produtos - Mostrando mensagem de sucesso de criação"
+          en: "Managing product types &mdash; success message after creating one"
+      - arquivo: img15.webp
+        legenda:
+          pt: "Tela para o gerenciamento de tipos de produtos - Mostrando modal para confirmação de exclusão"
+          en: "Managing product types &mdash; the delete confirmation modal"
+      - arquivo: img16.webp
+        legenda:
+          pt: "Tela para o gerenciamento de tipos de produtos - Mostrando mensagem de sucesso de remoção"
+          en: "Managing product types &mdash; success message after deleting one"
+      - arquivo: img17.webp
+        legenda:
+          pt: "Modelo físico de banco de dados utilizado para a criação do sistema"
+          en: "The physical database model used to create the system"

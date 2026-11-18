@@ -1,0 +1,52 @@
+# Gerado a partir do HTML original. Os campos "pt" sao o texto que ja estava
+# no site; o campo "en" de cada um e adicionado na traducao.
+projetos:
+  - id: livro-javascript
+    ano: 2025
+    secao: objetivo
+    titulo:
+      pt: "Livro: Introdução à Programação em JavaScript"
+      en: "Book: Introdução à Programação em JavaScript"
+    titulo_curto:
+      pt: "Introdução à Programação em JavaScript"
+      en: "Introdução à Programação em JavaScript"
+    links:
+      - chave: livro
+        href: "/portfolio/livros/pdfs/Livro-Introdução_à_Programação_em_JavaScript-2.1.pdf"
+    texto:
+      pt:
+        - >-
+          Este livro foi elaborado para guiar o leitor pelos princípios fundamentais da
+          lógica de programação e pela aplicação prática da linguagem JavaScript. Apresenta
+          uma abordagem estruturada que cobre desde algoritmos, estruturas de dados, funções
+          até conceitos de programação orientada a objetos. Com exemplos claros, exercícios
+          práticos e explicações detalhadas, a obra oferece uma introdução sólida e
+          acessível ao desenvolvimento de software moderno, preparando o leitor para criar
+          soluções reais e bem estruturadas.
+      en:
+        - >-
+            This book was written to guide the reader through the fundamentals of
+            programming logic and the practical use of JavaScript. It takes a structured
+            approach that goes from algorithms, data structures and functions to
+            object-oriented programming. With clear examples, hands-on exercises and
+            detailed explanations, it offers a solid and approachable introduction to modern
+            software development, preparing the reader to build real, well structured
+            solutions. The book is written in Portuguese.
+    carrossel: livro-javascript
+    pasta: "/portfolio/livros/img/livro-javascript"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-white"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Capa do livro"
+          en: "Front cover"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Fundo do livro"
+          en: "Back cover"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Exemplo de página interna do livro"
+          en: "An example of an inside page"

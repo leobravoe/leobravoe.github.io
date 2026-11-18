@@ -1,0 +1,34 @@
+title: Leonardo Bravo Estácio
+author: Leonardo Bravo Estácio
+url: https://leobravoe.github.io
+baseurl: ""
+lang: pt-br
+
+# Idiomas do site. O primeiro e o padrao e fica na raiz; os outros ganham prefixo.
+idiomas:
+  - codigo: pt
+    nome: Português
+    sigla: PT
+    html: pt-br
+    og: pt_BR
+    bandeira: br
+    prefixo: ""
+  - codigo: en
+    nome: English
+    sigla: EN
+    html: en
+    og: en_US
+    bandeira: gb
+    prefixo: /en
+
+# Imagem usada nas prévias de Open Graph e Twitter Card.
+social_image: /img/foto_200.png
+
+# O site é HTML puro: nada de Markdown, plugins ou coleções.
+plugins: []
+
+exclude:
+  - readme.md
+  - LICENSE
+  - .github/
+  - .claude/

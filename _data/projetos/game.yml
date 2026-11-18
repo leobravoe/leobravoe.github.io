@@ -1,0 +1,583 @@
+# Gerado a partir do HTML original. Os campos "pt" sao o texto que ja estava
+# no site; o campo "en" de cada um e adicionado na traducao.
+projetos:
+  - id: resquicio
+    ano: 2024
+    secao: gameplay
+    titulo:
+      pt: "Resquício: Jogo para Introdução à Programação"
+      en: "Resquício: A Game for Introductory Programming"
+    titulo_curto:
+      pt: "Resquício"
+      en: "Resquício"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-resquicio-2024.pdf"
+    texto:
+      pt:
+        - >-
+          O jogo apresenta um RPG tridimensional com câmera em terceira pessoa, no qual o
+          jogador assume o papel de um Técnico de Reparo recém-formado e enviado a uma vila
+          remota, ambientada em um mundo que se reconstrói após uma guerra nuclear. A
+          movimentação é feita pelas teclas W, A, S e D, com saltos pela barra de espaço e
+          interação com personagens e objetos pela tecla F, enquanto o mouse controla a
+          câmera. A mecânica central está na resolução de exercícios de programação: ao
+          interagir com os objetos danificados da era pré-guerra, o jogador abre um editor
+          de código integrado e precisa escrever trechos em linguagem Lua para consertar os
+          equipamentos e avançar nas missões. Os desafios cobrem conceitos iniciais da
+          disciplina de Introdução à Programação, como operações aritméticas, estruturas
+          condicionais e laços de repetição. A progressão combina exploração do cenário,
+          diálogos com os aldeões e a resolução dos exercícios, de modo que o domínio dos
+          conceitos de programação conduz a narrativa e a conquista da confiança dos
+          moradores. O projeto foi desenvolvido na Godot Engine com GDScript, com modelagem
+          3D em estilo low poly feita no Blender.
+      en:
+        - >-
+            A third-person 3D RPG in which the player takes on the role of a newly graduated
+            Repair Technician sent to a remote village, set in a world rebuilding itself
+            after a nuclear war. Movement uses the W, A, S and D keys, jumping uses the
+            space bar and interaction with characters and objects uses the F key, while the
+            mouse controls the camera. The core mechanic is solving programming exercises:
+            on interacting with damaged pre-war objects, the player opens a built-in code
+            editor and has to write snippets in Lua to repair the equipment and move through
+            the quests. The challenges cover the opening topics of an introductory
+            programming course, such as arithmetic operations, conditionals and loops.
+            Progression combines exploring the scenery, talking to the villagers and solving
+            the exercises, so that mastering the programming concepts is what drives the
+            narrative and earns the trust of the residents. The project was built in the
+            Godot Engine with GDScript, with low poly 3D modelling done in Blender.
+    carrossel: resquicio
+    pasta: "/portfolio/game/tcc/img-resquicio"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Menu principal do jogo, com a vila ao fundo."
+          en: "Main menu, with the village in the background."
+      - arquivo: img1.webp
+        legenda:
+          pt: "Tela de escolha do personagem, com pré-visualização do avatar."
+          en: "Character selection screen, with a preview of the avatar."
+      - arquivo: img2.webp
+        legenda:
+          pt: "Praça da vila à noite, com a interface de vida, mana, minimapa e atalhos de itens."
+          en: "The village square at night, with the health, mana, minimap and item shortcut interface."
+      - arquivo: img3.webp
+        legenda:
+          pt: "Telas de equipamento e de bolsa do inventário."
+          en: "Equipment and bag screens of the inventory."
+      - arquivo: img4.webp
+        legenda:
+          pt: "Exploração da praça da vila pela manhã, em câmera de terceira pessoa."
+          en: "Exploring the village square in the morning, in third-person view."
+      - arquivo: img5.webp
+        legenda:
+          pt: "Encontro com o autômato que propõe os desafios de programação."
+          en: "Meeting the automaton that sets the programming challenges."
+      - arquivo: img6.webp
+        legenda:
+          pt: "Diálogo de início da missão &ldquo;A primeira faísca&rdquo;, com as opções de aceitar ou recusar."
+          en: "Opening dialogue of the quest &ldquo;A primeira faísca&rdquo;, with the options to accept or decline."
+      - arquivo: img7.webp
+        legenda:
+          pt: "Editor de código da missão, com o enunciado, a dica e a solução em Lua."
+          en: "The quest code editor, with the problem statement, the hint and the solution in Lua."
+      - arquivo: img8.webp
+        legenda:
+          pt: "NPC sinalizando uma missão disponível, junto ao poço da vila."
+          en: "An NPC flagging an available quest, next to the village well."
+      - arquivo: img9.webp
+        legenda:
+          pt: "Outro ponto da vila, já durante o dia."
+          en: "Another part of the village, now during the day."
+      - arquivo: img10.webp
+        legenda:
+          pt: "Vista ampla da praça da vila a partir dos telhados."
+          en: "Wide view of the village square from the rooftops."
+      - arquivo: img11.webp
+        legenda:
+          pt: "Personagens que habitam a vila, modelados em Blender."
+          en: "The characters who live in the village, modelled in Blender."
+      - arquivo: img12.webp
+        legenda:
+          pt: "Modelo 3D em estilo low poly criado para o cenário."
+          en: "A low poly 3D model created for the scenery."
+  - id: ia_personagens_2d
+    ano: 2023
+    secao: objetivo
+    titulo:
+      pt: "Geração de Arte de Personagens 2D em Jogos Eletrônicos Através de Inteligência Artificial"
+      en: "Generating 2D Character Art for Video Games with Artificial Intelligence"
+    titulo_curto:
+      pt: "Personagens 2D por IA"
+      en: "2D Characters with AI"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-ia_personagens_2d-2023.pdf"
+    texto:
+      pt:
+        - >-
+          Integrar avanços na geração de imagens com modelos de difusão no desenvolvimento
+          de arte de personagens 2D para jogos eletrônicos. A proposta é explorar o uso de
+          inteligência artificial na geração de arte, com foco na representação de
+          personagens, visando reduzir a intervenção humana e, por conseguinte, os custos de
+          desenvolvimento. É importante destacar que este projeto não visa criar novos
+          modelos ou algoritmos de inteligência artificial, mas sim utilizar tecnologias já
+          existentes nesse campo.
+      en:
+        - >-
+            Bring advances in image generation with diffusion models into the production of
+            2D character art for video games. The proposal explores the use of artificial
+            intelligence to generate art, focusing on character representation, in order to
+            reduce human intervention and therefore development costs. It is worth stressing
+            that this project does not set out to create new artificial intelligence models
+            or algorithms, but to use technologies that already exist in the field.
+    carrossel: ia_personagens_2d
+    pasta: "/portfolio/game/tcc/img-ia_personagens_2d"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Personagens finais gerados"
+          en: "The final generated characters"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Configurando o Stable Diffusion"
+          en: "Setting up Stable Diffusion"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Resultados de txt2img com diferentes modelos"
+          en: "txt2img results with different models"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Resultados de txt2img + negative prompt com diferentes modelos"
+          en: "txt2img results with a negative prompt across different models"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Resultados de img2img"
+          en: "img2img results"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Esqueletos gerados pelo DWOpenpose a partir de uma imagem de entrada"
+          en: "Skeletons generated by DWOpenpose from an input image"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Configuração da “Unit 0” do ControlNet"
+          en: "Configuration of ControlNet&rsquo;s “Unit 0”"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Resultados de txt2img com DWOpenpose"
+          en: "txt2img results with DWOpenpose"
+      - arquivo: img8.webp
+        legenda:
+          pt: "Mapas gerados pelo Depth a partir de uma imagem de entrada"
+          en: "Maps generated by Depth from an input image"
+      - arquivo: img9.webp
+        legenda:
+          pt: "Resultados de txt2img com DWOpenpose + Depth"
+          en: "txt2img results with DWOpenpose plus Depth"
+      - arquivo: img10.webp
+        legenda:
+          pt: "Resultado obtido ao dividir os membros de um personagem"
+          en: "Result of splitting a character into limbs"
+      - arquivo: img11.webp
+        legenda:
+          pt: "Personagem de lado com membros divididos"
+          en: "Side view of a character with split limbs"
+      - arquivo: img12.webp
+        legenda:
+          pt: "Pesos do esqueleto de animação sobre os membros"
+          en: "Animation skeleton weights over the limbs"
+      - arquivo: img13.webp
+        legenda:
+          pt: "Exemplo de modificação na posição do personagem"
+          en: "An example of changing the character&rsquo;s pose"
+      - arquivo: img14.webp
+        legenda:
+          pt: "Exemplo de animação do personagem"
+          en: "An example of the character animated"
+  - id: data-guilda
+    ano: 2022
+    secao: gameplay
+    titulo:
+      pt: "Data Guida"
+      en: "Data Guida"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-data_guilda-2022.pdf"
+      - chave: download_windows
+        href: "https://drive.google.com/file/d/1w5_FMQlry9JskA4o8dUhBucetE8PEG5b/view?usp=sharing"
+    texto:
+      pt:
+        - >-
+          O jogo apresenta um gameplay de RPG 2D com exploração em ambiente interno,
+          interação com NPCs, leitura de diálogos, coleta de informações, uso de interfaces
+          interativas e resolução de desafios em SQL como parte central da progressão. O
+          jogador controla Guida em uma empresa dividida em setores, podendo circular pelo
+          mapa, conversar com personagens, utilizar computadores para consultar tabelas,
+          acessar livros com conteúdo introdutório de SQL e consultar o sistema “Boogli”,
+          que amplia as informações narrativas do universo do jogo. Assim, a jogabilidade
+          combina investigação narrativa, progressão por missões e prática de comandos de
+          banco de dados em uma estrutura voltada ao aprendizado ativo.
+      en:
+        - >-
+            A 2D RPG set indoors, built around exploring, talking to NPCs, reading dialogue,
+            gathering information, using interactive interfaces and solving SQL challenges
+            as the core of its progression. The player controls Guida inside a company split
+            into departments, moving around the map, talking to characters, using computers
+            to query tables, reading books with introductory SQL material and consulting the
+            “Boogli” system, which fills in the narrative background of the game world.
+            Gameplay therefore combines narrative investigation, quest-based progression and
+            practice with database commands, in a structure aimed at active learning.
+    carrossel: data-guilda
+    pasta: "/portfolio/game/tcc/img-data_guilda"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela inicial do jogo"
+          en: "Title screen"
+      - arquivo: img1.webp
+        legenda:
+          pt: "NPC Srt. Lovelace"
+          en: "NPC Srt. Lovelace"
+      - arquivo: img2.webp
+        legenda:
+          pt: "NPC George"
+          en: "NPC George"
+      - arquivo: img3.webp
+        legenda:
+          pt: "NPC Edgar"
+          en: "NPC Edgar"
+      - arquivo: img4.webp
+        legenda:
+          pt: "NPC Hopper"
+          en: "NPC Hopper"
+      - arquivo: img5.webp
+        legenda:
+          pt: "NPC Sr. Rossum"
+          en: "NPC Sr. Rossum"
+      - arquivo: img6.webp
+        legenda:
+          pt: "NPC Frank Codd"
+          en: "NPC Frank Codd"
+      - arquivo: img7.webp
+        legenda:
+          pt: "NPC Grace"
+          en: "NPC Grace"
+      - arquivo: img8.webp
+        legenda:
+          pt: "NPC Dione"
+          en: "NPC Dione"
+      - arquivo: img9.webp
+        legenda:
+          pt: "Tela de pausa"
+          en: "Pause screen"
+      - arquivo: img10.webp
+        legenda:
+          pt: "Ambiente do jogo"
+          en: "The game environment"
+      - arquivo: img11.webp
+        legenda:
+          pt: "Interface de entrada de comandos SQL"
+          en: "The SQL command input interface"
+      - arquivo: img12.webp
+        legenda:
+          pt: "NPC Edgar"
+          en: "NPC Edgar"
+      - arquivo: img13.webp
+        legenda:
+          pt: "Guia de bolso: SQL para muito preguiçosos"
+          en: "Pocket guide: SQL for the very lazy"
+      - arquivo: img14.webp
+        legenda:
+          pt: "Guia de bolso: SQL para muito preguiçosos - Páginas"
+          en: "Pocket guide: SQL for the very lazy &mdash; inside pages"
+      - arquivo: img15.webp
+        legenda:
+          pt: "Guia de SQL para preguiçosos"
+          en: "SQL guide for the lazy"
+      - arquivo: img16.webp
+        legenda:
+          pt: "Guia de SQL para preguiçosos - Páginas"
+          en: "SQL guide for the lazy &mdash; inside pages"
+      - arquivo: img17.webp
+        legenda:
+          pt: "Guia de SQL para preguiçosos - Páginas"
+          en: "SQL guide for the lazy &mdash; inside pages"
+      - arquivo: img18.webp
+        legenda:
+          pt: "Guia de SQL para preguiçosos - Páginas"
+          en: "SQL guide for the lazy &mdash; inside pages"
+      - arquivo: img19.webp
+        legenda:
+          pt: "Boogli - Gerenciador de conhecimento interno"
+          en: "Boogli &mdash; the in-world knowledge manager"
+      - arquivo: img20.webp
+        legenda:
+          pt: "Ambientação no cenário"
+          en: "Set dressing of the scenery"
+      - arquivo: img21.webp
+        legenda:
+          pt: "Mapa completo"
+          en: "The full map"
+      - arquivo: img22.webp
+        legenda:
+          pt: "Animação da personagem Guida"
+          en: "Animation of the character Guida"
+      - arquivo: img23.webp
+        legenda:
+          pt: "Diagrama de interação entre objetos"
+          en: "Diagram of the interaction between objects"
+  - id: carpilator
+    ano: 2022
+    secao: gameplay
+    titulo:
+      pt: "Carpilator"
+      en: "Carpilator"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-carpilator-2022.pdf"
+      - chave: download_windows
+        href: "https://drive.google.com/file/d/1PG_eHfqlE8505ycaVppPoRB1P4IANDw9/view?usp=sharing"
+    texto:
+      pt:
+        - >-
+          O jogo apresenta um gameplay educativo de lógica e simulação de execução de
+          código, no qual o jogador acompanha visualmente o comportamento de estruturas
+          básicas de programação por meio de um carro que percorre uma estrada organizada
+          como representação do fluxo de um algoritmo. A proposta é dividida em dois modos
+          principais: no modo user-only, o jogador deve identificar quais entradas precisam
+          ser fornecidas para que o programa alcance o resultado esperado; já no modo code,
+          o jogador precisa escrever um código capaz de gerar uma cena equivalente à
+          apresentada pelo nível. Durante a execução, elementos do cenário representam
+          comandos e estruturas da programação, como desvios para condicionais, rotatórias
+          para laços de repetição, acostamentos para leitura de dados e placas para exibição
+          de informações, permitindo que o estudante visualize de forma concreta o
+          encadeamento lógico do programa. Dessa forma, a jogabilidade combina interpretação
+          de código, resolução de problemas, interação com entradas de dados e observação
+          gráfica do fluxo algorítmico, buscando tornar mais compreensíveis os conceitos
+          introdutórios de programação.
+      en:
+        - >-
+            An educational game about logic and the simulated execution of code, in which
+            the player watches the behaviour of basic programming constructs through a car
+            driving along a road laid out as the flow of an algorithm. There are two main
+            modes: in user-only mode the player has to work out which inputs are needed for
+            the program to reach the expected result; in code mode the player has to write
+            code that produces a scene equivalent to the one the level shows. While the
+            program runs, elements of the scenery stand for commands and constructs &mdash;
+            forks for conditionals, roundabouts for loops, laybys for reading data and road
+            signs for displaying information &mdash; so the student can see the logical
+            chaining of the program concretely. Gameplay therefore combines reading code,
+            problem solving, feeding in data and watching the algorithm flow graphically,
+            aiming to make introductory programming concepts easier to grasp.
+    carrossel: carpilator
+    pasta: "/portfolio/game/tcc/img-carpilator"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela inicial do jogo e de seleção de estágios"
+          en: "Title and stage selection screen"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Tela do primeiro estágio, demonstrando a estrutura de condição SE"
+          en: "First stage, showing the IF conditional"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Tela do segundo estágio, demonstrando a instrução de leitura de variável"
+          en: "Second stage, showing the instruction that reads a variable"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Tela do segundo estágio, demonstrando a instrução de exibição"
+          en: "Second stage, showing the output instruction"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Tela do terceiro estágio, demonstrando a estrutura SENÃO"
+          en: "Third stage, showing the ELSE construct"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Visão interna do Unity, demonstrando o trigger da instrução de leitura de variável"
+          en: "Inside Unity, showing the trigger for the instruction that reads a variable"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Visão interna do Unity, demonstrando o cenário e posicionamento da câmera ortográfica"
+          en: "Inside Unity, showing the scenery and the placement of the orthographic camera"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Visão interna do Unity, demonstrando a NavMesh utilizada pelo carro"
+          en: "Inside Unity, showing the NavMesh used by the car"
+  - id: vaporr
+    ano: 2021
+    secao: gameplay
+    titulo:
+      pt: "VaporR"
+      en: "VaporR"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-vaporr-2021.pdf"
+      - chave: download_windows
+        href: "https://drive.google.com/file/d/1bwfUCxPPwUoeczL91HFYnlOdI1To509c/view?usp=sharing"
+      - chave: download_android
+        href: "https://drive.google.com/file/d/1BO0fGXR23cQzGtqLthDx_wp9ohtqVP7U/view?usp=sharing"
+    texto:
+      pt:
+        - >-
+          O jogo apresenta um gameplay de ritmo com elementos de condução em pista, no qual
+          o jogador controla um veículo em um cenário 3D dividido em quatro faixas,
+          realizando deslocamentos laterais para coletar pontos e desviar de obstáculos ao
+          longo do percurso. A progressão da partida ocorre em sincronia com a música de
+          fundo, já que os elementos interativos da pista são gerados a partir da análise em
+          tempo real do espectro sonoro, incluindo a detecção de batidas e variações de tom.
+          Dessa forma, a experiência de jogo combina reflexos, percepção rítmica e
+          coordenação motora, enquanto o jogador acompanha o fluxo musical em uma dinâmica
+          contínua de pontuação e desvio de colisões.
+      en:
+        - >-
+            A rhythm game with track-driving elements, in which the player steers a vehicle
+            through a 3D scene split into four lanes, moving sideways to collect points and
+            dodge obstacles along the way. The run progresses in sync with the background
+            music, since the interactive elements of the track are generated from real-time
+            analysis of the sound spectrum, including beat detection and changes in pitch.
+            The experience therefore combines reflexes, a sense of rhythm and motor
+            coordination, as the player follows the flow of the music in a continuous loop
+            of scoring and avoiding collisions.
+    carrossel: vaporr
+    pasta: "/portfolio/game/tcc/img-vaporr"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela inicial do jogo"
+          en: "Title screen"
+      - arquivo: img1.webp
+        legenda:
+          pt: "Visão geral da pista e dos itens"
+          en: "Overview of the track and the items"
+      - arquivo: img2.webp
+        legenda:
+          pt: "Wireframe dos itens de sucesso e obstáculo"
+          en: "Wireframe of the scoring items and the obstacles"
+      - arquivo: img3.webp
+        legenda:
+          pt: "Wireframe do modelo do carro"
+          en: "Wireframe of the car model"
+      - arquivo: img4.webp
+        legenda:
+          pt: "Textura Albedo do carro"
+          en: "Albedo texture of the car"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Vista interna do Unity nos pontos em que o carro pode se movimentar"
+          en: "Inside Unity, at the points where the car can move"
+      - arquivo: img6.webp
+        legenda:
+          pt: "Vista interna do Unity mostrando a câmera e um item de movimento bem-sucedido"
+          en: "Inside Unity, showing the camera and a successful movement item"
+      - arquivo: img7.webp
+        legenda:
+          pt: "Vista interna do Unity com destaque no pôr do sol"
+          en: "Inside Unity, with the sunset highlighted"
+      - arquivo: img8.webp
+        legenda:
+          pt: "Vista interna do Unity com destaque nos itens de sucesso e obstáculo"
+          en: "Inside Unity, with the scoring items and the obstacles highlighted"
+  - id: lab-curie
+    ano: 2018
+    secao: gameplay
+    titulo:
+      pt: "Laboratório Curie"
+      en: "Laboratório Curie"
+    links:
+      - chave: tcc
+        href: "/portfolio/game/tcc/tcc-lab_curie-2018.pdf"
+      - chave: download_windows
+        href: "https://drive.google.com/file/d/1ftcgoLgkYLFt3cie9UMcOYNLVSrIeXNx/view?usp=sharing"
+      - chave: download_android
+        href: "https://drive.google.com/file/d/1-AoJby3sm_hk6eVW7Xx0CS6SEq5_-nVu/view?usp=sharing"
+    texto:
+      pt:
+        - >-
+          O jogo apresenta um gameplay educativo de exploração e interação em ambiente
+          tridimensional, no qual o jogador controla a personagem Marie Curie dentro de um
+          laboratório de química com perspectiva isométrica e comandos por toque em tela. A
+          dinâmica principal envolve deslocar a personagem pelo cenário, aproximar-se dos
+          objetos, coletar e utilizar itens, além de gerenciar um inventário, simulando de
+          forma virtual ações ligadas às práticas laboratoriais. O projeto também prevê a
+          criação de novos itens a partir da combinação de elementos já existentes e fases
+          voltadas ao uso correto de equipamentos de segurança, fazendo com que a progressão
+          esteja associada à execução de atividades práticas e ao aprendizado do uso
+          adequado de materiais e instrumentos de laboratório. Dessa forma, a jogabilidade
+          combina exploração espacial, manipulação de objetos, interação tátil e
+          aprendizagem aplicada, buscando reproduzir, de maneira lúdica e acessível, a
+          experiência de um laboratório real.
+      en:
+        - >-
+            An educational game about exploring and interacting in a 3D environment, in
+            which the player controls Marie Curie inside a chemistry laboratory, in
+            isometric perspective and with touch controls. The main loop involves moving the
+            character around the scene, approaching objects, collecting and using items and
+            managing an inventory, virtually simulating actions tied to laboratory practice.
+            The project also covers creating new items by combining existing ones, and
+            levels about the correct use of safety equipment, so that progression is tied to
+            carrying out practical activities and learning the proper use of laboratory
+            materials and instruments. Gameplay therefore combines spatial exploration,
+            object handling, touch interaction and applied learning, seeking to reproduce
+            the experience of a real laboratory in a playful and accessible way.
+    carrossel: lab-curie
+    pasta: "/portfolio/game/tcc/img-lab_curie"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-light"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela inicial do jogo."
+          en: "Title screen."
+      - arquivo: img1.webp
+        legenda:
+          pt: "Cenário contendo o laboratório do jogo e itens 3D modelados."
+          en: "The scene with the game&rsquo;s laboratory and the modelled 3D items."
+      - arquivo: img2.webp
+        legenda:
+          pt: "Caixa de diálogo da personagem."
+          en: "The character&rsquo;s dialogue box."
+      - arquivo: img3.webp
+        legenda:
+          pt: "Interface do item agitador, onde podem ser realizadas algumas transformações."
+          en: "Interface of the stirrer, where some transformations can be carried out."
+      - arquivo: img4.webp
+        legenda:
+          pt: "Exemplo de mapa UV colorido utilizando o Adobe Substance"
+          en: "An example of a UV map coloured in Adobe Substance"
+      - arquivo: img5.webp
+        legenda:
+          pt: "Evolução do modelo 3D da personagem principal."
+          en: "How the 3D model of the main character evolved."
+      - arquivo: img6.webp
+        legenda:
+          pt: "Interface com objeto selecionado."
+          en: "The interface with an object selected."
+      - arquivo: img7.webp
+        legenda:
+          pt: "Modelo final Marie Curie."
+          en: "The final Marie Curie model."
+      - arquivo: img8.webp
+        legenda:
+          pt: "Modelo final Marie Curie com equipamentos de segurança."
+          en: "The final Marie Curie model wearing safety equipment."
+      - arquivo: img9.webp
+        legenda:
+          pt: "Exemplo do modelo animado pelo MotionBuilder."
+          en: "An example of the model animated in MotionBuilder."

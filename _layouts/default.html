@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+<html lang="{{ idioma.html }}">
+
+<head>
+{% include head.html %}
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row mx-auto">
+{% include sidebar.html %}
+                <!-- Direita/Meio -->
+                <div class="col-lg-9 my-2 px-1">
+                    <div class="d-flex flex-column h-100">
+{% include navbar.html %}
+{% include breadcrumb.html %}
+                        <!-- Conteúdo da página -->
+                        <div class="card h-100">
+{% if page.card_body == false %}
+{{ content }}
+{% else %}
+                            <div class="{{ page.card_body_class | default: 'card-body' }}">
+{{ content }}
+                            </div>
+{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% include footer.html %}
+        </main>
+    </div>
+
+{% include image-modal.html %}
+
+{% include scripts.html %}
+</body>
+
+</html>

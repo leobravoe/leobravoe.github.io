@@ -1,0 +1,27 @@
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+    <!-- Modal to enlarge imagens -->
+    <!-- O clique em qualquer ponto fecha o modal, menos nos botoes de navegacao.
+         Quem cuida disso e o script, nao o data-bs-dismiss. -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center m-0 p-0 position-relative">
+                    <button id="modalPrev" class="carousel-control-prev bg-dark bg-opacity-10 d-none" type="button">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">{{ t.modal.anterior }}</span>
+                    </button>
+                    <img id="modalImage" src="" class="mw-100 mh-100" alt="{{ t.modal.imagem }}">
+                    <button id="modalNext" class="carousel-control-next bg-dark bg-opacity-10 d-none" type="button">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">{{ t.modal.proxima }}</span>
+                    </button>
+                </div>
+                <div class="modal-footer m-0 p-0">
+                    <button type="button" class="btn btn-danger btn-sm w-100" data-bs-dismiss="modal">{{ t.modal.fechar }}</button>
+                </div>
+            </div>
+        </div>
+    </div>

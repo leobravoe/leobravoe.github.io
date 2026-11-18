@@ -1,0 +1,109 @@
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- assign pre = idioma.prefixo -%}
+                <!-- Esquerda/Topo barra lateral -->
+                <div class="col-lg-3 px-1">
+                    <div class="my-2 sticky-top" style="top: 0.5rem">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-12 col-xl-12 col-xxl-12 my-auto">
+                                    <div class="text-center mt-2 mx-2">
+                                        <a href="{{ pre | append: '/' | relative_url }}">
+                                            <img src="{{ '/img/foto_200.webp' | relative_url }}" class="rounded-circle img-fluid shadow-lg"
+                                                alt="my-avatar">
+                                        </a>
+                                        <div class="text-center mt-2">
+                                            <a href="{{ pre | append: '/portfolio/game/' | relative_url }}" style="font-size:12px;"
+                                                class="btn btn-secondary shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-gamepad fa-sm"
+                                                    style="vertical-align: middle;"></i>
+                                                <span><strong>{{ t.tag.game }}</strong></span>
+                                            </a>
+                                            <a href="{{ pre | append: '/portfolio/web/' | relative_url }}" style="font-size:12px;"
+                                                class="btn btn-primary shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-code fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>{{ t.tag.web }}</strong></span>
+                                            </a>
+                                            <a href="{{ pre | append: '/portfolio/livros/' | relative_url }}" style="font-size:12px;"
+                                                class="btn btn-info text-dark shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-book fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>{{ t.tag.writing }}</strong></span>
+                                            </a>
+                                            <a href="{{ pre | append: '/portfolio/pesquisa/' | relative_url }}" style="font-size:12px;"
+                                                class="btn btn-success shadow-lg text-truncate my-1 text-decoration-none p-1">
+                                                <i class="fa-solid fa-flask fa-sm" style="vertical-align: middle;"></i>
+                                                <span><strong>{{ t.tag.pesquisa }}</strong></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-xs-7 col-sm-7 col-md-7 col-lg-12 col-xl-12 col-xxl-12 my-auto">
+                                    <div class="text-center mt-2 mx-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-envelope-fill" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.email }}"></i>
+                                            </span>
+                                            <a href="mailto:leonardo.bravo@ifsc.edu.br"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="leonardo.bravo@ifsc.edu.br">leonardo.bravo@ifsc.edu.br</a>
+                                        </div>
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-geo-alt-fill" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.localizacao }}"></i>
+                                            </span>
+                                            <a href="https://www.google.com/maps/search/?api=1&amp;query=IFSC+C%C3%A2mpus+Gaspar"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="https://www.google.com/maps/place/ifsc-campus-gaspar">{{ t.contato.cidade }}</a>
+                                        </div>
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-briefcase-fill" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.trabalho }}"></i>
+                                            </span>
+                                            <a href="https://www.ifsc.edu.br/web/campus-gaspar" target="_blank" rel="noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="https://www.ifsc.edu.br/web/campus-gaspar">{{ t.contato.instituicao }}</a>
+                                        </div>
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-title="{{ t.contato.github }}"></i>
+                                            </span>
+                                            <a href="https://github.com/leobravoe" target="_blank" rel="noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="https://github.com/leobravoe">github</a>
+                                        </div>
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-youtube" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.youtube }}"></i>
+                                            </span>
+                                            <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
+                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="https://www.youtube.com/channel/leobravoe">youtube</a>
+                                        </div>
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-instagram" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.instagram }}"></i>
+                                            </span>
+                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="https://www.instagram.com/leobravoe">instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

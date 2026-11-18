@@ -1,0 +1,19 @@
+---
+layout: default
+lang: en
+ref: portfolio-livros
+sitemap_freq: yearly
+sitemap_prio: "0.7"
+title: "Writing — Portfolio of Leonardo Bravo Estácio"
+description: "The book &quot;Introdução à Programação em JavaScript&quot;, written by Leonardo Bravo Estácio to teach programming logic."
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: writing
+    href: "/portfolio/livros/"
+---
+                                <h1 class="h2">Writing</h1>
+                                <ul>
+{% for p in site.data.projetos.livros.projetos %}{% include projeto.html p=p botao="btn-info" %}{% endfor %}
+                                </ul>

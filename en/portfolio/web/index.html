@@ -1,0 +1,23 @@
+---
+layout: default
+lang: en
+ref: portfolio-web
+sitemap_freq: monthly
+sitemap_prio: "0.8"
+title: "Web Dev — Portfolio of Leonardo Bravo Estácio"
+description: "Web projects developed and supervised by Leonardo Bravo Estácio: Site BCC IFSC, Fornatto System 2.0, Restaurante Delivery, DiscMath, BookList and Mudança Fácil."
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: web
+    href: "/portfolio/web/"
+---
+                                <h1 class="h2">Web Dev — Final-year projects</h1>
+                                <ul>
+{% for p in site.data.projetos.web_tcc.projetos %}{% include projeto.html p=p botao="btn-primary" %}{% endfor %}
+                                </ul>
+                                <h2>Web Dev — Projects built in class</h2>
+                                <ul>
+{% for p in site.data.projetos.web_aula.projetos %}{% include projeto.html p=p botao="btn-primary" %}{% endfor %}
+                                </ul>

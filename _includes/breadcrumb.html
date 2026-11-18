@@ -1,0 +1,17 @@
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- assign pre = idioma.prefixo -%}
+                        <div class="mx-1 mb-2">
+                            <a href="{{ pre | append: '/' | relative_url }}" class="text-body text-decoration-none"><i class="fa-solid fa-house"></i></a>
+{% for item in page.breadcrumb %}
+{% assign rotulo = t.trilha[item.chave] | default: tp.trilha[item.chave] %}
+                            <i class="fa-solid fa-arrow-right"></i>
+{% if item.href %}
+                            <a href="{{ pre | append: item.href | relative_url }}" class="text-body text-decoration-none fw-bold">{{ rotulo }}</a>
+{% else %}
+                            <span class="fw-bold">{{ rotulo }}</span>
+{% endif %}
+{% endfor %}
+                        </div>
