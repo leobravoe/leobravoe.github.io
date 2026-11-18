@@ -8,14 +8,14 @@ publicada aparece desabilitado, em vez de levar para um 404.
 {%- assign t = site.data.i18n[lang] | default: tp -%}
 {%- assign irmas = empty -%}
 {%- if page.ref -%}{%- assign irmas = site.pages | where: 'ref', page.ref -%}{%- endif -%}
-                                    <div class="dropdown">
+                                    <div class="dropdown seletor-idioma">
                                         <button type="button"
-                                            class="btn btn-sm dropdown-toggle d-inline-flex align-items-center gap-1 px-1 py-0"
+                                            class="btn dropdown-toggle d-inline-flex align-items-center gap-1 px-1 py-0 lh-1"
                                             data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"
                                             aria-label="{{ t.trocar_idioma | default: tp.trocar_idioma }}">
 {%- for i in site.idiomas %}{% if i.codigo == lang %}
                                             {% include bandeira.html codigo=i.bandeira id="atual" %}
-                                            <span class="fs-6 lh-1">{{ i.sigla }}</span>
+                                            <span class="lh-1">{{ i.sigla }}</span>
 {%- endif %}{% endfor %}
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow bg-body-tertiary">

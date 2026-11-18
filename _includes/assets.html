@@ -66,6 +66,29 @@
             opacity: 1 !important;
         }
 
+        /* Bandeiras do seletor de idioma: acompanham a fonte do contexto, para
+           ficarem da mesma altura do interruptor de tema */
+        .bandeira {
+            width: 1.4em;
+            height: 1em;
+            border-radius: .15em;
+            flex: none;
+        }
+
+        /* .btn fixa a própria fonte; aqui ela herda, para o seletor ficar na
+           mesma escala do interruptor de tema, e o menu segue a mesma medida */
+        .seletor-idioma .btn,
+        .seletor-idioma .dropdown-menu {
+            font-size: inherit;
+        }
+
+        /* sem isto o botão fica na linha de base do bloco e desce alguns pixels
+           em relação aos ícones de lua e sol */
+        .seletor-idioma {
+            display: flex;
+            align-items: center;
+        }
+
         /* Botões de navegação dentro do modal de imagem ampliada */
         #imageModal .carousel-control-prev,
         #imageModal .carousel-control-next {

@@ -2,8 +2,6 @@
 # O inglês fica em en.yml, com as mesmas chaves. Chave que faltar no en.yml
 # cai de volta para o valor daqui, então uma tradução incompleta não quebra a página.
 
-idioma: Português
-idioma_sigla: PT
 trocar_idioma: Trocar idioma
 
 nav:

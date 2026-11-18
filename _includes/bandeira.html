@@ -3,11 +3,12 @@ Bandeiras em SVG inline. Emoji de bandeira nao renderiza no Windows (o navegador
 mostra as letras do pais), por isso nao da para usar 🇧🇷 aqui.
 
 Parametros: codigo (br|gb) e id (sufixo para os ids do SVG serem unicos na pagina).
-Cada bandeira e desenhada na sua proporcao natural e encaixada numa caixa de
-20x14 com "slice", entao as duas ficam do mesmo tamanho sem distorcer.
+Cada bandeira e desenhada na sua proporcao natural e encaixada, com "slice",
+numa caixa dimensionada em em pelo CSS: ela acompanha a fonte do contexto e
+fica da mesma altura do interruptor de tema.
 {%- endcomment -%}
 {%- if include.codigo == 'br' -%}
-<svg class="bandeira" width="20" height="14" viewBox="0 0 10 7" preserveAspectRatio="xMidYMid slice"
+<svg class="bandeira" viewBox="0 0 10 7" preserveAspectRatio="xMidYMid slice"
     role="img" aria-hidden="true" focusable="false">
     <clipPath id="disco-{{ include.id }}"><circle cx="5" cy="3.5" r="1.55" /></clipPath>
     <rect width="10" height="7" fill="#009b3a" />
@@ -17,7 +18,7 @@ Cada bandeira e desenhada na sua proporcao natural e encaixada numa caixa de
         clip-path="url(#disco-{{ include.id }})" />
 </svg>
 {%- elsif include.codigo == 'gb' -%}
-<svg class="bandeira" width="20" height="14" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"
+<svg class="bandeira" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"
     role="img" aria-hidden="true" focusable="false">
     <clipPath id="uk-{{ include.id }}"><rect width="60" height="30" /></clipPath>
     <rect width="60" height="30" fill="#012169" />
