@@ -61,11 +61,19 @@
            A primeira coluna fica com todo o espaço que sobra e a marca e os
            links se centralizam dentro dela, então o centro acompanha a largura
            em vez de depender da folga da barra. */
+        /* A barra em si nao tem fundo: sao dois paineis, um para a marca e os
+           links, outro para tema e idioma. Os dois usam o mesmo arredondamento
+           dos cartoes do site; o que separa um do outro e o vao entre eles. */
+        .barra-topo {
+            padding: 0;
+            gap: .75rem;
+        }
+
         @media (min-width: 768px) {
             .barra-topo {
                 display: grid;
                 grid-template-columns: 1fr auto;
-                align-items: center;
+                align-items: stretch;
             }
 
             .barra-topo > .container-fluid {

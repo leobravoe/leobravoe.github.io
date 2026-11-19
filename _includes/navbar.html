@@ -3,8 +3,8 @@
 {%- assign t = site.data.i18n[lang] | default: tp -%}
 {%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
 {%- assign pre = idioma.prefixo -%}
-                        <nav class="navbar navbar-expand-md bg-body-tertiary rounded-3 mb-2 barra-topo">
-                            <div class="container-fluid justify-content-center">
+                        <nav class="navbar navbar-expand-md mb-2 barra-topo">
+                            <div class="container-fluid justify-content-center bg-body-tertiary rounded-3">
                                 <a class="navbar-brand" href="{{ pre | append: '/' | relative_url }}">{% if page.nav == "home" %}<strong>@leobravoe</strong>{% else %}@leobravoe{% endif %}</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#id-navbar">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <!-- Ícone • switch • ícone, tudo central e com mesma “altura visual” -->
-                            <div class="nav-item text-center px-3 mx-auto my-auto barra-controles">
+                            <div class="nav-item text-center px-3 py-2 mx-auto my-auto bg-body-tertiary rounded-3 barra-controles">
                                 <div class="d-inline-flex align-items-center gap-2 fs-5">
                                     <i id="iconMoon" class="bi bi-moon-stars-fill opacity-50"></i>
                                     <div class="form-check form-switch m-0 p-0 d-flex align-items-center">
