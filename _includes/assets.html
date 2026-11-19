@@ -56,22 +56,25 @@
            centralizado era medido como se ele não existisse — em larguras
            intermediárias os dois se sobrepunham. Em grid cada um tem a sua
            coluna: quando falta espaço, um empurra o outro em vez de passar
-           por cima. As colunas laterais de 1fr mantêm o centro no meio
-           enquanto houver folga. */
+           por cima.
+
+           A primeira coluna fica com todo o espaço que sobra e a marca e os
+           links se centralizam dentro dela, então o centro acompanha a largura
+           em vez de depender da folga da barra. */
         @media (min-width: 768px) {
             .barra-topo {
                 display: grid;
-                grid-template-columns: 1fr auto 1fr;
+                grid-template-columns: 1fr auto;
                 align-items: center;
             }
 
             .barra-topo > .container-fluid {
-                grid-column: 2;
-                width: auto;
+                grid-column: 1;
+                min-width: 0;
             }
 
             .barra-topo > .barra-controles {
-                grid-column: 3;
+                grid-column: 2;
                 justify-self: end;
             }
         }
