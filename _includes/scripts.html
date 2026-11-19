@@ -24,15 +24,39 @@
             // para dar para avancar e voltar sem fechar o modal.
             let galeria = [];
             let atual = 0;
+            let carrosselAberto = null;
+
+            // mantem o carrossel na mesma imagem do modal, para o modal fechar
+            // exatamente onde o visitante parou.
+            // Chamar .to() durante uma troca de slide enfileira a chamada no
+            // Bootstrap, e cliques rapidos acabam em indices trocados. Entao aqui
+            // so uma troca corre por vez: ao terminar, mira de novo no indice
+            // atual, que a essa altura ja e o ultimo pedido.
+            let trocandoSlide = false;
+
+            function sincronizaCarrossel() {
+                if (!carrosselAberto || trocandoSlide) return;
+                const itens = carrosselAberto.querySelectorAll('.carousel-item');
+                const ativo = [...itens].findIndex(e => e.classList.contains('active'));
+                if (ativo === atual) return;
+                trocandoSlide = true;
+                carrosselAberto.addEventListener('slid.bs.carousel', function () {
+                    trocandoSlide = false;
+                    sincronizaCarrossel();
+                }, { once: true });
+                bootstrap.Carousel.getOrCreateInstance(carrosselAberto).to(atual);
+            }
 
             function mostraNoModal(indice) {
                 if (!galeria.length) return;
                 atual = (indice + galeria.length) % galeria.length;
                 $('#modalImage').attr('src', galeria[atual]);
+                sincronizaCarrossel();
             }
 
             $('.carousel-item img').on('click', function () {
                 const carrossel = $(this).closest('.carousel');
+                carrosselAberto = carrossel.length ? carrossel[0] : null;
                 const imagens = carrossel.length ? carrossel.find('.carousel-item img') : $(this);
                 // imagem ainda nao carregada pelo lazy load continua com o caminho em data-src
                 galeria = imagens.map((i, el) => $(el).attr('src') || $(el).data('src')).get();
@@ -40,6 +64,10 @@
                 mostraNoModal(imagens.index(this));
                 $('#imageModal').modal('show');
             });
+
+            // cliques rapidos podem deixar uma troca de slide pela metade; ao fechar,
+            // garante que o carrossel esta na imagem que estava no modal
+            $('#imageModal').on('hidden.bs.modal', sincronizaCarrossel);
 
             $('#modalPrev, #modalNext').on('click', function () {
                 mostraNoModal(atual + (this.id === 'modalNext' ? 1 : -1));
