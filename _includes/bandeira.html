@@ -2,10 +2,13 @@
 Bandeiras em SVG inline. Emoji de bandeira nao renderiza no Windows (o navegador
 mostra as letras do pais), por isso nao da para usar 🇧🇷 aqui.
 
-Parametros: codigo (br|gb) e id (sufixo para os ids do SVG serem unicos na pagina).
-Cada bandeira e desenhada na sua proporcao natural e encaixada, com "slice",
-numa caixa dimensionada em em pelo CSS: ela acompanha a fonte do contexto e
-fica da mesma altura do interruptor de tema.
+Parametros: codigo (br|us) e id (sufixo para os ids do SVG serem unicos na pagina).
+A caixa e dimensionada em em pelo CSS: acompanha a fonte do contexto e fica da
+mesma altura do interruptor de tema.
+
+Os desenhos sao simplificados de proposito. No tamanho em que aparecem (28x20)
+nao da para distinguir as 27 estrelas do circulo azul nem as 50 estrelas do
+cantao, entao o que importa e a silhueta: cores, faixas e proporcao interna.
 {%- endcomment -%}
 {%- if include.codigo == 'br' -%}
 <svg class="bandeira" viewBox="0 0 10 7" preserveAspectRatio="xMidYMid slice"
@@ -17,14 +20,42 @@ fica da mesma altura do interruptor de tema.
     <path d="M2.6 4.35a4.2 4.2 0 0 1 5.1-1.1" stroke="#fff" stroke-width=".45" fill="none"
         clip-path="url(#disco-{{ include.id }})" />
 </svg>
-{%- elsif include.codigo == 'gb' -%}
-<svg class="bandeira" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"
+{%- elsif include.codigo == 'us' -%}
+{%- comment -%}
+Desenhada direto na proporcao da caixa (140x98) para nenhuma faixa ser cortada:
+13 faixas de 7.54, cantao com 2/5 da largura e a altura de 7 faixas.
+{%- endcomment -%}
+<svg class="bandeira" viewBox="0 0 140 98" preserveAspectRatio="xMidYMid slice"
     role="img" aria-hidden="true" focusable="false">
-    <clipPath id="uk-{{ include.id }}"><rect width="60" height="30" /></clipPath>
-    <rect width="60" height="30" fill="#012169" />
-    <path d="M0 0 60 30M60 0 0 30" stroke="#fff" stroke-width="6" clip-path="url(#uk-{{ include.id }})" />
-    <path d="M0 0 60 30M60 0 0 30" stroke="#c8102e" stroke-width="3" clip-path="url(#uk-{{ include.id }})" />
-    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
-    <path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6" />
+    <rect width="140" height="98" fill="#b31942" />
+    <g fill="#fff">
+        <rect y="7.54" width="140" height="7.54" />
+        <rect y="22.62" width="140" height="7.54" />
+        <rect y="37.69" width="140" height="7.54" />
+        <rect y="52.77" width="140" height="7.54" />
+        <rect y="67.85" width="140" height="7.54" />
+        <rect y="82.92" width="140" height="7.54" />
+    </g>
+    <rect width="56" height="52.77" fill="#0a3161" />
+    <g fill="#fff">
+        <circle cx="8" cy="8" r="2.6" />
+        <circle cx="20" cy="8" r="2.6" />
+        <circle cx="32" cy="8" r="2.6" />
+        <circle cx="44" cy="8" r="2.6" />
+        <circle cx="14" cy="18" r="2.6" />
+        <circle cx="26" cy="18" r="2.6" />
+        <circle cx="38" cy="18" r="2.6" />
+        <circle cx="8" cy="28" r="2.6" />
+        <circle cx="20" cy="28" r="2.6" />
+        <circle cx="32" cy="28" r="2.6" />
+        <circle cx="44" cy="28" r="2.6" />
+        <circle cx="14" cy="38" r="2.6" />
+        <circle cx="26" cy="38" r="2.6" />
+        <circle cx="38" cy="38" r="2.6" />
+        <circle cx="8" cy="47" r="2.6" />
+        <circle cx="20" cy="47" r="2.6" />
+        <circle cx="32" cy="47" r="2.6" />
+        <circle cx="44" cy="47" r="2.6" />
+    </g>
 </svg>
 {%- endif -%}
