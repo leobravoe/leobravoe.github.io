@@ -8,12 +8,13 @@
         aria-hidden="true">
         <div class="modal-dialog modal-fullscreen" role="document">
             <div class="modal-content">
-                <div class="modal-body text-center m-0 p-0 position-relative">
+                <div class="modal-body text-center m-0 p-0 position-relative overflow-hidden">
                     <button id="modalPrev" class="carousel-control-prev bg-dark bg-opacity-10 d-none" type="button">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">{{ t.modal.anterior }}</span>
                     </button>
-                    <img id="modalImage" src="" class="mw-100 mh-100" alt="{{ t.modal.imagem }}">
+                    <img id="modalImage" src="" class="imagem-modal ativa" alt="{{ t.modal.imagem }}">
+                    <img id="modalImageB" src="" class="imagem-modal" alt="" aria-hidden="true">
                     <button id="modalNext" class="carousel-control-next bg-dark bg-opacity-10 d-none" type="button">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">{{ t.modal.proxima }}</span>

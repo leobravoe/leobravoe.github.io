@@ -47,11 +47,62 @@
                 bootstrap.Carousel.getOrCreateInstance(carrosselAberto).to(atual);
             }
 
-            function mostraNoModal(indice) {
+            // Troca de imagem com o mesmo deslizar do carrossel: duas imagens
+            // empilhadas, a que entra vem do lado para onde se esta indo e a que
+            // sai vai para o lado oposto. A duracao acompanha o .6s do Bootstrap.
+            const DURACAO = 600;
+            let frente = document.getElementById('modalImage');
+            let fundo = document.getElementById('modalImageB');
+            let mostrando = -1;
+            let direcao = 1;
+            let animando = false;
+
+            function posiciona(el, lado, comTransicao) {
+                el.classList.toggle('desliza', !!comTransicao);
+                el.style.transform = 'translateX(' + (lado * 100) + '%)';
+            }
+
+            function animaModal() {
+                if (animando || mostrando === atual || !galeria.length) return;
+                const alvo = atual;
+
+                if (mostrando < 0) {
+                    // abrindo o modal: entra direto, sem deslizar
+                    frente.src = galeria[alvo];
+                    frente.classList.add('ativa');
+                    fundo.classList.remove('ativa');
+                    posiciona(frente, 0, false);
+                    posiciona(fundo, 1, false);
+                    mostrando = alvo;
+                    return;
+                }
+
+                animando = true;
+                fundo.src = galeria[alvo];
+                posiciona(fundo, direcao, false);
+                void fundo.offsetWidth; // aplica a posicao inicial antes de animar
+                posiciona(frente, -direcao, true);
+                posiciona(fundo, 0, true);
+                frente.classList.remove('ativa');
+                fundo.classList.add('ativa');
+
+                setTimeout(function () {
+                    const t = frente;
+                    frente = fundo;
+                    fundo = t;
+                    fundo.classList.remove('desliza');
+                    animando = false;
+                    mostrando = alvo;
+                    animaModal(); // alcanca o alvo se ele mudou no meio do caminho
+                }, DURACAO);
+            }
+
+            function mostraNoModal(indice, lado) {
                 if (!galeria.length) return;
                 atual = (indice + galeria.length) % galeria.length;
-                $('#modalImage').attr('src', galeria[atual]);
+                if (lado) direcao = lado;
                 sincronizaCarrossel();
+                animaModal();
             }
 
             $('.carousel-item img').on('click', function () {
@@ -67,10 +118,14 @@
 
             // cliques rapidos podem deixar uma troca de slide pela metade; ao fechar,
             // garante que o carrossel esta na imagem que estava no modal
-            $('#imageModal').on('hidden.bs.modal', sincronizaCarrossel);
+            $('#imageModal').on('hidden.bs.modal', function () {
+                sincronizaCarrossel();
+                mostrando = -1;
+            });
 
             $('#modalPrev, #modalNext').on('click', function () {
-                mostraNoModal(atual + (this.id === 'modalNext' ? 1 : -1));
+                const lado = this.id === 'modalNext' ? 1 : -1;
+                mostraNoModal(atual + lado, lado);
             });
 
             // clicar em qualquer lugar do modal fecha, menos nos botoes de navegacao
@@ -81,8 +136,8 @@
 
             $(document).on('keydown', function (e) {
                 if (galeria.length < 2 || !$('#imageModal').hasClass('show')) return;
-                if (e.key === 'ArrowRight') mostraNoModal(atual + 1);
-                if (e.key === 'ArrowLeft') mostraNoModal(atual - 1);
+                if (e.key === 'ArrowRight') mostraNoModal(atual + 1, 1);
+                if (e.key === 'ArrowLeft') mostraNoModal(atual - 1, -1);
             });
         });
         // Botão light e dark mode

@@ -118,10 +118,31 @@
             align-items: center;
         }
 
+        /* As duas imagens do modal ficam empilhadas e centralizadas; a troca
+           desliza na horizontal, com a mesma duração e curva do carrossel. */
+        #imageModal .imagem-modal {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #imageModal .imagem-modal.desliza {
+            transition: transform .6s ease-in-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #imageModal .imagem-modal.desliza {
+                transition: none;
+            }
+        }
+
         /* Botões de navegação dentro do modal de imagem ampliada */
         #imageModal .carousel-control-prev,
         #imageModal .carousel-control-next {
             opacity: .85;
+            z-index: 2;
         }
 
         #imageModal .carousel-control-prev:hover,
