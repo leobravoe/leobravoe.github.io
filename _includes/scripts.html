@@ -51,8 +51,8 @@
             // empilhadas, a que entra vem do lado para onde se esta indo e a que
             // sai vai para o lado oposto. A duracao acompanha o .6s do Bootstrap.
             const DURACAO = 600;
-            let frente = document.getElementById('modalImage');
-            let fundo = document.getElementById('modalImageB');
+            let frente = document.getElementById('modalImage').parentElement;
+            let fundo = document.getElementById('modalImageB').parentElement;
             let mostrando = -1;
             let direcao = 1;
             let animando = false;
@@ -68,7 +68,7 @@
 
                 if (mostrando < 0) {
                     // abrindo o modal: entra direto, sem deslizar
-                    frente.src = galeria[alvo];
+                    frente.firstElementChild.src = galeria[alvo];
                     frente.classList.add('ativa');
                     fundo.classList.remove('ativa');
                     posiciona(frente, 0, false);
@@ -78,7 +78,7 @@
                 }
 
                 animando = true;
-                fundo.src = galeria[alvo];
+                fundo.firstElementChild.src = galeria[alvo];
                 posiciona(fundo, direcao, false);
                 void fundo.offsetWidth; // aplica a posicao inicial antes de animar
                 posiciona(frente, -direcao, true);

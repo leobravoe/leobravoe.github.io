@@ -118,22 +118,30 @@
             align-items: center;
         }
 
-        /* As duas imagens do modal ficam empilhadas e centralizadas; a troca
-           desliza na horizontal, com a mesma duração e curva do carrossel. */
-        #imageModal .imagem-modal {
+        /* Cada imagem do modal mora num quadro do tamanho do modal, e e o quadro
+           que desliza. Deslizar a imagem direto nao serve: o translateX de 100%
+           anda a largura dela, entao uma imagem mais estreita que a tela ficaria
+           com uma parte ainda visivel na lateral. A duracao e a curva sao as
+           mesmas do carrossel. */
+        #imageModal .quadro-modal {
             position: absolute;
             inset: 0;
-            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #imageModal .quadro-modal img {
             max-width: 100%;
             max-height: 100%;
         }
 
-        #imageModal .imagem-modal.desliza {
+        #imageModal .quadro-modal.desliza {
             transition: transform .6s ease-in-out;
         }
 
         @media (prefers-reduced-motion: reduce) {
-            #imageModal .imagem-modal.desliza {
+            #imageModal .quadro-modal.desliza {
                 transition: none;
             }
         }

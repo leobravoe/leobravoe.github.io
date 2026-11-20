@@ -13,8 +13,12 @@
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">{{ t.modal.anterior }}</span>
                     </button>
-                    <img id="modalImage" src="" class="imagem-modal ativa" alt="{{ t.modal.imagem }}">
-                    <img id="modalImageB" src="" class="imagem-modal" alt="" aria-hidden="true">
+                    <div class="quadro-modal ativa">
+                        <img id="modalImage" src="" alt="{{ t.modal.imagem }}">
+                    </div>
+                    <div class="quadro-modal">
+                        <img id="modalImageB" src="" alt="" aria-hidden="true">
+                    </div>
                     <button id="modalNext" class="carousel-control-next bg-dark bg-opacity-10 d-none" type="button">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">{{ t.modal.proxima }}</span>
