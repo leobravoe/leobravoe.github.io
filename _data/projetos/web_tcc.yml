@@ -103,15 +103,73 @@ projetos:
         legenda:
           pt: "Diagrama de casos de uso"
           en: "Use case diagram"
+  - id: atendimento-psicologico
+    ano: 2023
+    secao: objetivo
+    titulo:
+      pt: "Sistema de Atendimento Psicológico"
+      en: "Psychological Care System"
+    titulo_curto:
+      pt: "Atendimento Psicológico"
+      en: "Psychological Care"
+    links:
+      - chave: tcc
+        href: "/portfolio/web/tcc/tcc-atendimento_psicologico-2023.pdf"
+    texto:
+      pt:
+        - >-
+          Desenvolver um protótipo de sistema para o agendamento dos atendimentos
+          psicológicos do IFSC, Câmpus Lages, no lugar do formulário eletrônico usado até
+          então, cuja dificuldade estava em transformar as respostas em planilhas. O
+          sistema reúne o cadastro de alunos e servidores, a solicitação e a confirmação
+          dos atendimentos, o envio de e-mails e a geração de relatórios, e foi construído
+          em PHP com o framework Laravel.
+      en:
+        - >-
+          Build a prototype system for scheduling the psychological care appointments at
+          IFSC, Lages Campus, replacing the online form used until then, whose weak point
+          was turning the answers into spreadsheets. The system brings together student
+          and staff registration, requesting and confirming appointments, sending e-mails
+          and generating reports, and was built in PHP with the Laravel framework.
+    carrossel: atendimento-psicologico
+    pasta: "/portfolio/web/tcc/img-atendimento_psicologico-2023"
+    largura: 1280
+    altura: 720
+    legenda_classe: "bg-dark bg-opacity-50 text-white"
+    imagens:
+      - arquivo: img0.webp
+        legenda:
+          pt: "Tela de acesso ao sistema."
+          en: "Sign-in screen."
+      - arquivo: img1.webp
+        legenda:
+          pt: "Formulário de cadastro de aluno."
+          en: "Student registration form."
+      - arquivo: img2.webp
+        legenda:
+          pt: "Formulário de cadastro de servidor."
+          en: "Staff registration form."
+      - arquivo: img3.webp
+        legenda:
+          pt: "Tela inicial do aluno, com as ações de atendimento."
+          en: "Student home screen, with the appointment actions."
+      - arquivo: img4.webp
+        legenda:
+          pt: "Tela inicial da psicóloga, com as solicitações e o cadastro de atendimentos."
+          en: "Psychologist home screen, with requests and appointment records."
+      - arquivo: img5.webp
+        legenda:
+          pt: "Diagrama do banco de dados do sistema."
+          en: "Database diagram of the system."
   - id: mudancafacil
-    ano: 2020
+    ano: 2021
     secao: objetivo
     titulo:
       pt: "Mudança Fácil"
       en: "Mudança Fácil"
     links:
       - chave: tcc
-        href: "/portfolio/web/tcc/tcc-mudancafacil-2020.pdf"
+        href: "/portfolio/web/tcc/tcc-mudancafacil-2021.pdf"
     texto:
       pt:
         - >-
@@ -123,7 +181,7 @@ projetos:
             Build a property rental system in which landlords can register the relevant
             information about their properties and prospective tenants can browse it.
     carrossel: mudancafacil
-    pasta: "/portfolio/web/tcc/img-mudancafacil-2020"
+    pasta: "/portfolio/web/tcc/img-mudancafacil-2021"
     largura: 1280
     altura: 720
     legenda_classe: "bg-dark bg-opacity-50 text-white"
