@@ -20,7 +20,7 @@ trilha:
   game: game
   web: web
   writing: writing
-  pesquisa: pesquisa
+  pesquisa: research
 
 modal:
   anterior: Imagem anterior
@@ -57,4 +57,4 @@ tag:
   game: game dev
   web: web dev
   writing: writing
-  pesquisa: pesquisa
+  pesquisa: research

@@ -33,9 +33,7 @@ secoes:
   - rota: pesquisa
     icone: fa-flask
     imagem: /img/research.webp
-    titulo:
-      pt: pesquisa
-      en: research
+    titulo: research
     alt:
       pt: "Pesquisa acadêmica"
       en: "Academic research"
