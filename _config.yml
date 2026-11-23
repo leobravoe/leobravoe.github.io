@@ -59,9 +59,9 @@ pessoa:
   instagram: https://www.instagram.com/leobravoe
   # Preencher com o endereco completo do perfil, por exemplo
   # https://orcid.org/0000-0000-0000-0000
-  orcid: ""
+  orcid: "https://orcid.org/0000-0001-5389-5803"
   # Por exemplo https://scholar.google.com/citations?user=XXXXXXXXXXXX
-  google_scholar: ""
+  google_scholar: "https://scholar.google.com/citations?user=sSz8d8IAAAAJ"
   # Por exemplo https://www.linkedin.com/in/leobravoe
   linkedin: ""
 
@@ -79,23 +79,8 @@ goatcounter: ""
 # workflow de deploy usa a chave para avisar Bing e cia. a cada publicacao.
 indexnow_key: 619e90f27a33141c4737a7618c3882f2
 
-# Posts do blog: ficam em _posts, em portugues por padrao. Post em ingles leva
-# "lang: en" e um permalink comecando com /en/blog/.
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      lang: pt
-      nav: blog
-      permalink: /blog/:year/:title/
-      breadcrumb:
-        - chave: blog
-          href: "/blog/"
-
-# O site é HTML puro: nada de Markdown nas páginas e nada de plugins (o feed e o
-# sitemap são feitos em Liquid). Os posts do blog podem ser em Markdown.
+# O site é HTML puro: nada de Markdown, plugins ou coleções (o sitemap é feito
+# em Liquid).
 plugins: []
 
 exclude:

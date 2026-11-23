@@ -3,7 +3,6 @@
   Sempre: Person, WebSite e a trilha (BreadcrumbList). Depois, conforme a página:
   - home e currículo: ProfilePage com a pessoa como mainEntity;
   - página de trabalho: WebPage + o trabalho (Thesis, Report, Book ou LearningResource);
-  - post: BlogPosting;
   - o resto: CollectionPage.
   Validar em https://search.google.com/test/rich-results e https://validator.schema.org
 {%- endcomment -%}
@@ -13,12 +12,16 @@
 {%- assign t = site.data.i18n[lang] | default: tp -%}
 {%- assign id_pessoa = '/#pessoa' | absolute_url -%}
 {%- assign url_pagina = page.url | absolute_url -%}
-{%- capture perfis -%}
-{%- for chave in "lattes,orcid,google_scholar,linkedin,github,youtube,instagram" | split: "," -%}
-{%- if p[chave] and p[chave] != "" -%}{{ p[chave] | jsonify }},{%- endif -%}
+{%- comment -%} O Liquid não aceita filtro dentro do "for": a lista vem pronta. {%- endcomment -%}
+{%- assign chaves_perfil = "lattes,orcid,google_scholar,linkedin,github,youtube,instagram" | split: "," -%}
+{%- assign perfis = "" -%}
+{%- for chave in chaves_perfil -%}
+{%- if p[chave] and p[chave] != "" -%}
+{%- if perfis != "" -%}{%- assign perfis = perfis | append: ", " -%}{%- endif -%}
+{%- assign item_perfil = p[chave] | jsonify -%}
+{%- assign perfis = perfis | append: item_perfil -%}
+{%- endif -%}
 {%- endfor -%}
-{%- endcapture -%}
-{%- assign perfis = perfis | split: "," | join: "," -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,21 +81,6 @@
       "dateModified": {{ page.atualizado | date_to_xmlschema | jsonify }},
 {%- endif %}
       "mainEntity": { "@id": {{ id_pessoa | jsonify }} }
-    }
-{%- elsif page.layout == "post" %}
-    {
-      "@type": "BlogPosting",
-      "@id": {{ url_pagina | append: '#post' | jsonify }},
-      "mainEntityOfPage": {{ url_pagina | jsonify }},
-      "headline": {{ page.title | jsonify }},
-      "description": {{ meta_desc | jsonify }},
-      "inLanguage": {{ idioma.html | jsonify }},
-      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-      "dateModified": {{ page.atualizado | default: page.date | date_to_xmlschema | jsonify }},
-      "image": {{ meta_img | absolute_url | jsonify }},
-      "author": { "@id": {{ id_pessoa | jsonify }} },
-      "publisher": { "@id": {{ id_pessoa | jsonify }} },
-      "isPartOf": { "@id": {{ '/#site' | absolute_url | jsonify }} }
     }
 {%- elsif trabalho or acad %}
 {%- case acad.tipo -%}

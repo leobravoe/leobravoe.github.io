@@ -7,7 +7,6 @@ trocar_idioma: Trocar idioma
 nav:
   curriculo: Currículo
   portfolio: Portfólio
-  blog: Blog
 
 rodape:
   inicio: Página inicial
@@ -22,7 +21,6 @@ trilha:
   web: web
   writing: writing
   pesquisa: research
-  blog: blog
 
 modal:
   anterior: Imagem anterior
@@ -77,10 +75,3 @@ academico:
   instituicao: Instituição
   titulo_original: Título original
 
-blog:
-  titulo: Blog
-  vazio: Ainda não há publicações.
-  publicado_em: Publicado em
-  ler: Ler o texto
-  todos: Todas as publicações
-  feed: Assinar o feed (Atom)

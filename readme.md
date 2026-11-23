@@ -22,8 +22,6 @@ O site é bilíngue. O português fica na raiz e o inglês em `/en/`.
 | `/portfolio/livros/` · `/en/…` | `portfolio/livros/index.html` · `en/portfolio/livros/index.html` | Livro de introdução a JavaScript |
 | `/portfolio/pesquisa/` · `/en/…` | `portfolio/pesquisa/index.html` · `en/portfolio/pesquisa/index.html` | Projetos de pesquisa e dissertação |
 | `/portfolio/<seção>/<trabalho>/` · `/en/…` | `portfolio/<seção>/<trabalho>/index.html` | Página própria de cada trabalho |
-| `/blog/` · `/en/blog/` | `blog/index.html` · `en/blog/index.html` | Lista de posts (fica com `noindex` enquanto não houver post) |
-| — | `feed.xml` | Feed Atom dos posts |
 | — | `404.html` | Página de erro, nos dois idiomas |
 
 Cada arquivo de página tem só o front matter e o conteúdo do seu cartão. Cabeçalho, barra
@@ -40,8 +38,7 @@ texto escrito à mão na própria página (`portfolio/pesquisa/<trabalho>/index.
 ├── _config.yml                 configuração do Jekyll e a lista de idiomas
 ├── _layouts/
 │   ├── default.html            a casca de todas as páginas
-│   ├── trabalho.html           página de um trabalho do portfólio
-│   └── post.html               post do blog
+│   └── trabalho.html           página de um trabalho do portfólio
 ├── _includes/
 │   ├── head.html               título, descrição, canonical, hreflang, Open Graph, verificações
 │   ├── meta-pagina.html        calcula título, descrição e o trabalho da página atual
@@ -76,8 +73,6 @@ texto escrito à mão na própria página (`portfolio/pesquisa/<trabalho>/index.
 ├── portfolio/game/tcc/         PDFs e pastas img-<projeto> (compartilhados)
 ├── assets/js/site.js           tooltips, modal e tema (carregado com defer)
 ├── img/                        foto, ilustrações, prévias sociais (og-*.png) e ícones
-├── _posts/ · _drafts/          posts do blog e rascunhos (rascunho não é publicado)
-├── feed.xml                    feed Atom, em Liquid
 ├── site.webmanifest            nome e ícones do site
 ├── <chave>.txt                 chave do IndexNow (o nome é o valor de indexnow_key)
 ├── 404.html
@@ -255,7 +250,7 @@ O que o site já entrega sozinho:
 - **Google Scholar** (`_includes/scholar.html`): meta tags `citation_*` nas páginas de trabalho em
   português. O Scholar pede um trabalho por URL, PDF com texto pesquisável e até 5 MB.
 - **Prévia de compartilhamento** de 1200×630 por idioma (`img/og-pt.png`, `img/og-en.png`).
-- **Sitemap com `lastmod`**, feed Atom e IndexNow no deploy (avisa Bing e cia.).
+- **Sitemap com `lastmod`** e IndexNow no deploy (avisa Bing e cia.).
 
 O que depende de você, no `_config.yml`:
 
@@ -272,13 +267,6 @@ renderizado). Para validar o JSON-LD: <https://search.google.com/test/rich-resul
 
 **PDFs.** Mantenha cada PDF abaixo de 5 MB e com Título e Autor preenchidos nas propriedades
 do arquivo: o Google usa isso como título no resultado, e o Scholar ignora arquivo maior.
-
-## Blog
-
-Posts ficam em `_posts/AAAA-MM-DD-titulo.md`, em Markdown, com `title` e `description` no front
-matter. Português é o padrão; post em inglês leva `lang: en` e `permalink: /en/blog/AAAA/titulo/`.
-O link "Blog" só aparece na navbar, e a página `/blog/` só entra no sitemap, quando existe pelo
-menos um post no idioma. Rascunhos ficam em `_drafts/` e não são publicados.
 
 ## Adicionando um projeto
 

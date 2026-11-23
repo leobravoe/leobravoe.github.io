@@ -2,10 +2,6 @@
 {%- assign irmas = empty -%}
 {%- if page.ref -%}{%- assign irmas = site.pages | where: 'ref', page.ref -%}{%- endif -%}
 {%- assign sem_indice = page.noindex -%}
-{%- if page.lista_posts -%}
-{%- assign posts_idioma = site.posts | where: 'lang', lang -%}
-{%- if posts_idioma.size == 0 -%}{%- assign sem_indice = true -%}{%- endif -%}
-{%- endif -%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ meta_titulo }}</title>
@@ -36,15 +32,10 @@
     <link rel="apple-touch-icon" href="{{ '/img/apple-touch-icon.png' | relative_url }}">
     <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
     <meta name="theme-color" content="#212529">
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
 {%- if page.nav == "home" and sem_indice != true %}
     <meta property="og:type" content="profile">
     <meta property="profile:first_name" content="{{ site.pessoa.primeiro_nome }}">
     <meta property="profile:last_name" content="{{ site.pessoa.sobrenome }}">
-{%- elsif page.layout == "post" %}
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
-    <meta property="article:author" content="{{ '/' | absolute_url }}">
 {%- else %}
     <meta property="og:type" content="website">
 {%- endif %}
