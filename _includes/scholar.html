@@ -18,6 +18,8 @@
     <meta name="citation_dissertation_institution" content="{{ acad.instituicao }}">
 {%- elsif acad.tipo == 'relatorio' %}
     <meta name="citation_technical_report_institution" content="{{ acad.instituicao }}">
+{%- elsif acad.tipo == 'anais' %}
+    <meta name="citation_conference_title" content="{{ acad.evento | replace: '"', '&quot;' }}">
 {%- endif %}
 {%- if acad.palavras_chave %}
     <meta name="citation_keywords" content="{{ acad.palavras_chave | join: '; ' }}">

@@ -86,6 +86,7 @@
 {%- case acad.tipo -%}
 {%- when 'tcc', 'dissertacao' -%}{%- assign tipo_obra = 'Thesis' -%}
 {%- when 'relatorio' -%}{%- assign tipo_obra = 'Report' -%}
+{%- when 'anais' -%}{%- assign tipo_obra = 'ScholarlyArticle' -%}
 {%- when 'livro' -%}{%- assign tipo_obra = 'Book' -%}
 {%- else -%}{%- assign tipo_obra = 'LearningResource' -%}
 {%- endcase -%}
