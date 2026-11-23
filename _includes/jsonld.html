@@ -127,12 +127,12 @@
       "encoding": { "@type": "MediaObject", "contentUrl": {{ pdf | absolute_url | jsonify }}, "encodingFormat": "application/pdf" },
 {%- endif %}
 {%- if acad.orientador %}
-      "contributor": [{% if acad.orientador == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ acad.orientador | jsonify }} }{% endif %}{% if acad.coorientador %}, { "@type": "Person", "name": {{ acad.coorientador | jsonify }} }{% endif %}],
+      "contributor": [{% if acad.orientador == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ acad.orientador | jsonify }}{% if site.data.pessoas.lattes[acad.orientador] %}, "sameAs": {{ site.data.pessoas.lattes[acad.orientador] | prepend: "https://lattes.cnpq.br/" | jsonify }}{% endif %} }{% endif %}{% if acad.coorientador %}, { "@type": "Person", "name": {{ acad.coorientador | jsonify }} }{% endif %}],
 {%- elsif acad.autores contains p.nome %}
 {%- else %}
       "contributor": { "@id": {{ id_pessoa | jsonify }} },
 {%- endif %}
-      "author": [{% if acad.autores %}{% for a in acad.autores %}{% if a == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ a | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{ "@id": {{ id_pessoa | jsonify }} }{% endif %}]
+      "author": [{% if acad.autores %}{% for a in acad.autores %}{% if a == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ a | jsonify }}{% if site.data.pessoas.lattes[a] %}, "sameAs": {{ site.data.pessoas.lattes[a] | prepend: "https://lattes.cnpq.br/" | jsonify }}{% endif %} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{ "@id": {{ id_pessoa | jsonify }} }{% endif %}]
     }
 {%- else %}
     {

@@ -1,0 +1,42 @@
+# Identificadores públicos do Currículo Lattes (lattes.cnpq.br/<id>) de quem
+# aparece como autor, coautor ou orientador no site. Só entra quem foi
+# identificado como coautor no próprio Lattes do titular (busca na Base Lattes
+# com nome completo idêntico e registro único). Quem não está aqui aparece
+# sem link. A chave é o nome exatamente como está escrito nas páginas e nos
+# dados; variações do mesmo nome repetem o mesmo identificador.
+lattes:
+  "Leonardo Bravo Estácio": "4699243034581879"
+  "Aiesa Moraes Rosa": "5763373351232909"
+  "Ailton Durigon": "2436082031816770"
+  "Alexandre Perin de Souza": "9919932195322006"
+  "Ana Maria Martins Roeber": "6076645473001496"
+  "André Salvaro Furtado": "3297807637570938"
+  "Artur Mihok": "2757549868857821"
+  "Artur Mihok Cunha": "2757549868857821"
+  "Beatriz Landigraf Rios dos Santos": "8599741007720670"
+  "Breno Rocha Maia": "3612352517855193"
+  "Breno R. Maia": "3612352517855193"
+  "Bruno de Almeida Casas": "0540297296441683"
+  "Caio Picinini Pagliosa": "6569597096476395"
+  "Carlos Andres Ferrero": "9375515251716708"
+  "Claudia Regina Tinós Peviani": "4063268902126144"
+  "Eduardo Moreira de Jesus": "2542715508081172"
+  "Elias Salomão Helou Neto": "5434724108176150"
+  "Fabricio Iaronka de Souza": "4064162003941394"
+  "Fernando Weber Albiero": "8071583027442465"
+  "Igor Minerva": "1603227135705138"
+  "Irene Magalhães Craveiro": "3816000897725516"
+  "Luisa Farias de Macedo": "1807228280478612"
+  "Luisa F. Macedo": "1807228280478612"
+  "Maria Fernanda de Abreu Aguiar": "6303793407470854"
+  "Murilo Táparo": "5460572144651354"
+  "Narcimário Pereira Coelho": "6654395428793649"
+  "Neylson de Oliveira Gularte": "9113750875211211"
+  "Paula Clarice Santos Grazziotin de Jesus": "2859418159114172"
+  "Selma Helena Marchiori Hashimoto": "0451036002830451"
+  "Silvério Luiz de Sousa": "0788268046659045"
+  "Vilma Gisele Karsburg": "4572175405573685"
+  "Vinicius Souza Corbellini": "8148749558165117"
+  "Vinícius Souza Corbellini": "8148749558165117"
+  "Wesley Monaris Rodrigues": "1723284387302112"
+  "Wilson Castello Branco Neto": "7359270434823021"

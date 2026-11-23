@@ -53,6 +53,8 @@ texto escrito à mão na própria página (`portfolio/pesquisa/<trabalho>/index.
 │   ├── projeto.html            desenha um projeto inteiro a partir dos dados
 │   ├── lista-trabalhos.html    cartões de uma seção, cada um levando ao trabalho
 │   ├── cartao-trabalho.html    um cartão de trabalho
+│   ├── pessoa.html             um nome, com link para o Lattes quando houver
+│   ├── autores.html            lista de autores usando pessoa.html
 │   ├── cartoes-portfolio.html  os quatro cartões da página de portfólio
 │   ├── footer.html             rodapé
 │   └── image-modal.html        modal da imagem ampliada
@@ -65,6 +67,7 @@ texto escrito à mão na própria página (`portfolio/pesquisa/<trabalho>/index.
 │   │   ├── web_tcc.yml         TCCs de web
 │   │   ├── web_aula.yml        projetos de web usados em aula
 │   │   └── livros.yml          livros
+│   ├── pessoas.yml             identificadores Lattes de autores e orientadores (vira link)
 │   └── secoes.yml              os quatro cartões do portfólio
 ├── index.html                  páginas em português
 ├── curriculo/index.html

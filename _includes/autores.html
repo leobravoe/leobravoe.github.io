@@ -1,0 +1,8 @@
+{%- comment -%}
+  Lista de autores, cada um com link para o Lattes quando houver.
+  Uso: {% include autores.html lista=page.academico.autores sep="; " %}
+{%- endcomment -%}
+{%- assign sep = include.sep | default: ', ' -%}
+{%- for a in include.lista -%}
+{%- include pessoa.html nome=a -%}{%- unless forloop.last -%}{{ sep }}{%- endunless -%}
+{%- endfor -%}

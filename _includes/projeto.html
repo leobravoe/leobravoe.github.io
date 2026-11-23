@@ -23,11 +23,11 @@
                                         <dl class="row small text-body-secondary mb-2">
 {%- if ac.autores %}
                                             <dt class="col-sm-3">{{ t.academico.autoria | default: tp.academico.autoria }}</dt>
-                                            <dd class="col-sm-9 mb-1">{{ ac.autores | join: ', ' }}</dd>
+                                            <dd class="col-sm-9 mb-1">{% include autores.html lista=ac.autores %}</dd>
 {%- endif %}
 {%- if ac.orientador %}
                                             <dt class="col-sm-3">{{ t.academico.orientacao | default: tp.academico.orientacao }}</dt>
-                                            <dd class="col-sm-9 mb-1">{{ ac.orientador }}{% if ac.coorientador %} ({{ t.academico.coorientacao | default: tp.academico.coorientacao }}: {{ ac.coorientador }}){% endif %}</dd>
+                                            <dd class="col-sm-9 mb-1">{% include pessoa.html nome=ac.orientador %}{% if ac.coorientador %} ({{ t.academico.coorientacao | default: tp.academico.coorientacao }}: {% include pessoa.html nome=ac.coorientador %}){% endif %}</dd>
 {%- endif %}
 {%- if ac.instituicao %}
                                             <dt class="col-sm-3">{{ t.academico.instituicao | default: tp.academico.instituicao }}</dt>
