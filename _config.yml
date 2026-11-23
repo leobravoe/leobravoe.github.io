@@ -1,10 +1,13 @@
 title: Leonardo Bravo Estácio
 author: Leonardo Bravo Estácio
+description: "Site pessoal de Leonardo Bravo Estácio, professor do IFSC e mestre em Ciências pela USP."
 url: https://leobravoe.github.io
 baseurl: ""
 lang: pt-br
+timezone: America/Sao_Paulo
 
 # Idiomas do site. O primeiro e o padrao e fica na raiz; os outros ganham prefixo.
+# "og_imagem" e a previa de compartilhamento (1200x630) de cada idioma.
 idiomas:
   - codigo: pt
     nome: Português
@@ -13,6 +16,7 @@ idiomas:
     og: pt_BR
     bandeira: br
     prefixo: ""
+    og_imagem: /img/og-pt.png
   - codigo: en
     nome: English
     sigla: EN
@@ -20,11 +24,78 @@ idiomas:
     og: en_US
     bandeira: us
     prefixo: /en
+    og_imagem: /img/og-en.png
 
-# Imagem usada nas prévias de Open Graph e Twitter Card.
-social_image: /img/foto_200.png
+# Dados da pessoa, usados no JSON-LD (Person/ProfilePage) e na barra lateral.
+# Perfis com valor vazio nao aparecem em lugar nenhum: basta preencher para
+# o link entrar na barra lateral e no "sameAs" do JSON-LD.
+pessoa:
+  nome: Leonardo Bravo Estácio
+  primeiro_nome: Leonardo
+  sobrenome: Bravo Estácio
+  email: leonardo.bravo@ifsc.edu.br
+  foto: /img/foto_200.png
+  cargo:
+    pt: Professor EBTT de Computação
+    en: Computing Professor (EBTT)
+  instituicao:
+    nome: Instituto Federal de Santa Catarina (IFSC) — Câmpus Gaspar
+    url: https://www.ifsc.edu.br/web/campus-gaspar
+  formacao:
+    - nome: Universidade de São Paulo (USP)
+      url: https://www.usp.br
+    - nome: Centro Universitário da Grande Dourados (UNIGRAN)
+      url: https://www.unigran.br
+  conhecimentos:
+    - Desenvolvimento web
+    - Avaliação de desempenho de APIs
+    - Jogos digitais
+    - Tecnologias educacionais
+    - Computação paralela
+    - Reconstrução tomográfica
+  lattes: https://lattes.cnpq.br/4699243034581879
+  github: https://github.com/leobravoe
+  youtube: https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ
+  instagram: https://www.instagram.com/leobravoe
+  # Preencher com o endereco completo do perfil, por exemplo
+  # https://orcid.org/0000-0000-0000-0000
+  orcid: ""
+  # Por exemplo https://scholar.google.com/citations?user=XXXXXXXXXXXX
+  google_scholar: ""
+  # Por exemplo https://www.linkedin.com/in/leobravoe
+  linkedin: ""
 
-# O site é HTML puro: nada de Markdown, plugins ou coleções.
+# Codigos de verificacao. Vazio = a meta tag nao e gerada.
+# Google Search Console: so o valor de content da meta tag google-site-verification.
+# Bing Webmaster Tools: so o valor de content da meta tag msvalidate.01.
+verificacao:
+  google: ""
+  bing: ""
+
+# Codigo do GoatCounter (o "xxx" de xxx.goatcounter.com). Vazio = sem analytics.
+goatcounter: ""
+
+# Chave do IndexNow. O arquivo com o mesmo nome (.txt) fica na raiz do site, e o
+# workflow de deploy usa a chave para avisar Bing e cia. a cada publicacao.
+indexnow_key: 619e90f27a33141c4737a7618c3882f2
+
+# Posts do blog: ficam em _posts, em portugues por padrao. Post em ingles leva
+# "lang: en" e um permalink comecando com /en/blog/.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: pt
+      nav: blog
+      permalink: /blog/:year/:title/
+      breadcrumb:
+        - chave: blog
+          href: "/blog/"
+
+# O site é HTML puro: nada de Markdown nas páginas e nada de plugins (o feed e o
+# sitemap são feitos em Liquid). Os posts do blog podem ser em Markdown.
 plugins: []
 
 exclude:

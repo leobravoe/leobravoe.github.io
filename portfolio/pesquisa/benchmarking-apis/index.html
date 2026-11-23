@@ -1,0 +1,118 @@
+---
+layout: trabalho
+lang: pt
+ref: trabalho-pesquisa-benchmarking-apis
+sitemap: true
+atualizado: 2026-11-22
+title: "Benchmarking de APIs em Diferentes Ambientes de Programação (2025) — Leonardo Bravo Estácio"
+description: "Implementar uma API RESTful funcionalmente equivalente em diferentes linguagens, seguindo a mesma especificação e a mesma arquitetura. Cada variante foi…"
+titulo_curto: "Benchmarking de APIs"
+grupo: pesquisa
+ordem: 1
+ano: 2025
+subtitulo: "Projeto de Pesquisa — Iniciação Científica (2025)"
+resumo: "Implementar uma API RESTful funcionalmente equivalente em diferentes linguagens, seguindo a mesma especificação e a mesma arquitetura. Cada variante foi executada em duas instâncias, atrás de um balanceador de carga com algoritmo round-robin e sobre um banco PostgreSQL compartilhado, com limites idênticos de processamento e memória, de modo a assegurar condições operacionais uniformes. Sobre esse ambiente foram executados testes de carga com alto volume de requisições concorrentes, repetidos para garantir validade estatística, medindo latência, taxa de erros, consistência dos dados e consumo de CPU e memória. O objetivo é gerar evidências empíricas para apoiar a escolha de linguagens e tecnologias no desenvolvimento de APIs escaláveis, eficientes e resilientes."
+imagem: /img/research.webp
+academico:
+  tipo: relatorio
+  titulo: "Benchmarking de APIs em Diferentes Ambientes de Programação — Sistema Financeiro de Débitos e Créditos"
+  autores:
+    - "Leonardo Bravo Estácio"
+    - "Fabricio Iaronka de Souza"
+    - "Vinicius Souza Corbellini"
+  instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+  palavras_chave:
+    - "Benchmarking de Software"
+    - "Desempenho de APIs"
+    - "APIs RESTful"
+    - "Testes de Carga"
+    - "Escalabilidade de Sistemas"
+  pdf: /portfolio/pesquisa/relatorios/relatorio-final-benchmarking-apis-2025.pdf
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: pesquisa
+    href: "/portfolio/pesquisa/"
+  - texto: "Benchmarking de APIs"
+---
+                                <p class="text-body-secondary mb-1">Projeto de Pesquisa &mdash; Iniciação Científica (2025)</p>
+                                <h1 class="h3 mb-3">Benchmarking de APIs em Diferentes Ambientes de Programação &mdash; Sistema Financeiro de Débitos e Créditos</h1>
+                                <a href="/portfolio/pesquisa/relatorios/relatorio-final-benchmarking-apis-2025.pdf"
+                                    target="_blank" rel="noopener" class="btn btn-success mb-2">Link para o
+                                    relatório final</a>
+                                <h2 class="h5 mt-3">Dados do trabalho:</h2>
+                                <table class="table table-bordered align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-3">Instituição</td>
+                                            <td class="col-9">Instituto Federal
+                                                de Educação, Ciência e Tecnologia de Santa Catarina (IFSC)
+                                                &mdash; Câmpus Lages</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Programa</td>
+                                            <td class="col-9">Iniciação
+                                                Científica &mdash; Edital nº 04/2024/PROPPI (Fluxo Contínuo)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Coordenação</td>
+                                            <td class="col-9">Leonardo Bravo
+                                                Estácio</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Discentes pesquisadores</td>
+                                            <td class="col-9">Fabricio Iaronka de
+                                                Souza e Vinicius Souza Corbellini</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Período</td>
+                                            <td class="col-9">Julho a dezembro de
+                                                2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Palavras-chave</td>
+                                            <td class="col-9">Benchmarking de
+                                                Software; Desempenho de APIs; APIs RESTful; Testes de Carga;
+                                                Escalabilidade de Sistemas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h2 class="h5 mt-3">Resumo:</h2>
+                                <p>
+                                    Implementar uma API RESTful funcionalmente equivalente em diferentes
+                                    linguagens, seguindo a mesma especificação e a mesma arquitetura. Cada
+                                    variante foi executada em duas instâncias, atrás de um balanceador de
+                                    carga com algoritmo <em>round-robin</em> e sobre um banco PostgreSQL
+                                    compartilhado, com limites idênticos de processamento e memória, de modo
+                                    a assegurar condições operacionais uniformes. Sobre esse ambiente foram
+                                    executados testes de carga com alto volume de requisições concorrentes,
+                                    repetidos para garantir validade estatística, medindo latência, taxa de
+                                    erros, consistência dos dados e consumo de CPU e memória. O objetivo é
+                                    gerar evidências empíricas para apoiar a escolha de linguagens e
+                                    tecnologias no desenvolvimento de APIs escaláveis, eficientes e
+                                    resilientes.
+                                </p>
+                                <h2 class="h5 mt-3">Resultados:</h2>
+                                <p>
+                                    Foram entregues quatro implementações equivalentes da API
+                                    (Java/GraalVM/Quarkus, JavaScript/Node/Fastify, Python/Uvicorn/FastAPI e
+                                    Rust/Tokio/Axum), executadas em duas instâncias balanceadas por Nginx
+                                    sobre um mesmo SGBD relacional. As campanhas de teste, conduzidas com
+                                    Gatling em fases de aquecimento, regime permanente e resfriamento,
+                                    produziram séries de latência (p50, p95 e p99), <em>throughput</em>, taxa
+                                    de erros e uso de recursos, analisadas com testes não paramétricos e
+                                    intervalos de confiança por <em>bootstrap</em>. Os resultados indicam que
+                                    conexões persistentes, uso de <em>prepared statements</em> e calibração do
+                                    <em>pool</em> de conexões reduzem as latências de cauda e a variabilidade
+                                    sob pressão, e que o formato de transporte e a serialização podem
+                                    deslocar significativamente o p95 e o p99 mesmo com o banco e o conjunto
+                                    de operações mantidos constantes.
+                                </p>
+                                <h2 class="h5 mt-3">Divulgação:</h2>
+                                <p>
+                                    O trabalho foi apresentado em vídeo e pôster na VII Mostra 3 Minutos de
+                                    Ciência e Tecnologia, integrante da 22ª Semana Nacional de Ciência e
+                                    Tecnologia, promovida pelo IFSC (Câmpus Lages e Urupema), em 4 de
+                                    novembro de 2025.
+                                </p>

@@ -3,6 +3,17 @@
 projetos:
   - id: discmath
     ano: 2025
+    slug: discmath
+    academico:
+      tipo: tcc
+      titulo: "DiscMath: um Aplicativo Educacional para o Ensino de Conteúdos de Matemática Discreta"
+      autores:
+        - "Caio Picinini Pagliosa"
+        - "Eduardo Moreira de Jesus"
+        - "Vilma Gisele Karsburg"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: objetivo
     titulo:
       pt: "DiscMath"
@@ -47,6 +58,16 @@ projetos:
           en: "Rooms module: creating a room, running the match and the player ranking"
   - id: booklist
     ano: 2023
+    slug: booklist
+    academico:
+      tipo: tcc
+      titulo: "BookList: Sistema Web para Organização e Controle de Leituras"
+      autores:
+        - "Victor H. Muniz"
+        - "Jayme Rebula Klein P. Silva"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: objetivo
     titulo:
       pt: "BookList"
@@ -105,6 +126,17 @@ projetos:
           en: "Use case diagram"
   - id: atendimento-psicologico
     ano: 2023
+    slug: atendimento-psicologico
+    academico:
+      tipo: tcc
+      titulo: "Protótipo de Sistema de Atendimento Psicológico para o Instituto Federal de Santa Catarina Câmpus Lages"
+      autores:
+        - "Carla N. S. Ramos"
+        - "Jaqueline C. de Oliveira"
+        - "Fábio A. Sperotto"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: objetivo
     titulo:
       pt: "Sistema de Atendimento Psicológico"
@@ -163,6 +195,16 @@ projetos:
           en: "Database diagram of the system."
   - id: mudancafacil
     ano: 2021
+    slug: mudanca-facil
+    academico:
+      tipo: tcc
+      titulo: "Sistema para Auxiliar na Mudança de Imóveis"
+      autores:
+        - "Cesar H. Sousa"
+        - "Keila D. Fernandes"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: objetivo
     titulo:
       pt: "Mudança Fácil"

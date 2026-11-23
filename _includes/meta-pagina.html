@@ -1,0 +1,31 @@
+{%- comment -%}
+  Calcula o título, a descrição e o trabalho (quando a página é de um projeto)
+  da página atual. As variáveis ficam disponíveis para quem incluiu este
+  arquivo: head.html, jsonld.html, scholar.html e breadcrumb.html.
+
+  Página de projeto: front matter com "fonte" (o arquivo em _data/projetos) e
+  "projeto" (o id). Título e descrição saem dos dados, para não repetir nada.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- assign trabalho = nil -%}
+{%- assign acad = page.academico -%}
+{%- assign meta_titulo = page.title -%}
+{%- assign meta_desc = page.description -%}
+{%- assign meta_curto = page.titulo_curto | default: page.title -%}
+{%- if page.projeto and page.fonte -%}
+{%- assign trabalho = site.data.projetos[page.fonte].projetos | where: 'id', page.projeto | first -%}
+{%- endif -%}
+{%- if trabalho -%}
+{%- assign acad = trabalho.academico -%}
+{%- assign tt = trabalho.titulo[lang] | default: trabalho.titulo.pt -%}
+{%- if trabalho.titulo_curto -%}
+{%- assign meta_curto = trabalho.titulo_curto[lang] | default: trabalho.titulo_curto.pt -%}
+{%- else -%}
+{%- assign meta_curto = tt -%}
+{%- endif -%}
+{%- capture meta_titulo -%}{{ tt }} ({{ trabalho.ano }}) — Leonardo Bravo Estácio{%- endcapture -%}
+{%- assign paragrafos = trabalho.texto[lang] | default: trabalho.texto.pt -%}
+{%- assign meta_desc = paragrafos | first | strip_html | strip_newlines | normalize_whitespace | truncate: 160 | replace: '"', '&quot;' -%}
+{%- endif -%}
+{%- assign meta_img = idioma.og_imagem | default: site.social_image -%}

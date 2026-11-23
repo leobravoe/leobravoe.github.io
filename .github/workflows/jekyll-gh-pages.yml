@@ -49,3 +49,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Avisa Bing, Yandex, Seznam e cia. (IndexNow) que as páginas do sitemap
+  # mudaram, logo depois do deploy. O Google não usa IndexNow: para ele valem o
+  # sitemap e o Search Console. Uma falha aqui não derruba a publicação.
+  indexnow:
+    runs-on: ubuntu-latest
+    needs: deploy
+    continue-on-error: true
+    steps:
+      - name: Enviar URLs do sitemap ao IndexNow
+        env:
+          HOST: leobravoe.github.io
+          KEY: 619e90f27a33141c4737a7618c3882f2
+        run: |
+          urls=$(curl -fsSL "https://$HOST/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+' | jq -R . | jq -sc .)
+          body=$(jq -nc --arg host "$HOST" --arg key "$KEY" --argjson urls "$urls" \
+            '{host: $host, key: $key, keyLocation: "https://\($host)/\($key).txt", urlList: $urls}')
+          curl -sS -o /dev/null -w "IndexNow: HTTP %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$body"

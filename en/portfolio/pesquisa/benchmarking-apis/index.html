@@ -1,0 +1,115 @@
+---
+layout: trabalho
+lang: en
+ref: trabalho-pesquisa-benchmarking-apis
+sitemap: true
+atualizado: 2026-11-22
+title: "Benchmarking APIs across Different Programming Environments (2025) — Leonardo Bravo Estácio"
+description: "Implement a functionally equivalent RESTful API in several languages, following the same specification and the same architecture. Each variant ran on two…"
+titulo_curto: "API Benchmarking"
+grupo: pesquisa
+ordem: 1
+ano: 2025
+subtitulo: "Research Project — Undergraduate Research (2025)"
+resumo: "Implement a functionally equivalent RESTful API in several languages, following the same specification and the same architecture. Each variant ran on two instances, behind a load balancer using round-robin and over a shared PostgreSQL database, with identical CPU and memory limits, so that operating conditions stayed uniform. Load tests with a high volume of concurrent requests were run on that environment and repeated to ensure statistical validity, measuring latency, error rate, data consistency and CPU and memory usage. The goal is to produce empirical evidence to support the choice of languages and technologies when building scalable, efficient and resilient APIs."
+imagem: /img/research.webp
+academico:
+  tipo: relatorio
+  titulo: "Benchmarking de APIs em Diferentes Ambientes de Programação — Sistema Financeiro de Débitos e Créditos"
+  autores:
+    - "Leonardo Bravo Estácio"
+    - "Fabricio Iaronka de Souza"
+    - "Vinicius Souza Corbellini"
+  instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+  palavras_chave:
+    - "Benchmarking de Software"
+    - "Desempenho de APIs"
+    - "APIs RESTful"
+    - "Testes de Carga"
+    - "Escalabilidade de Sistemas"
+  pdf: /portfolio/pesquisa/relatorios/relatorio-final-benchmarking-apis-2025.pdf
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: pesquisa
+    href: "/portfolio/pesquisa/"
+  - texto: "API Benchmarking"
+---
+                                <p class="text-body-secondary mb-1">Research Project &mdash; Undergraduate Research (2025)</p>
+                                <h1 class="h3 mb-3">Benchmarking APIs across Different Programming Environments &mdash; A Financial System of Debits and Credits</h1>
+                                <a href="/portfolio/pesquisa/relatorios/relatorio-final-benchmarking-apis-2025.pdf"
+                                    target="_blank" rel="noopener" class="btn btn-success mb-2">Final report
+                                    (PDF, in Portuguese)</a>
+                                <h2 class="h5 mt-3">Project data:</h2>
+                                <table class="table table-bordered align-middle">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-3">Institution</td>
+                                            <td class="col-9">Federal Institute of
+                                                Education, Science and Technology of Santa Catarina (IFSC)
+                                                &mdash; Lages Campus</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Programme</td>
+                                            <td class="col-9">Undergraduate
+                                                Research &mdash; Call no. 04/2024/PROPPI (rolling admission)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Coordination</td>
+                                            <td class="col-9">Leonardo Bravo
+                                                Estácio</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Student researchers</td>
+                                            <td class="col-9">Fabricio Iaronka de
+                                                Souza and Vinicius Souza Corbellini</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Period</td>
+                                            <td class="col-9">July to December
+                                                2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-3">Keywords</td>
+                                            <td class="col-9">Software
+                                                Benchmarking; API Performance; RESTful APIs; Load Testing;
+                                                System Scalability</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h2 class="h5 mt-3">Summary:</h2>
+                                <p>
+                                    Implement a functionally equivalent RESTful API in several languages,
+                                    following the same specification and the same architecture. Each variant
+                                    ran on two instances, behind a load balancer using round-robin and over a
+                                    shared PostgreSQL database, with identical CPU and memory limits, so that
+                                    operating conditions stayed uniform. Load tests with a high volume of
+                                    concurrent requests were run on that environment and repeated to ensure
+                                    statistical validity, measuring latency, error rate, data consistency and
+                                    CPU and memory usage. The goal is to produce empirical evidence to support
+                                    the choice of languages and technologies when building scalable, efficient
+                                    and resilient APIs.
+                                </p>
+                                <h2 class="h5 mt-3">Results:</h2>
+                                <p>
+                                    Four equivalent implementations of the API were delivered
+                                    (Java/GraalVM/Quarkus, JavaScript/Node/Fastify, Python/Uvicorn/FastAPI and
+                                    Rust/Tokio/Axum), running on two instances balanced by Nginx over the same
+                                    relational database. The test campaigns, run with Gatling in warm-up,
+                                    steady-state and cool-down phases, produced series of latency (p50, p95 and
+                                    p99), throughput, error rate and resource usage, analysed with
+                                    non-parametric tests and bootstrap confidence intervals. The results show
+                                    that persistent connections, prepared statements and a well-tuned
+                                    connection pool reduce tail latency and variability under pressure, and
+                                    that the transport format and serialisation can shift p95 and p99
+                                    substantially even with the database and the mix of operations held
+                                    constant.
+                                </p>
+                                <h2 class="h5 mt-3">Dissemination:</h2>
+                                <p>
+                                    The work was presented as a video and a poster at the 7th &ldquo;3 Minutes
+                                    of Science and Technology&rdquo; Showcase, part of the 22nd National
+                                    Science and Technology Week, held by IFSC (Lages and Urupema campuses), on
+                                    4 November 2025.
+                                </p>

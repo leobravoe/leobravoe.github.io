@@ -1,13 +1,19 @@
 ---
-# Gerado a partir das páginas que têm sitemap_freq no front matter.
+# Gerado a partir das páginas com "sitemap: true" no front matter e dos posts.
 # Cada URL lista as suas traduções em xhtml:link, como o Google pede.
+# O Google ignora changefreq e priority; o que ele usa é o lastmod, que sai do
+# campo "atualizado" (ou da data do post). Atualize esse campo ao mexer na página.
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{%- assign publicas = site.pages | where_exp: "p", "p.sitemap_freq" | sort: "url" -%}
+{%- assign publicas = site.pages | where: "sitemap", true | sort: "url" -%}
 {%- for p in publicas %}
+{%- if p.lista_posts -%}{%- assign posts_idioma = site.posts | where: 'lang', p.lang -%}{%- if posts_idioma.size == 0 -%}{%- continue -%}{%- endif -%}{%- endif %}
     <url>
         <loc>{{ p.url | absolute_url }}</loc>
+{%- if p.atualizado %}
+        <lastmod>{{ p.atualizado | date: "%Y-%m-%d" }}</lastmod>
+{%- endif -%}
 {%- assign irmas = site.pages | where: "ref", p.ref -%}
 {%- if irmas.size > 1 -%}
 {%- for i in site.idiomas %}{% for irma in irmas %}{% if irma.lang == i.codigo %}
@@ -18,8 +24,12 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="{{ irma.url | absolute_url }}" />
 {%- endif %}{% endfor %}
 {%- endif %}
-        <changefreq>{{ p.sitemap_freq }}</changefreq>
-        <priority>{{ p.sitemap_prio }}</priority>
+    </url>
+{%- endfor %}
+{%- for post in site.posts %}
+    <url>
+        <loc>{{ post.url | absolute_url }}</loc>
+        <lastmod>{{ post.atualizado | default: post.date | date: "%Y-%m-%d" }}</lastmod>
     </url>
 {%- endfor %}
 </urlset>

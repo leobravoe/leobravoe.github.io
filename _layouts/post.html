@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first %}
+                                <article>
+                                    <h1 class="h2 mb-1">{{ page.title }}</h1>
+                                    <p class="small text-body-secondary">
+                                        {{ t.blog.publicado_em | default: tp.blog.publicado_em }}
+                                        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>
+                                        · {{ site.pessoa.nome }}
+                                    </p>
+{{ content }}
+                                </article>
+                                <p class="mt-4 mb-0">
+                                    <a href="{{ idioma.prefixo | append: '/blog/' | relative_url }}" class="text-body">
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                                        {{ t.blog.todos | default: tp.blog.todos }}
+                                    </a>
+                                </p>

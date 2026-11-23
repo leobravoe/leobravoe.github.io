@@ -3,6 +3,16 @@
 projetos:
   - id: resquicio
     ano: 2024
+    slug: resquicio
+    academico:
+      tipo: tcc
+      titulo: "Resquício: Jogo para Introdução à Programação"
+      autores:
+        - "Igor Minerva"
+        - "Artur Mihok"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: gameplay
     titulo:
       pt: "Resquício: Jogo para Introdução à Programação"
@@ -106,6 +116,15 @@ projetos:
           en: "A low poly 3D model created for the scenery."
   - id: ia_personagens_2d
     ano: 2023
+    slug: ia-personagens-2d
+    academico:
+      tipo: tcc
+      titulo: "Geração de Arte de Personagens 2D em Jogos Eletrônicos Através de Inteligência Artificial"
+      autores:
+        - "Pedro H. P. Rosário"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: objetivo
     titulo:
       pt: "Geração de Arte de Personagens 2D em Jogos Eletrônicos Através de Inteligência Artificial"
@@ -202,6 +221,16 @@ projetos:
           en: "An example of the character animated"
   - id: data-guilda
     ano: 2022
+    slug: data-guilda
+    academico:
+      tipo: tcc
+      titulo: "Data Guida: Jogo para o Ensino de Banco de Dados e Conscientização Ambiental"
+      autores:
+        - "Breno R. Maia"
+        - "Luisa F. Macedo"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: gameplay
     titulo:
       pt: "Data Guida"
@@ -337,6 +366,16 @@ projetos:
           en: "Diagram of the interaction between objects"
   - id: carpilator
     ano: 2022
+    slug: carpilator
+    academico:
+      tipo: tcc
+      titulo: "Carpilator: Jogo Digital Educativo para Ensino de Programação"
+      autores:
+        - "Aiesa Moraes Rosa"
+        - "João Vitor Xavier"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: gameplay
     titulo:
       pt: "Carpilator"
@@ -418,6 +457,16 @@ projetos:
           en: "Inside Unity, showing the NavMesh used by the car"
   - id: vaporr
     ano: 2022
+    slug: vaporr
+    academico:
+      tipo: tcc
+      titulo: "Jogo Digital de Ritmo com Análise Musical em Tempo Real"
+      autores:
+        - "João Pedro B. A. Zanchett"
+        - "Bruno Santos"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Lages"
+      curso: "Bacharelado em Ciência da Computação"
     secao: gameplay
     titulo:
       pt: "VaporR"
@@ -495,6 +544,16 @@ projetos:
           en: "Inside Unity, with the scoring items and the obstacles highlighted"
   - id: lab-curie
     ano: 2018
+    slug: laboratorio-curie
+    academico:
+      tipo: tcc
+      titulo: "Laboratório Curie: Jogo para o Ensino de Química Experimental e Boas Práticas no Laboratório"
+      autores:
+        - "Beatriz Landigraf Rios dos Santos"
+      orientador: "Leonardo Bravo Estácio"
+      coorientador: "Narcimário Pereira Coelho"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul (IFMS) — Câmpus Nova Andradina"
+      curso: "Técnico em Informática Integrado ao Ensino Médio"
     secao: gameplay
     titulo:
       pt: "Laboratório Curie"

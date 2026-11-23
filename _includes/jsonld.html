@@ -1,0 +1,163 @@
+{%- comment -%}
+  Dados estruturados (schema.org em JSON-LD) de todas as páginas indexáveis.
+  Sempre: Person, WebSite e a trilha (BreadcrumbList). Depois, conforme a página:
+  - home e currículo: ProfilePage com a pessoa como mainEntity;
+  - página de trabalho: WebPage + o trabalho (Thesis, Report, Book ou LearningResource);
+  - post: BlogPosting;
+  - o resto: CollectionPage.
+  Validar em https://search.google.com/test/rich-results e https://validator.schema.org
+{%- endcomment -%}
+{%- assign p = site.pessoa -%}
+{%- assign pre = idioma.prefixo -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign id_pessoa = '/#pessoa' | absolute_url -%}
+{%- assign url_pagina = page.url | absolute_url -%}
+{%- capture perfis -%}
+{%- for chave in "lattes,orcid,google_scholar,linkedin,github,youtube,instagram" | split: "," -%}
+{%- if p[chave] and p[chave] != "" -%}{{ p[chave] | jsonify }},{%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign perfis = perfis | split: "," | join: "," -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ id_pessoa | jsonify }},
+      "name": {{ p.nome | jsonify }},
+      "givenName": {{ p.primeiro_nome | jsonify }},
+      "familyName": {{ p.sobrenome | jsonify }},
+      "url": {{ pre | append: '/' | absolute_url | jsonify }},
+      "image": {{ p.foto | absolute_url | jsonify }},
+      "email": {{ p.email | prepend: 'mailto:' | jsonify }},
+      "jobTitle": {{ p.cargo[lang] | jsonify }},
+      "worksFor": { "@type": "CollegeOrUniversity", "name": {{ p.instituicao.nome | jsonify }}, "url": {{ p.instituicao.url | jsonify }} },
+      "alumniOf": [{% for f in p.formacao %}{ "@type": "CollegeOrUniversity", "name": {{ f.nome | jsonify }}, "url": {{ f.url | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      "knowsAbout": {{ p.conhecimentos | jsonify }},
+      "sameAs": [{{ perfis }}]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ '/#site' | absolute_url | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "inLanguage": [{% for i in site.idiomas %}{{ i.html | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      "author": { "@id": {{ id_pessoa | jsonify }} },
+      "publisher": { "@id": {{ id_pessoa | jsonify }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": {{ url_pagina | append: '#trilha' | jsonify }},
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": {{ t.trilha.inicio | default: tp.trilha.inicio | jsonify }}, "item": {{ pre | append: '/' | absolute_url | jsonify }} }
+{%- assign pos = 1 -%}
+{%- for item in page.breadcrumb -%}{%- if item.chave != 'inicio' -%}
+{%- assign pos = pos | plus: 1 -%}
+{%- assign rotulo = item.texto | default: t.trilha[item.chave] | default: tp.trilha[item.chave] -%}
+{%- if item.href -%}{%- assign alvo = pre | append: item.href | absolute_url -%}{%- else -%}{%- assign alvo = url_pagina -%}{%- endif %},
+        { "@type": "ListItem", "position": {{ pos }}, "name": {{ rotulo | jsonify }}, "item": {{ alvo | jsonify }} }
+{%- endif -%}{%- endfor -%}
+{%- if trabalho -%}{%- assign pos = pos | plus: 1 %},
+        { "@type": "ListItem", "position": {{ pos }}, "name": {{ meta_curto | jsonify }}, "item": {{ url_pagina | jsonify }} }
+{%- endif %}
+      ]
+    },
+{%- if page.nav == "home" or page.nav == "curriculo" %}
+    {
+      "@type": "ProfilePage",
+      "@id": {{ url_pagina | append: '#pagina' | jsonify }},
+      "url": {{ url_pagina | jsonify }},
+      "name": {{ meta_titulo | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "inLanguage": {{ idioma.html | jsonify }},
+      "isPartOf": { "@id": {{ '/#site' | absolute_url | jsonify }} },
+      "breadcrumb": { "@id": {{ url_pagina | append: '#trilha' | jsonify }} },
+{%- if page.atualizado %}
+      "dateModified": {{ page.atualizado | date_to_xmlschema | jsonify }},
+{%- endif %}
+      "mainEntity": { "@id": {{ id_pessoa | jsonify }} }
+    }
+{%- elsif page.layout == "post" %}
+    {
+      "@type": "BlogPosting",
+      "@id": {{ url_pagina | append: '#post' | jsonify }},
+      "mainEntityOfPage": {{ url_pagina | jsonify }},
+      "headline": {{ page.title | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "inLanguage": {{ idioma.html | jsonify }},
+      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+      "dateModified": {{ page.atualizado | default: page.date | date_to_xmlschema | jsonify }},
+      "image": {{ meta_img | absolute_url | jsonify }},
+      "author": { "@id": {{ id_pessoa | jsonify }} },
+      "publisher": { "@id": {{ id_pessoa | jsonify }} },
+      "isPartOf": { "@id": {{ '/#site' | absolute_url | jsonify }} }
+    }
+{%- elsif trabalho or acad %}
+{%- case acad.tipo -%}
+{%- when 'tcc', 'dissertacao' -%}{%- assign tipo_obra = 'Thesis' -%}
+{%- when 'relatorio' -%}{%- assign tipo_obra = 'Report' -%}
+{%- when 'livro' -%}{%- assign tipo_obra = 'Book' -%}
+{%- else -%}{%- assign tipo_obra = 'LearningResource' -%}
+{%- endcase -%}
+{%- assign pdf = acad.pdf -%}
+{%- unless pdf -%}{%- for lk in trabalho.links -%}{%- if lk.chave == 'tcc' or lk.chave == 'livro' -%}{%- unless pdf -%}{%- assign pdf = lk.href -%}{%- endunless -%}{%- endif -%}{%- endfor -%}{%- endunless -%}
+    {
+      "@type": "WebPage",
+      "@id": {{ url_pagina | append: '#pagina' | jsonify }},
+      "url": {{ url_pagina | jsonify }},
+      "name": {{ meta_titulo | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "inLanguage": {{ idioma.html | jsonify }},
+      "isPartOf": { "@id": {{ '/#site' | absolute_url | jsonify }} },
+      "breadcrumb": { "@id": {{ url_pagina | append: '#trilha' | jsonify }} },
+      "mainEntity": { "@id": {{ url_pagina | append: '#obra' | jsonify }} }
+    },
+    {
+      "@type": {{ tipo_obra | jsonify }},
+      "@id": {{ url_pagina | append: '#obra' | jsonify }},
+      "name": {{ acad.titulo | default: meta_curto | jsonify }},
+{%- if acad.titulo and acad.titulo != meta_curto %}
+      "alternateName": {{ meta_curto | jsonify }},
+{%- endif %}
+      "url": {{ url_pagina | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "inLanguage": "pt-BR",
+      "datePublished": {{ acad.ano | default: trabalho.ano | default: page.ano | append: '' | jsonify }},
+{%- if trabalho.imagens %}
+      "image": [{% for im in trabalho.imagens limit: 3 %}{{ trabalho.pasta | append: '/' | append: im.arquivo | absolute_url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+{%- endif %}
+{%- if acad.palavras_chave %}
+      "keywords": {{ acad.palavras_chave | join: ', ' | jsonify }},
+{%- endif %}
+{%- if acad.instituicao %}
+      "sourceOrganization": { "@type": "EducationalOrganization", "name": {{ acad.instituicao | jsonify }} },
+{%- endif %}
+{%- if pdf %}
+      "encoding": { "@type": "MediaObject", "contentUrl": {{ pdf | absolute_url | jsonify }}, "encodingFormat": "application/pdf" },
+{%- endif %}
+{%- if acad.orientador %}
+      "contributor": [{% if acad.orientador == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ acad.orientador | jsonify }} }{% endif %}{% if acad.coorientador %}, { "@type": "Person", "name": {{ acad.coorientador | jsonify }} }{% endif %}],
+{%- elsif acad.autores contains p.nome %}
+{%- else %}
+      "contributor": { "@id": {{ id_pessoa | jsonify }} },
+{%- endif %}
+      "author": [{% if acad.autores %}{% for a in acad.autores %}{% if a == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ a | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{ "@id": {{ id_pessoa | jsonify }} }{% endif %}]
+    }
+{%- else %}
+    {
+      "@type": "CollectionPage",
+      "@id": {{ url_pagina | append: '#pagina' | jsonify }},
+      "url": {{ url_pagina | jsonify }},
+      "name": {{ meta_titulo | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "inLanguage": {{ idioma.html | jsonify }},
+      "isPartOf": { "@id": {{ '/#site' | absolute_url | jsonify }} },
+      "breadcrumb": { "@id": {{ url_pagina | append: '#trilha' | jsonify }} },
+      "author": { "@id": {{ id_pessoa | jsonify }} }
+    }
+{%- endif %}
+  ]
+}
+</script>

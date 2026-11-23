@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{%- comment -%}
+  Página de um trabalho do portfólio. Duas formas:
+  - com "fonte" e "projeto" no front matter: tudo sai de _data/projetos;
+  - sem eles: o conteúdo é o próprio corpo da página (pesquisa), e o
+    front matter traz "academico" para o Scholar e o JSON-LD.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- assign secao = page.breadcrumb | last -%}
+{%- if page.projeto -%}
+{%- assign p = site.data.projetos[page.fonte].projetos | where: 'id', page.projeto | first -%}
+{% include projeto.html p=p botao=page.botao %}
+{%- else -%}
+{{ content }}
+{%- endif %}
+                                <p class="mt-4 mb-0">
+                                    <a href="{{ idioma.prefixo | append: secao.href | relative_url }}" class="text-body">
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                                        {{ t.voltar_secao | default: tp.voltar_secao }}
+                                    </a>
+                                </p>

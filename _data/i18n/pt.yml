@@ -7,6 +7,7 @@ trocar_idioma: Trocar idioma
 nav:
   curriculo: Currículo
   portfolio: Portfólio
+  blog: Blog
 
 rodape:
   inicio: Página inicial
@@ -21,6 +22,7 @@ trilha:
   web: web
   writing: writing
   pesquisa: research
+  blog: blog
 
 modal:
   anterior: Imagem anterior
@@ -50,6 +52,10 @@ contato:
   github: github
   youtube: youtube
   instagram: instagram
+  lattes: currículo lattes
+  orcid: orcid
+  scholar: google scholar
+  linkedin: linkedin
   cidade: Gaspar/SC - Brasil
   instituicao: IFSC - Câmpus Gaspar
 
@@ -58,3 +64,23 @@ tag:
   web: web dev
   writing: writing
   pesquisa: research
+
+trilha_rotulo: Trilha de navegação
+ver_trabalho: Ver trabalho
+voltar_secao: Voltar para a seção
+foto_alt: Foto de Leonardo Bravo Estácio
+
+academico:
+  autoria: Autoria
+  orientacao: Orientação
+  coorientacao: coorientação
+  instituicao: Instituição
+  titulo_original: Título original
+
+blog:
+  titulo: Blog
+  vazio: Ainda não há publicações.
+  publicado_em: Publicado em
+  ler: Ler o texto
+  todos: Todas as publicações
+  feed: Assinar o feed (Atom)

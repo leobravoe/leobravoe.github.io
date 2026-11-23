@@ -3,6 +3,7 @@
 projetos:
   - id: portal_bcc
     ano: 2024
+    slug: site-bcc-ifsc
     secao: objetivo
     titulo:
       pt: "Site BCC IFSC"
@@ -84,6 +85,7 @@ projetos:
           en: "Managing the academic calendar"
   - id: fornattosystem
     ano: 2023
+    slug: fornatto-system
     secao: objetivo
     titulo:
       pt: "Fornatto System 2.0"
@@ -169,6 +171,7 @@ projetos:
           en: "The physical database model used to build the system"
   - id: restaurantedelivery
     ano: 2019
+    slug: restaurante-delivery
     secao: objetivo
     titulo:
       pt: "Restaurante Delivery"

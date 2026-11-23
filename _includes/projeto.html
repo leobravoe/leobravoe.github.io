@@ -1,3 +1,10 @@
+{%- comment -%}
+  Desenha a página de um trabalho a partir dos dados: título (h1), autoria,
+  links, texto e o carrossel. Usado pelo layout "trabalho".
+  As imagens já nascem com src: o Google só indexa o que está no src do HTML.
+  A primeira é a maior da página (LCP), então carrega na hora e com prioridade;
+  as outras ficam com loading="lazy", que o navegador resolve sozinho.
+{%- endcomment -%}
 {%- assign lang = page.lang | default: 'pt' -%}
 {%- assign t = site.data.i18n[lang] -%}
 {%- assign tp = site.data.i18n.pt -%}
@@ -9,13 +16,34 @@
 {%- endif -%}
 {%- assign textos = include.p.texto[lang] | default: include.p.texto.pt -%}
 {%- assign rotulo_secao = t.secao[include.p.secao] | default: tp.secao[include.p.secao] -%}
-                                    <li>
-                                        <h4 class="my-2">{{ titulo }} ({{ include.p.ano }})</h4>
+{%- assign ac = include.p.academico %}
+                                <article>
+                                        <h1 class="h2 my-2">{{ titulo }} ({{ include.p.ano }})</h1>
+{%- if ac %}
+                                        <dl class="row small text-body-secondary mb-2">
+{%- if ac.autores %}
+                                            <dt class="col-sm-3">{{ t.academico.autoria | default: tp.academico.autoria }}</dt>
+                                            <dd class="col-sm-9 mb-1">{{ ac.autores | join: ', ' }}</dd>
+{%- endif %}
+{%- if ac.orientador %}
+                                            <dt class="col-sm-3">{{ t.academico.orientacao | default: tp.academico.orientacao }}</dt>
+                                            <dd class="col-sm-9 mb-1">{{ ac.orientador }}{% if ac.coorientador %} ({{ t.academico.coorientacao | default: tp.academico.coorientacao }}: {{ ac.coorientador }}){% endif %}</dd>
+{%- endif %}
+{%- if ac.instituicao %}
+                                            <dt class="col-sm-3">{{ t.academico.instituicao | default: tp.academico.instituicao }}</dt>
+                                            <dd class="col-sm-9 mb-1">{{ ac.instituicao }}{% if ac.curso %} — {{ ac.curso }}{% endif %}</dd>
+{%- endif %}
+{%- if ac.tipo == 'tcc' and lang != 'pt' %}
+                                            <dt class="col-sm-3">{{ t.academico.titulo_original }}</dt>
+                                            <dd class="col-sm-9 mb-1" lang="pt-BR">{{ ac.titulo }}</dd>
+{%- endif %}
+                                        </dl>
+{%- endif %}
 {%- for lk in include.p.links %}
                                         <a href="{{ lk.href | relative_url }}" class="btn {{ include.botao }} mb-2" target="_blank"
                                             rel="noopener">{{ t.link[lk.chave] | default: tp.link[lk.chave] }}</a>
 {%- endfor %}
-                                        <h5>{{ rotulo_secao }}</h5>
+                                        <h2 class="h5 mt-2">{{ rotulo_secao }}</h2>
 {%- for paragrafo in textos %}
                                         <p>{{ paragrafo }}</p>
 {%- endfor %}
@@ -34,10 +62,10 @@
 {%- capture alt %}{{ curto }} ({{ include.p.ano }}) — {{ legenda }}{% endcapture -%}
 {%- endif %}
                                                 <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                                                    <img data-src="{{ include.p.pasta | append: '/' | append: im.arquivo | relative_url }}" width="{{ include.p.largura }}" height="{{ include.p.altura }}"
-                                                        class="d-block w-100 lazyload" alt="{{ alt }}">
+                                                    <img src="{{ include.p.pasta | append: '/' | append: im.arquivo | relative_url }}" width="{{ include.p.largura }}" height="{{ include.p.altura }}"
+                                                        class="d-block w-100" alt="{{ alt | strip_html }}" decoding="async"{% if forloop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
                                                     <div class="carousel-caption {{ include.p.legenda_classe }}">
-                                                        <h5>{{ curto }} ({{ include.p.ano }})</h5>
+                                                        <p class="legenda-titulo fw-bold mb-1">{{ curto }} ({{ include.p.ano }})</p>
                                                         <p>{{ legenda }}</p>
                                                     </div>
                                                 </div>
@@ -54,4 +82,4 @@
                                                 <span class="visually-hidden">{{ t.carrossel_proxima | default: tp.carrossel_proxima }}</span>
                                             </button>
                                         </div>
-                                    </li>
+                                </article>

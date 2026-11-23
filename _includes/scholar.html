@@ -1,0 +1,29 @@
+{%- comment -%}
+  Meta tags do Google Scholar (Highwire Press), só nas páginas de trabalho em
+  português: os trabalhos são em português, e repetir as tags na versão em
+  inglês faria o Scholar ver duas cópias do mesmo trabalho.
+  O PDF sai de "academico.pdf" ou do primeiro link de TCC/livro/relatório.
+{%- endcomment -%}
+{%- if acad and lang == 'pt' -%}
+{%- assign pdf = acad.pdf -%}
+{%- unless pdf -%}{%- for lk in trabalho.links -%}{%- if lk.chave == 'tcc' or lk.chave == 'livro' -%}{%- unless pdf -%}{%- assign pdf = lk.href -%}{%- endunless -%}{%- endif -%}{%- endfor -%}{%- endunless -%}
+{%- assign ano_acad = acad.ano | default: trabalho.ano | default: page.ano %}
+    <meta name="citation_title" content="{{ acad.titulo | replace: '"', '&quot;' }}">
+{%- for a in acad.autores %}
+    <meta name="citation_author" content="{{ a }}">
+{%- endfor %}
+    <meta name="citation_publication_date" content="{{ ano_acad }}">
+    <meta name="citation_language" content="pt">
+{%- if acad.tipo == 'tcc' or acad.tipo == 'dissertacao' %}
+    <meta name="citation_dissertation_institution" content="{{ acad.instituicao }}">
+{%- elsif acad.tipo == 'relatorio' %}
+    <meta name="citation_technical_report_institution" content="{{ acad.instituicao }}">
+{%- endif %}
+{%- if acad.palavras_chave %}
+    <meta name="citation_keywords" content="{{ acad.palavras_chave | join: '; ' }}">
+{%- endif %}
+{%- if pdf %}
+    <meta name="citation_pdf_url" content="{{ pdf | absolute_url }}">
+{%- endif %}
+    <meta name="citation_abstract_html_url" content="{{ page.url | absolute_url }}">
+{%- endif %}

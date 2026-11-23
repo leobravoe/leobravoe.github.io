@@ -3,6 +3,12 @@
 projetos:
   - id: livro-javascript
     ano: 2025
+    slug: introducao-programacao-javascript
+    academico:
+      tipo: livro
+      titulo: "Introdução à Programação em JavaScript"
+      autores:
+        - "Leonardo Bravo Estácio"
     secao: objetivo
     titulo:
       pt: "Livro: Introdução à Programação em JavaScript"

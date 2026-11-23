@@ -21,12 +21,17 @@ O site é bilíngue. O português fica na raiz e o inglês em `/en/`.
 | `/portfolio/web/` · `/en/…` | `portfolio/web/index.html` · `en/portfolio/web/index.html` | TCCs orientados e projetos de aula |
 | `/portfolio/livros/` · `/en/…` | `portfolio/livros/index.html` · `en/portfolio/livros/index.html` | Livro de introdução a JavaScript |
 | `/portfolio/pesquisa/` · `/en/…` | `portfolio/pesquisa/index.html` · `en/portfolio/pesquisa/index.html` | Projetos de pesquisa e dissertação |
+| `/portfolio/<seção>/<trabalho>/` · `/en/…` | `portfolio/<seção>/<trabalho>/index.html` | Página própria de cada trabalho |
+| `/blog/` · `/en/blog/` | `blog/index.html` · `en/blog/index.html` | Lista de posts (fica com `noindex` enquanto não houver post) |
+| — | `feed.xml` | Feed Atom dos posts |
 | — | `404.html` | Página de erro, nos dois idiomas |
 
 Cada arquivo de página tem só o front matter e o conteúdo do seu cartão. Cabeçalho, barra
 lateral, navbar, trilha, rodapé, modal e scripts ficam no layout e nos includes. Os projetos de
-portfólio não estão em HTML: ficam em `_data/projetos/`, e as páginas só chamam o include que os
-desenha.
+portfólio não estão em HTML: ficam em `_data/projetos/`. As páginas de seção (game, web, livros)
+listam os trabalhos como cartões, e cada trabalho tem uma página própria, gerada a partir dos
+mesmos dados, com o carrossel, a autoria e o link para o PDF. Os trabalhos de pesquisa têm o
+texto escrito à mão na própria página (`portfolio/pesquisa/<trabalho>/index.html`).
 
 ## Estrutura
 
@@ -34,9 +39,14 @@ desenha.
 .
 ├── _config.yml                 configuração do Jekyll e a lista de idiomas
 ├── _layouts/
-│   └── default.html            a casca de todas as páginas
+│   ├── default.html            a casca de todas as páginas
+│   ├── trabalho.html           página de um trabalho do portfólio
+│   └── post.html               post do blog
 ├── _includes/
-│   ├── head.html               título, descrição, canonical, hreflang, Open Graph
+│   ├── head.html               título, descrição, canonical, hreflang, Open Graph, verificações
+│   ├── meta-pagina.html        calcula título, descrição e o trabalho da página atual
+│   ├── jsonld.html             dados estruturados (Person, ProfilePage, Thesis, Book…)
+│   ├── scholar.html            meta tags do Google Scholar (citation_*)
 │   ├── assets.html             CDNs, script de tema e o <style> do site
 │   ├── sidebar.html            foto, tags de seção e contatos
 │   ├── navbar.html             marca, links, tema e seletor de idioma
@@ -44,10 +54,11 @@ desenha.
 │   ├── bandeira.html           bandeiras em SVG inline
 │   ├── breadcrumb.html         trilha montada a partir do front matter
 │   ├── projeto.html            desenha um projeto inteiro a partir dos dados
+│   ├── lista-trabalhos.html    cartões de uma seção, cada um levando ao trabalho
+│   ├── cartao-trabalho.html    um cartão de trabalho
 │   ├── cartoes-portfolio.html  os quatro cartões da página de portfólio
 │   ├── footer.html             rodapé
-│   ├── image-modal.html        modal da imagem ampliada
-│   └── scripts.html            tooltips, lazy load, modal e tema
+│   └── image-modal.html        modal da imagem ampliada
 ├── _data/
 │   ├── i18n/
 │   │   ├── pt.yml              strings da interface em português
@@ -63,7 +74,12 @@ desenha.
 ├── portfolio/…
 ├── en/                         as mesmas páginas em inglês
 ├── portfolio/game/tcc/         PDFs e pastas img-<projeto> (compartilhados)
-├── img/                        foto de perfil e ilustrações
+├── assets/js/site.js           tooltips, modal e tema (carregado com defer)
+├── img/                        foto, ilustrações, prévias sociais (og-*.png) e ícones
+├── _posts/ · _drafts/          posts do blog e rascunhos (rascunho não é publicado)
+├── feed.xml                    feed Atom, em Liquid
+├── site.webmanifest            nome e ícones do site
+├── <chave>.txt                 chave do IndexNow (o nome é o valor de indexnow_key)
 ├── 404.html
 ├── sitemap.xml                 gerado por Liquid a partir das páginas
 └── .github/workflows/jekyll-gh-pages.yml
@@ -106,8 +122,8 @@ Tudo o que varia de uma página para outra está no front matter:
 layout: default
 lang: en
 ref: portfolio-game
-sitemap_freq: monthly
-sitemap_prio: "0.8"
+sitemap: true
+atualizado: 2026-11-22
 title: "Game Dev — Portfolio of Leonardo Bravo Estácio"
 description: "Digital games developed and supervised by Leonardo Bravo Estácio…"
 nav: portfolio
@@ -127,7 +143,10 @@ breadcrumb:
 | `description` | `description`, `og:description` e `twitter:description` |
 | `nav` | marca em negrito o item ativo da navbar: `home`, `curriculo` ou `portfolio` |
 | `breadcrumb` | trilha; `chave` é olhada em `_data/i18n`, e o `href` ganha o prefixo do idioma |
-| `sitemap_freq` / `sitemap_prio` | entram no `sitemap.xml`; página sem eles fica fora |
+| `sitemap` | `true` põe a página no `sitemap.xml`; sem ele ela fica fora |
+| `atualizado` | data da última mudança de conteúdo; vira o `lastmod` do sitemap, o único campo do sitemap que o Google usa. Atualize ao mexer no texto |
+| `fonte` / `projeto` | página de trabalho: o arquivo em `_data/projetos` e o `id` do trabalho. Título, descrição e conteúdo saem dos dados |
+| `academico` | trabalhos de pesquisa escritos à mão: tipo, título original, autores, instituição, palavras-chave e PDF, para o Scholar e o JSON-LD |
 | `noindex` | só no `404.html`: troca o canonical por `robots: noindex` |
 | `card_body` | `false` quando a página monta o próprio miolo, sem a caixa `card-body` |
 | `card_body_class` | classe alternativa para essa caixa |
@@ -182,6 +201,11 @@ Todas via CDN, com `integrity` e `crossorigin`, declaradas em `_includes/assets.
 Ao trocar a versão de alguma delas, o hash `integrity` muda junto. Hash errado faz o navegador
 recusar o arquivo em silêncio, e a página carrega sem estilo ou sem JavaScript.
 
+Só o CSS do Bootstrap bloqueia a primeira pintura. Os dois CSS de ícones carregam com
+`media="print"` e viram `all` quando chegam, e os scripts (jQuery, Bootstrap e
+`assets/js/site.js`) vão com `defer`, que preserva a ordem. Por isso nenhum script inline pode
+usar `$` ou `bootstrap`: o código que depende deles fica em `site.js`.
+
 ## Como as páginas funcionam
 
 ### Tema claro e escuro
@@ -193,13 +217,10 @@ evita o flash branco ao carregar no escuro. O interruptor no topo grava a escolh
 
 ### Carrosséis
 
-Os carrosséis são gerados por `_includes/projeto.html` a partir dos dados, com um lazy-load
-próprio em jQuery. A imagem nasce com o caminho em `data-src` e sem `src`; no evento
-`slide.bs.carousel` o `data-src` vira `src` e a classe `lazyload` sai. A imagem do slide ativo é
-carregada logo no `ready`, para o carrossel não começar vazio.
-
-Como o markup é gerado, não existe mais o risco de indicador a mais que slide, nem de `id`
-repetido.
+Os carrosséis são gerados por `_includes/projeto.html` a partir dos dados. Toda imagem nasce com
+`src`: o Google só indexa imagem que esteja no `src` do HTML, e antes elas ficavam em `data-src`
+até alguém clicar no carrossel. A primeira imagem carrega na hora, com `fetchpriority="high"`
+(é a maior coisa da página); as outras usam `loading="lazy"`, que o próprio navegador resolve.
 
 ### Modal da imagem ampliada
 
@@ -224,6 +245,41 @@ navegação fecharia o modal junto.
 - **Menções a câmpus são históricas.** Projetos realizados no Câmpus Lages continuam dizendo
   Lages; só o vínculo atual, na barra lateral, aponta para Gaspar.
 
+## Busca, redes e Scholar
+
+O que o site já entrega sozinho:
+
+- **Dados estruturados** (`_includes/jsonld.html`): `Person` e `WebSite` em toda página,
+  `ProfilePage` na home e no currículo, `Thesis`/`Report`/`Book` nas páginas de trabalho e
+  `BreadcrumbList` com a trilha. Os perfis listados em `pessoa` no `_config.yml` entram no `sameAs`.
+- **Google Scholar** (`_includes/scholar.html`): meta tags `citation_*` nas páginas de trabalho em
+  português. O Scholar pede um trabalho por URL, PDF com texto pesquisável e até 5 MB.
+- **Prévia de compartilhamento** de 1200×630 por idioma (`img/og-pt.png`, `img/og-en.png`).
+- **Sitemap com `lastmod`**, feed Atom e IndexNow no deploy (avisa Bing e cia.).
+
+O que depende de você, no `_config.yml`:
+
+| Campo | O que pôr |
+| --- | --- |
+| `verificacao.google` | o código da meta tag do Google Search Console (propriedade de prefixo de URL) |
+| `verificacao.bing` | o código da meta tag do Bing Webmaster Tools (ou importe do Search Console) |
+| `pessoa.orcid`, `pessoa.google_scholar`, `pessoa.linkedin` | endereço completo do perfil; com valor, o link aparece na barra lateral |
+| `goatcounter` | o código da conta no GoatCounter, se quiser contar visitas sem cookies |
+
+Depois de publicar: enviar `https://leobravoe.github.io/sitemap.xml` no Search Console e no
+Bing, e conferir uma página de trabalho na Inspeção de URL (as imagens devem aparecer no HTML
+renderizado). Para validar o JSON-LD: <https://search.google.com/test/rich-results>.
+
+**PDFs.** Mantenha cada PDF abaixo de 5 MB e com Título e Autor preenchidos nas propriedades
+do arquivo: o Google usa isso como título no resultado, e o Scholar ignora arquivo maior.
+
+## Blog
+
+Posts ficam em `_posts/AAAA-MM-DD-titulo.md`, em Markdown, com `title` e `description` no front
+matter. Português é o padrão; post em inglês leva `lang: en` e `permalink: /en/blog/AAAA/titulo/`.
+O link "Blog" só aparece na navbar, e a página `/blog/` só entra no sitemap, quando existe pelo
+menos um post no idioma. Rascunhos ficam em `_drafts/` e não são publicados.
+
 ## Adicionando um projeto
 
 1. Converta as capturas para WebP e coloque em `img-<projeto>/`, numeradas a partir de
@@ -233,6 +289,15 @@ navegação fecharia o modal junto.
 ```yaml
   - id: meu-projeto
     ano: 2026
+    slug: meu-projeto          # o pedaço da URL da página do trabalho
+    academico:                 # só para TCC/livro; tire se for projeto de aula
+      tipo: tcc                # tcc, livro, relatorio ou dissertacao
+      titulo: "Título exatamente como está no PDF"
+      autores:
+        - "Aluno Um"
+        - "Leonardo Bravo Estácio"
+      instituicao: "Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina (IFSC) — Câmpus Gaspar"
+      curso: "Tecnologia em Análise e Desenvolvimento de Sistemas"
     secao: objetivo            # ou gameplay
     titulo:
       pt: "Meu Projeto"
@@ -259,9 +324,32 @@ navegação fecharia o modal junto.
           en: "Caption."
 ```
 
-3. Se a `description` da página enumera os projetos, atualize o front matter das duas versões.
-4. Página nova precisa de `sitemap_freq` e `sitemap_prio` para entrar no sitemap, e de um `ref`
-   igual nas duas línguas.
+3. Crie a página do trabalho nas duas línguas, `portfolio/<seção>/<slug>/index.html` e
+   `en/portfolio/<seção>/<slug>/index.html`, só com o front matter (copie de um trabalho vizinho
+   e troque `ref`, `projeto` e `atualizado`):
+
+```yaml
+---
+layout: trabalho
+lang: pt                       # en na versão em inglês
+ref: trabalho-meu-projeto
+sitemap: true
+atualizado: 2026-12-01
+fonte: web_tcc
+projeto: meu-projeto
+botao: btn-primary
+nav: portfolio
+breadcrumb:
+  - chave: portfolio
+    href: "/portfolio/"
+  - chave: web
+    href: "/portfolio/web/"
+---
+```
+
+4. Se a `description` da página de seção enumera os projetos, atualize o front matter das duas
+   versões e mude o `atualizado` dela.
+5. Mantenha o PDF abaixo de 5 MB e com Título e Autor nas propriedades do arquivo.
 
 Para converter as imagens, com Pillow:
 
@@ -285,6 +373,9 @@ O build usa o `actions/jekyll-build-pages`, que roda com o bundle fixo do gem `g
 **ignora o Gemfile do repositório**. Na prática isso significa que plugins de terceiros (como o
 `jekyll-polyglot`) não funcionam. É por isso que o suporte a dois idiomas aqui é feito só com
 Liquid, includes e `_data`.
+
+Depois do deploy, um terceiro job (`indexnow`) lê o sitemap publicado e avisa o IndexNow (Bing,
+Yandex e outros) das URLs. Se ele falhar, a publicação não é afetada.
 
 Os downloads dos jogos (builds para Windows e Android) ficam no Google Drive, linkados a partir
 da página de game dev. Eles não estão versionados aqui.

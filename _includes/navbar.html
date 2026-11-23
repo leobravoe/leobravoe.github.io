@@ -3,7 +3,7 @@
 {%- assign t = site.data.i18n[lang] | default: tp -%}
 {%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
 {%- assign pre = idioma.prefixo -%}
-                        <nav class="navbar navbar-expand-md mb-2 barra-topo">
+                        <nav class="navbar navbar-expand-md mb-2 barra-topo" aria-label="Menu">
                             <div class="container-fluid justify-content-center bg-body-tertiary rounded-3">
                                 <a class="navbar-brand" href="{{ pre | append: '/' | relative_url }}">{% if page.nav == "home" %}<strong>@leobravoe</strong>{% else %}@leobravoe{% endif %}</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -20,6 +20,12 @@
                                         <li class="nav-item text-center">
                                             <a class="nav-link text-body" href="{{ pre | append: '/portfolio/' | relative_url }}">{% if page.nav == "portfolio" %}<strong>{{ t.nav.portfolio }}</strong>{% else %}{{ t.nav.portfolio }}{% endif %}</a>
                                         </li>
+{%- assign posts_nav = site.posts | where: 'lang', lang -%}
+{%- if posts_nav.size > 0 %}
+                                        <li class="nav-item text-center">
+                                            <a class="nav-link text-body" href="{{ pre | append: '/blog/' | relative_url }}">{% if page.nav == "blog" %}<strong>{{ t.nav.blog }}</strong>{% else %}{{ t.nav.blog }}{% endif %}</a>
+                                        </li>
+{%- endif %}
                                     </ul>
                                 </div>
                             </div>

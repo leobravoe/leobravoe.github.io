@@ -12,7 +12,7 @@
                                     <div class="text-center mt-2 mx-2">
                                         <a href="{{ pre | append: '/' | relative_url }}">
                                             <img src="{{ '/img/foto_200.webp' | relative_url }}" class="rounded-circle img-fluid shadow-lg"
-                                                alt="my-avatar">
+                                                alt="{{ t.foto_alt | default: tp.foto_alt }}" width="200" height="200">
                                         </a>
                                         <div class="text-center mt-2">
                                             <a href="{{ pre | append: '/portfolio/game/' | relative_url }}" style="font-size:12px;"
@@ -73,10 +73,56 @@
                                         </div>
                                         <div class="input-group my-2">
                                             <span class="input-group-text">
+                                                <i class="bi bi-file-earmark-person-fill" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.lattes | default: tp.contato.lattes }}"></i>
+                                            </span>
+                                            <a href="{{ site.pessoa.lattes }}" target="_blank" rel="me noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="{{ site.pessoa.lattes }}">lattes</a>
+                                        </div>
+{% if site.pessoa.orcid != "" %}
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="fa-brands fa-orcid" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.orcid | default: tp.contato.orcid }}"></i>
+                                            </span>
+                                            <a href="{{ site.pessoa.orcid }}" target="_blank" rel="me noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="{{ site.pessoa.orcid }}">orcid</a>
+                                        </div>
+{% endif %}
+{% if site.pessoa.google_scholar != "" %}
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-mortarboard-fill" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.scholar | default: tp.contato.scholar }}"></i>
+                                            </span>
+                                            <a href="{{ site.pessoa.google_scholar }}" target="_blank" rel="me noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="{{ site.pessoa.google_scholar }}">google scholar</a>
+                                        </div>
+{% endif %}
+{% if site.pessoa.linkedin != "" %}
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-linkedin" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="{{ t.contato.linkedin | default: tp.contato.linkedin }}"></i>
+                                            </span>
+                                            <a href="{{ site.pessoa.linkedin }}" target="_blank" rel="me noopener"
+                                                class="form-control text-truncate text-decoration-none"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="{{ site.pessoa.linkedin }}">linkedin</a>
+                                        </div>
+{% endif %}
+                                        <div class="input-group my-2">
+                                            <span class="input-group-text">
                                                 <i class="bi bi-github" data-bs-toggle="tooltip" data-bs-placement="top"
                                                     data-bs-title="{{ t.contato.github }}"></i>
                                             </span>
-                                            <a href="https://github.com/leobravoe" target="_blank" rel="noopener"
+                                            <a href="https://github.com/leobravoe" target="_blank" rel="me noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://github.com/leobravoe">github</a>
@@ -87,7 +133,7 @@
                                                     data-bs-placement="top" data-bs-title="{{ t.contato.youtube }}"></i>
                                             </span>
                                             <a href="https://www.youtube.com/channel/UCC_GXrZvsc5w--L4bhdxIFQ"
-                                                target="_blank" rel="noopener" class="form-control text-truncate text-decoration-none"
+                                                target="_blank" rel="me noopener" class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.youtube.com/channel/leobravoe">youtube</a>
                                         </div>
@@ -96,7 +142,7 @@
                                                 <i class="bi bi-instagram" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="{{ t.contato.instagram }}"></i>
                                             </span>
-                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="noopener"
+                                            <a href="https://www.instagram.com/leobravoe" target="_blank" rel="me noopener"
                                                 class="form-control text-truncate text-decoration-none"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="https://www.instagram.com/leobravoe">instagram</a>

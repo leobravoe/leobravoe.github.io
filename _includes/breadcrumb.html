@@ -1,17 +1,20 @@
-{%- assign lang = page.lang | default: 'pt' -%}
+{%- include meta-pagina.html -%}
 {%- assign tp = site.data.i18n.pt -%}
 {%- assign t = site.data.i18n[lang] | default: tp -%}
-{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
 {%- assign pre = idioma.prefixo -%}
-                        <div class="mx-1 mb-2">
-                            <a href="{{ pre | append: '/' | relative_url }}" class="text-body text-decoration-none"><i class="fa-solid fa-house"></i></a>
+                        <nav class="mx-1 mb-2" aria-label="{{ t.trilha_rotulo | default: tp.trilha_rotulo }}">
+                            <a href="{{ pre | append: '/' | relative_url }}" class="text-body text-decoration-none"><i class="fa-solid fa-house" aria-hidden="true"></i><span class="visually-hidden">{{ t.trilha.inicio | default: tp.trilha.inicio }}</span></a>
 {% for item in page.breadcrumb %}
-{% assign rotulo = t.trilha[item.chave] | default: tp.trilha[item.chave] %}
-                            <i class="fa-solid fa-arrow-right"></i>
+{% assign rotulo = item.texto | default: t.trilha[item.chave] | default: tp.trilha[item.chave] %}
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 {% if item.href %}
                             <a href="{{ pre | append: item.href | relative_url }}" class="text-body text-decoration-none fw-bold">{{ rotulo }}</a>
 {% else %}
-                            <span class="fw-bold">{{ rotulo }}</span>
+                            <span class="fw-bold" aria-current="page">{{ rotulo }}</span>
 {% endif %}
 {% endfor %}
-                        </div>
+{% if trabalho %}
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            <span class="fw-bold" aria-current="page">{{ meta_curto }}</span>
+{% endif %}
+                        </nav>

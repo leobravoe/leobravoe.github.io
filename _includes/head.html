@@ -1,18 +1,23 @@
-{%- assign lang = page.lang | default: 'pt' -%}
-{%- assign idioma = site.idiomas | where: 'codigo', lang | first -%}
+{%- include meta-pagina.html -%}
 {%- assign irmas = empty -%}
 {%- if page.ref -%}{%- assign irmas = site.pages | where: 'ref', page.ref -%}{%- endif -%}
+{%- assign sem_indice = page.noindex -%}
+{%- if page.lista_posts -%}
+{%- assign posts_idioma = site.posts | where: 'lang', lang -%}
+{%- if posts_idioma.size == 0 -%}{%- assign sem_indice = true -%}{%- endif -%}
+{%- endif -%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <meta name="description" content="{{ page.description }}">
+    <title>{{ meta_titulo }}</title>
+    <meta name="description" content="{{ meta_desc }}">
     <meta name="author" content="{{ site.author }}">
-{% if page.noindex %}
+{% if sem_indice %}
     <meta name="robots" content="noindex">
 {% else %}
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
 {% endif %}
-{% if page.ref and irmas.size > 1 and page.noindex != true %}
+{% if page.ref and irmas.size > 1 and sem_indice != true %}
 {% for i in site.idiomas %}{% for irma in irmas %}{% if irma.lang == i.codigo %}
     <link rel="alternate" hreflang="{{ i.html }}" href="{{ irma.url | absolute_url }}">
 {% endif %}{% endfor %}{% endfor %}
@@ -21,20 +26,53 @@
     <link rel="alternate" hreflang="x-default" href="{{ irma.url | absolute_url }}">
 {% endif %}{% endfor %}
 {% endif %}
+{% if site.verificacao.google != "" %}
+    <meta name="google-site-verification" content="{{ site.verificacao.google }}">
+{% endif %}
+{% if site.verificacao.bing != "" %}
+    <meta name="msvalidate.01" content="{{ site.verificacao.bing }}">
+{% endif %}
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+    <link rel="apple-touch-icon" href="{{ '/img/apple-touch-icon.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+    <meta name="theme-color" content="#212529">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+{%- if page.nav == "home" and sem_indice != true %}
+    <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="{{ site.pessoa.primeiro_nome }}">
+    <meta property="profile:last_name" content="{{ site.pessoa.sobrenome }}">
+{%- elsif page.layout == "post" %}
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:author" content="{{ '/' | absolute_url }}">
+{%- else %}
     <meta property="og:type" content="website">
+{%- endif %}
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:locale" content="{{ idioma.og }}">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.description }}">
-{% unless page.noindex %}
+{%- for i in site.idiomas %}{% if i.codigo != lang %}
+    <meta property="og:locale:alternate" content="{{ i.og }}">
+{%- endif %}{% endfor %}
+    <meta property="og:title" content="{{ meta_titulo }}">
+    <meta property="og:description" content="{{ meta_desc }}">
+{%- unless sem_indice %}
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-{% endunless %}
-    <meta property="og:image" content="{{ site.social_image | absolute_url }}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    <meta name="twitter:image" content="{{ site.social_image | absolute_url }}">
+{%- endunless %}
+    <meta property="og:image" content="{{ meta_img | absolute_url }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ site.pessoa.nome }} — {{ site.pessoa.cargo[lang] }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ meta_titulo }}">
+    <meta name="twitter:description" content="{{ meta_desc }}">
+    <meta name="twitter:image" content="{{ meta_img | absolute_url }}">
+    <meta name="twitter:image:alt" content="{{ site.pessoa.nome }} — {{ site.pessoa.cargo[lang] }}">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+{% include scholar.html %}
 {% include assets.html %}
+{% unless sem_indice %}{% include jsonld.html %}{% endunless %}
+{% if site.goatcounter != "" %}
+    <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endif %}

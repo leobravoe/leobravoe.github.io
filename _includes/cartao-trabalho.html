@@ -1,0 +1,31 @@
+{%- comment -%}
+  Um cartão de trabalho nas páginas de seção (índice). Parâmetros:
+  url, titulo, ano, subtitulo (opcional), resumo, imagem, largura, altura, alt, botao,
+  nivel (nível do título do cartão; 2 por padrão), icone (imagem é ícone: não recorta).
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- assign tp = site.data.i18n.pt -%}
+{%- assign t = site.data.i18n[lang] | default: tp -%}
+{%- assign nivel = include.nivel | default: 2 %}
+                                    <article class="card cartao-trabalho mb-3 overflow-hidden">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <a href="{{ include.url | relative_url }}" tabindex="-1" aria-hidden="true">
+                                                    <img src="{{ include.imagem | relative_url }}" width="{{ include.largura | default: 1280 }}" height="{{ include.altura | default: 720 }}"
+                                                        class="w-100 h-100{% if include.icone %} icone p-4{% endif %}" alt="{{ include.alt | strip_html }}" loading="lazy" decoding="async">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+{%- if include.subtitulo %}
+                                                    <p class="small text-body-secondary mb-1">{{ include.subtitulo }}</p>
+{%- endif %}
+                                                    <h{{ nivel }} class="h5 card-title">
+                                                        <a href="{{ include.url | relative_url }}" class="text-body">{{ include.titulo }}{% if include.ano %} ({{ include.ano }}){% endif %}</a>
+                                                    </h{{ nivel }}>
+                                                    <p class="card-text">{{ include.resumo | strip_html | normalize_whitespace | truncate: 240 }}</p>
+                                                    <a href="{{ include.url | relative_url }}" class="btn btn-sm {{ include.botao }}">{{ t.ver_trabalho | default: tp.ver_trabalho }}<span class="visually-hidden">: {{ include.titulo }}</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Lista os trabalhos de um arquivo de _data/projetos como cartões, cada um
+  levando à página própria do trabalho. Parâmetros: fonte, botao, nivel.
+  A página de cada trabalho é achada pelo par "projeto" + "lang" no front matter.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'pt' -%}
+{%- for p in site.data.projetos[include.fonte].projetos -%}
+{%- assign pg = site.pages | where: 'projeto', p.id | where: 'lang', lang | first -%}
+{%- assign titulo = p.titulo[lang] | default: p.titulo.pt -%}
+{%- assign textos = p.texto[lang] | default: p.texto.pt -%}
+{%- assign im = p.imagens | first -%}
+{%- assign legenda = im.legenda[lang] | default: im.legenda.pt -%}
+{%- capture subtitulo -%}{% if p.academico.autores %}{{ p.academico.autores | join: ', ' }}{% endif %}{%- endcapture -%}
+{%- capture imagem -%}{{ p.pasta }}/{{ im.arquivo }}{%- endcapture -%}
+{%- capture alt -%}{{ titulo }} — {{ legenda }}{%- endcapture -%}
+{% include cartao-trabalho.html url=pg.url titulo=titulo ano=p.ano subtitulo=subtitulo resumo=textos.first imagem=imagem largura=p.largura altura=p.altura alt=alt botao=include.botao nivel=include.nivel %}
+{%- endfor %}
