@@ -132,7 +132,7 @@
 {%- else %}
       "contributor": { "@id": {{ id_pessoa | jsonify }} },
 {%- endif %}
-      "author": [{% if acad.autores %}{% for a in acad.autores %}{% if a == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ a | jsonify }}{% if site.data.pessoas.lattes[a] %}, "sameAs": {{ site.data.pessoas.lattes[a] | prepend: "https://lattes.cnpq.br/" | jsonify }}{% endif %} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{ "@id": {{ id_pessoa | jsonify }} }{% endif %}]
+      "author": [{% if acad.autores %}{% for a in acad.autores %}{% if a == p.nome %}{ "@id": {{ id_pessoa | jsonify }} }{% else %}{ "@type": "Person", "name": {{ a | jsonify }}{% if site.data.pessoas.lattes[a] %}, "sameAs": {{ site.data.pessoas.lattes[a] | prepend: "https://lattes.cnpq.br/" | jsonify }}{% elsif site.data.pessoas.perfis[a] %}, "sameAs": {{ site.data.pessoas.perfis[a] | jsonify }}{% endif %} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{ "@id": {{ id_pessoa | jsonify }} }{% endif %}]
     }
 {%- else %}
     {

@@ -1,11 +1,15 @@
 {%- comment -%}
-  Um nome de pessoa. Se ele estiver em _data/pessoas.yml, vira link para o
-  Currículo Lattes da pessoa (só o endereço público, sem outros dados).
+  Um nome de pessoa. Se ele estiver em _data/pessoas.yml, vira link: para o
+  Currículo Lattes (lattes) ou, sem Lattes, para outro perfil público
+  profissional confirmado pelo titular (perfis). Sem dados pessoais.
   Uso: {% include pessoa.html nome="Fulano de Tal" %}
 {%- endcomment -%}
 {%- assign id_lattes = site.data.pessoas.lattes[include.nome] -%}
+{%- assign perfil = site.data.pessoas.perfis[include.nome] -%}
 {%- if id_lattes -%}
 <a href="https://lattes.cnpq.br/{{ id_lattes }}" target="_blank" rel="noopener" title="Currículo Lattes">{{ include.nome }}</a>
+{%- elsif perfil -%}
+<a href="{{ perfil }}" target="_blank" rel="noopener" title="Perfil profissional">{{ include.nome }}</a>
 {%- else -%}
 {{ include.nome }}
 {%- endif -%}

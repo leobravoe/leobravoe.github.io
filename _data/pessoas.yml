@@ -53,3 +53,8 @@ lattes:
   "Priscila Fernandes Pinto": "8233210908441962"
   "Valdomiro Cardoso Filho": "7726153898874373"
   "Maria Terezinha Lopes": "7892452635006148"
+
+# Pessoas sem Currículo Lattes: outro perfil público profissional, só quando
+# o titular confirmou que é a pessoa certa.
+perfis:
+  "Jayme Rebula Klein P. Silva": "https://github.com/jaymeklein"
