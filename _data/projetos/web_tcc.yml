@@ -194,7 +194,7 @@ projetos:
           pt: "Diagrama do banco de dados do sistema."
           en: "Database diagram of the system."
   - id: mudancafacil
-    ano: 2021
+    ano: 2022
     slug: mudanca-facil
     academico:
       tipo: tcc
