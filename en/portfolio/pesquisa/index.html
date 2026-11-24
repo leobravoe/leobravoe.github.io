@@ -15,8 +15,12 @@ breadcrumb:
 ---
                                 <h1 class="h2">Research</h1>
                                 <div class="mt-3">
-{%- assign trabalhos = site.pages | where: 'grupo', 'pesquisa' | where: 'lang', page.lang | sort: 'ordem' -%}
+{%- comment -%} Ordem: ano decrescente; no mesmo ano, pelo campo 'ordem'. {%- endcomment -%}
+{%- assign anos = site.pages | where: 'grupo', 'pesquisa' | where: 'lang', page.lang | group_by: 'ano' | sort: 'name' | reverse -%}
+{%- for grupo_ano in anos %}
+{%- assign trabalhos = grupo_ano.items | sort: 'ordem' -%}
 {%- for tr in trabalhos %}
 {% include cartao-trabalho.html url=tr.url titulo=tr.titulo_curto ano=tr.ano subtitulo=tr.subtitulo resumo=tr.resumo imagem=tr.imagem largura=256 altura=256 alt=tr.titulo_curto botao="btn-success" icone=true %}
+{%- endfor %}
 {%- endfor %}
                                 </div>
