@@ -77,8 +77,13 @@ lattes:
   "Deiverson Silva": "5634911935138262"
   "Deiverson Ariel da Silva": "5634911935138262"
 
+  "Pedro H. P. Rosário": "7933832061530497"
+  "Pedro Henric Pinheiro Rosario": "7933832061530497"
+  "Pedro Henric Pinheiro Rosário": "7933832061530497"
+
 # Pessoas sem Currículo Lattes: outro perfil público profissional, só quando
 # o titular confirmou que é a pessoa certa.
 perfis:
   "Jayme Rebula Klein P. Silva": "https://github.com/jaymeklein"
+  "Jayme Rebula Klein Perriraz e Silva": "https://github.com/jaymeklein"
   "Bruna Ferreira da Silva": "https://github.com/bugelseif"
